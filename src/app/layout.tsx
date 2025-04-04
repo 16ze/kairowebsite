@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification=VOTRE_CODE_DE_VERIFICATION",
+    google: "G-58FT91034E",
   },
 };
 

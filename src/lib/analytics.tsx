@@ -4,8 +4,8 @@ import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { useEffect } from "react";
 
-// Remplacer par votre ID de mesure Google Analytics
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+// ID de mesure Google Analytics
+const GA_MEASUREMENT_ID = "G-58FT91034E";
 
 // Fonction pour envoyer des pageviews à GA4
 export const pageview = (url: string) => {
@@ -54,16 +54,11 @@ export default function Analytics() {
 
   // Suivi des changements de page
   useEffect(() => {
-    if (pathname && GA_MEASUREMENT_ID !== "G-XXXXXXXXXX") {
+    if (pathname) {
       const url = pathname + searchParams.toString();
       pageview(url);
     }
   }, [pathname, searchParams]);
-
-  if (GA_MEASUREMENT_ID === "G-XXXXXXXXXX") {
-    console.warn("Google Analytics ID non configuré");
-    return null;
-  }
 
   return (
     <>
