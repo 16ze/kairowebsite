@@ -16,23 +16,23 @@ export default function Home() {
     <MainLayout>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-white dark:bg-black overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-5">
+        <div className="absolute inset-0 z-0 animate-subtle-float">
           <Image
-            src="/images/grid-pattern.svg"
-            alt="Background pattern"
+            src="/images/kairo-hero-img.webp"
+            alt="Hero background"
             fill
-            className="object-cover"
+            className="object-cover opacity-20 dark:opacity-10"
             priority
           />
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 animate-fade-in">
             Développement web &{" "}
             <span className="text-blue-800 dark:text-blue-500">
               Optimisation SEO
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-8 animate-fade-in-delay">
             <span className="font-semibold">Propulsez votre entreprise</span>{" "}
             grâce à des sites web performants et une stratégie de référencement
             qui vous place devant vos concurrents. Artisans, PME ou startups :{" "}
@@ -41,7 +41,7 @@ export default function Home() {
             </span>
             .
           </p>
-          <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg max-w-xl mx-auto mb-8">
+          <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg max-w-xl mx-auto mb-8 animate-fade-in-delay-2 hover:shadow-lg transition-shadow duration-300">
             <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
               <span className="text-amber-600 dark:text-amber-400">
                 OFFRE LIMITÉE
@@ -51,15 +51,20 @@ export default function Home() {
               valeur de 250€
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
             <Button
               asChild
               size="lg"
-              className="bg-blue-800 hover:bg-blue-900 text-white"
+              className="bg-blue-800 hover:bg-blue-900 text-white transform transition-transform duration-300 hover:scale-105"
             >
               <Link href="/contact">Demander un devis gratuit</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="transform transition-transform duration-300 hover:scale-105"
+            >
               <Link href="/portfolio">Voir mes réalisations</Link>
             </Button>
           </div>
