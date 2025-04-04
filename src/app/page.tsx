@@ -211,6 +211,10 @@ export default function Home() {
                 </p>
               </CardContent>
               <CardFooter className="flex flex-col gap-2">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 italic mb-2">
+                  &ldquo;Notre site responsive a augmenté nos conversions
+                  mobiles de 45%&rdquo; - Marie L.
+                </p>
                 <Button
                   asChild
                   variant="default"
@@ -242,6 +246,10 @@ export default function Home() {
                 </p>
               </CardContent>
               <CardFooter className="flex flex-col gap-2">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 italic mb-2">
+                  &ldquo;Trafic organique augmenté de 73% en 3 mois&rdquo; -
+                  Thomas D.
+                </p>
                 <Button
                   asChild
                   variant="default"
@@ -273,6 +281,10 @@ export default function Home() {
                 </p>
               </CardContent>
               <CardFooter className="flex flex-col gap-2">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 italic mb-2">
+                  &ldquo;Temps de chargement réduit de 65%, merci Bryan !&rdquo;
+                  - Sophie M.
+                </p>
                 <Button
                   asChild
                   variant="default"
@@ -735,7 +747,7 @@ export default function Home() {
               et découvrir comment je peux vous aider à atteindre vos objectifs.
             </p>
             <p className="text-xl font-semibold text-amber-500 mb-8">
-              Réponse garantie sous 24h !
+              Réponse garantie sous 24h à 48h !
             </p>
           </ScrollReveal>
 

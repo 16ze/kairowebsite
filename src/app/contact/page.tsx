@@ -523,9 +523,9 @@ export default function ContactPage() {
                         Horaires de disponibilité
                       </h3>
                       <p className="text-neutral-600 dark:text-neutral-400">
-                        Du lundi au vendredi
+                        Du lundi au samedi
                         <br />
-                        9h - 18h
+                        9h - 19h
                       </p>
                     </div>
                   </div>
