@@ -1,7 +1,6 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ServiceStructuredData } from "@/components/seo/structured-data";
 
 export const metadata = {
   title:
@@ -13,35 +12,6 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <MainLayout>
-      {/* Structured Data pour SEO */}
-      <ServiceStructuredData
-        name="Développement Web"
-        description="Nous concevons et développons des sites web sur mesure, adaptés à vos besoins spécifiques et optimisés pour tous les appareils."
-        provider={{
-          name: "KAIRO",
-          url: "https://kairo.com",
-        }}
-        areaServed="France"
-      />
-      <ServiceStructuredData
-        name="Optimisation SEO"
-        description="Améliorez votre visibilité en ligne et générez plus de trafic qualifié grâce à nos services d'optimisation pour les moteurs de recherche."
-        provider={{
-          name: "KAIRO",
-          url: "https://kairo.com",
-        }}
-        areaServed="France"
-      />
-      <ServiceStructuredData
-        name="Maintenance & Support"
-        description="Nous assurons la maintenance technique de votre site pour garantir sa sécurité, sa performance et sa disponibilité en tout temps."
-        provider={{
-          name: "KAIRO",
-          url: "https://kairo.com",
-        }}
-        areaServed="France"
-      />
-
       {/* Header */}
       <section className="pt-20 pb-10 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">

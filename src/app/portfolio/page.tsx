@@ -29,7 +29,7 @@ const projects = [
     technologies: ["Next.js", "Tailwind CSS", "Sanity CMS", "Stripe"],
     category: "ecommerce",
     year: 2023,
-    image: "/images/placeholder-project.svg",
+    image: "/images/placeholder-project.jpg",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const projects = [
     technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     category: "application",
     year: 2023,
-    image: "/images/placeholder-project.svg",
+    image: "/images/placeholder-project.jpg",
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ const projects = [
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
     category: "vitrine",
     year: 2022,
-    image: "/images/placeholder-project.svg",
+    image: "/images/placeholder-project.jpg",
   },
   {
     id: 4,
@@ -62,7 +62,7 @@ const projects = [
     technologies: ["Next.js", "TypeScript", "MongoDB", "AWS S3"],
     category: "application",
     year: 2022,
-    image: "/images/placeholder-project.svg",
+    image: "/images/placeholder-project.jpg",
   },
   {
     id: 5,
@@ -73,7 +73,7 @@ const projects = [
     technologies: ["Next.js", "Tailwind CSS", "Contentful"],
     category: "blog",
     year: 2023,
-    image: "/images/placeholder-project.svg",
+    image: "/images/placeholder-project.jpg",
   },
   {
     id: 6,
@@ -84,7 +84,7 @@ const projects = [
     technologies: ["React Native", "Node.js", "Firebase"],
     category: "application",
     year: 2022,
-    image: "/images/placeholder-project.svg",
+    image: "/images/placeholder-project.jpg",
   },
 ];
 

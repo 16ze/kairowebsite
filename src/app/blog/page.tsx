@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArticleStructuredData } from "@/components/seo/structured-data";
 
 export const metadata = {
   title: "Blog | KAIRO - Agence de développement web et optimisation SEO",
@@ -30,7 +29,7 @@ const articles = [
     category: "SEO",
     date: "15 mars 2023",
     readTime: "8 min",
-    image: "/images/placeholder-blog.svg",
+    image: "/images/placeholder-blog.jpg",
   },
   {
     id: 2,
@@ -41,7 +40,7 @@ const articles = [
     category: "Développement",
     date: "28 avril 2023",
     readTime: "6 min",
-    image: "/images/placeholder-blog.svg",
+    image: "/images/placeholder-blog.jpg",
   },
   {
     id: 3,
@@ -52,7 +51,7 @@ const articles = [
     category: "Performance",
     date: "10 mai 2023",
     readTime: "7 min",
-    image: "/images/placeholder-blog.svg",
+    image: "/images/placeholder-blog.jpg",
   },
   {
     id: 4,
@@ -63,7 +62,7 @@ const articles = [
     category: "Design",
     date: "22 juin 2023",
     readTime: "5 min",
-    image: "/images/placeholder-blog.svg",
+    image: "/images/placeholder-blog.jpg",
   },
   {
     id: 5,
@@ -74,7 +73,7 @@ const articles = [
     category: "Sécurité",
     date: "7 juillet 2023",
     readTime: "9 min",
-    image: "/images/placeholder-blog.svg",
+    image: "/images/placeholder-blog.jpg",
   },
   {
     id: 6,
@@ -85,30 +84,13 @@ const articles = [
     category: "Développement",
     date: "19 août 2023",
     readTime: "7 min",
-    image: "/images/placeholder-blog.svg",
+    image: "/images/placeholder-blog.jpg",
   },
 ];
 
 export default function BlogPage() {
   return (
     <MainLayout>
-      {/* Structured Data pour le premier article (exemple) */}
-      <ArticleStructuredData
-        headline={articles[0].title}
-        description={articles[0].excerpt}
-        image={`https://kairo.com${articles[0].image}`}
-        datePublished="2023-03-15T08:00:00+01:00"
-        dateModified="2023-03-15T08:00:00+01:00"
-        author={{
-          name: articles[0].author,
-        }}
-        publisher={{
-          name: "KAIRO",
-          logo: "https://kairo.com/logo.png",
-        }}
-        url={`https://kairo.com/blog/${articles[0].id}`}
-      />
-
       {/* Header */}
       <section className="pt-20 pb-10 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">

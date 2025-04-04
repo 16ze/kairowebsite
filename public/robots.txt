@@ -1,6 +1,0 @@
-# Allow all web crawlers to index the site
-User-agent: *
-Allow: /
-
-# Sitemap location
-Sitemap: https://kairo.com/sitemap.xml 
