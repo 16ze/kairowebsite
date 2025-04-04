@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 
 interface FormData {
   firstName: string;
@@ -41,6 +42,13 @@ export default function ContactPage() {
     consent: false,
   });
   const [errors, setErrors] = useState<FormErrors>({});
+
+  // Classes personnalisées pour les champs de formulaire
+  const inputClasses =
+    "dark:bg-neutral-800 dark:border-neutral-700 dark:focus-visible:border-blue-700 dark:focus-visible:ring-blue-700/30";
+  const labelClasses =
+    "text-neutral-800 dark:text-neutral-300 font-medium mb-1.5 block";
+  const errorClasses = "text-red-500 text-sm mt-1";
 
   // Gestion des changements dans les champs
   const handleChange = (
@@ -199,430 +207,358 @@ export default function ContactPage() {
                       <span className="font-bold">
                         Réponse garantie sous 24h
                       </span>{" "}
-                      - Je m&apos;engage à vous répondre rapidement pour vous
-                      aider à avancer dans votre projet.
+                      - Je prends le temps de lire attentivement chaque demande
+                      et d&apos;y répondre personnellement.
                     </span>
                   </p>
                 </div>
 
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName">Prénom *</Label>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Prénom */}
+                    <div>
+                      <Label htmlFor="firstName" className={labelClasses}>
+                        Prénom *
+                      </Label>
                       <Input
                         id="firstName"
                         name="firstName"
-                        placeholder="Votre prénom"
-                        required
                         value={formData.firstName}
                         onChange={handleChange}
-                        className={errors.firstName ? "border-red-500" : ""}
+                        className={cn(
+                          inputClasses,
+                          errors.firstName
+                            ? "border-red-500 dark:border-red-500"
+                            : ""
+                        )}
+                        aria-invalid={!!errors.firstName}
                       />
                       {errors.firstName && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.firstName}
-                        </p>
+                        <p className={errorClasses}>{errors.firstName}</p>
                       )}
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName">Nom *</Label>
+                    {/* Nom */}
+                    <div>
+                      <Label htmlFor="lastName" className={labelClasses}>
+                        Nom *
+                      </Label>
                       <Input
                         id="lastName"
                         name="lastName"
-                        placeholder="Votre nom"
-                        required
                         value={formData.lastName}
                         onChange={handleChange}
-                        className={errors.lastName ? "border-red-500" : ""}
+                        className={cn(
+                          inputClasses,
+                          errors.lastName
+                            ? "border-red-500 dark:border-red-500"
+                            : ""
+                        )}
+                        aria-invalid={!!errors.lastName}
                       />
                       {errors.lastName && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.lastName}
-                        </p>
+                        <p className={errorClasses}>{errors.lastName}</p>
                       )}
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Email */}
+                    <div>
+                      <Label htmlFor="email" className={labelClasses}>
+                        Email *
+                      </Label>
                       <Input
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="votre@email.com"
-                        required
                         value={formData.email}
                         onChange={handleChange}
-                        className={errors.email ? "border-red-500" : ""}
+                        className={cn(
+                          inputClasses,
+                          errors.email
+                            ? "border-red-500 dark:border-red-500"
+                            : ""
+                        )}
+                        aria-invalid={!!errors.email}
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.email}
-                        </p>
+                        <p className={errorClasses}>{errors.email}</p>
                       )}
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Téléphone</Label>
+                    {/* Téléphone */}
+                    <div>
+                      <Label htmlFor="phone" className={labelClasses}>
+                        Téléphone (optionnel)
+                      </Label>
                       <Input
                         id="phone"
                         name="phone"
-                        placeholder="Votre numéro de téléphone"
+                        type="tel"
                         value={formData.phone}
                         onChange={handleChange}
+                        className={inputClasses}
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Sujet *</Label>
+                  {/* Sujet */}
+                  <div>
+                    <Label htmlFor="subject" className={labelClasses}>
+                      Sujet *
+                    </Label>
                     <Input
                       id="subject"
                       name="subject"
-                      placeholder="L'objet de votre message"
-                      required
                       value={formData.subject}
                       onChange={handleChange}
-                      className={errors.subject ? "border-red-500" : ""}
+                      className={cn(
+                        inputClasses,
+                        errors.subject
+                          ? "border-red-500 dark:border-red-500"
+                          : ""
+                      )}
+                      aria-invalid={!!errors.subject}
                     />
                     {errors.subject && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.subject}
-                      </p>
+                      <p className={errorClasses}>{errors.subject}</p>
                     )}
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="project">Votre projet *</Label>
+                  {/* Projet */}
+                  <div>
+                    <Label htmlFor="project" className={labelClasses}>
+                      Votre projet *
+                    </Label>
                     <Textarea
                       id="project"
                       name="project"
-                      placeholder="Décrivez brièvement votre projet et vos objectifs"
-                      rows={6}
-                      required
                       value={formData.project}
                       onChange={handleChange}
-                      className={errors.project ? "border-red-500" : ""}
+                      className={cn(
+                        "min-h-32",
+                        inputClasses,
+                        errors.project
+                          ? "border-red-500 dark:border-red-500"
+                          : ""
+                      )}
+                      aria-invalid={!!errors.project}
+                      placeholder="Décrivez votre projet, vos besoins et vos objectifs..."
                     />
                     {errors.project && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.project}
-                      </p>
+                      <p className={errorClasses}>{errors.project}</p>
                     )}
                   </div>
 
-                  <div className="flex items-start space-x-2">
+                  {/* Consentement */}
+                  <div className="flex items-start gap-2">
                     <input
                       type="checkbox"
                       id="consent"
                       name="consent"
                       checked={formData.consent}
                       onChange={handleChange}
-                      className={`h-4 w-4 rounded border-neutral-300 text-black focus:ring-neutral-500 ${
-                        errors.consent ? "border-red-500" : ""
-                      }`}
+                      className="mt-1"
                     />
-                    <div className="grid gap-1.5 leading-none">
-                      <label
+                    <div>
+                      <Label
                         htmlFor="consent"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        className="font-normal cursor-pointer"
                       >
-                        J&apos;accepte le traitement de mes données *
-                      </label>
-                      <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                        Vos données personnelles seront utilisées uniquement
-                        pour répondre à votre demande.
-                      </p>
+                        J&apos;accepte que mes données soient utilisées pour me
+                        recontacter concernant ma demande. *
+                      </Label>
                       {errors.consent && (
-                        <p className="text-red-500 text-sm mt-1">
-                          {errors.consent}
-                        </p>
+                        <p className={errorClasses}>{errors.consent}</p>
                       )}
                     </div>
                   </div>
 
-                  <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
-                    <p className="text-amber-800 dark:text-amber-300 font-medium text-sm">
-                      <span className="font-bold">OFFRE LIMITÉE</span> :
-                      Mentionnez le code &ldquo;AUDIT2023&rdquo; dans votre
-                      message pour bénéficier d&apos;un audit SEO gratuit avec
-                      votre projet.
-                    </p>
-                  </div>
-
                   <Button
                     type="submit"
-                    size="lg"
-                    className="w-full bg-blue-800 hover:bg-blue-900"
                     disabled={isSubmitting}
+                    className="w-full bg-blue-800 hover:bg-blue-700 text-lg py-6"
                   >
                     {isSubmitting
                       ? "Envoi en cours..."
                       : "Envoyer votre message"}
                   </Button>
+
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 text-center">
+                    * Champs obligatoires
+                  </p>
                 </form>
               </div>
             </div>
 
-            {/* Contact Information */}
+            {/* Contact Info */}
             <div className="md:col-span-2">
-              <div className="bg-white dark:bg-black p-8 rounded-lg shadow-sm mb-8">
-                <h2 className="text-2xl font-bold mb-6">Coordonnées</h2>
+              <div className="bg-white dark:bg-black p-8 rounded-lg shadow-sm h-full">
+                <h2 className="text-2xl font-bold mb-6">
+                  Informations de contact
+                </h2>
 
                 <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-full">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
                         fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
                         stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        className="w-5 h-5 text-blue-800 dark:text-blue-400"
                       >
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium">Email</p>
+                      <h3 className="font-semibold text-lg mb-1">Email</h3>
+                      <p className="text-neutral-600 dark:text-neutral-400 mb-1">
+                        Pour toute demande :
+                      </p>
                       <a
-                        href="mailto:contact@kairo.fr"
-                        className="text-neutral-600 dark:text-neutral-400 hover:underline"
+                        href="mailto:contact@kairodigital.com"
+                        className="text-blue-700 dark:text-blue-400 hover:underline"
                       >
-                        contact@kairo.fr
+                        contact@kairodigital.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-full">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
                         fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
                         stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        className="w-5 h-5 text-blue-800 dark:text-blue-400"
                       >
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium">Téléphone</p>
+                      <h3 className="font-semibold text-lg mb-1">Site web</h3>
+                      <p className="text-neutral-600 dark:text-neutral-400 mb-1">
+                        Visitez notre site :
+                      </p>
                       <a
-                        href="tel:+33123456789"
-                        className="text-neutral-600 dark:text-neutral-400 hover:underline"
+                        href="https://www.kairodigital.com"
+                        className="text-blue-700 dark:text-blue-400 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        +33 1 23 45 67 89
+                        www.kairodigital.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-full">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
                         fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
                         stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        className="w-5 h-5 text-blue-800 dark:text-blue-400"
                       >
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium">Adresse</p>
-                      <address className="text-neutral-600 dark:text-neutral-400 not-italic">
-                        123 Avenue de la Liberté
-                        <br />
-                        75001 Paris, France
-                      </address>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium">Heures d&apos;ouverture</p>
+                      <h3 className="font-semibold text-lg mb-1">
+                        Horaires de disponibilité
+                      </h3>
                       <p className="text-neutral-600 dark:text-neutral-400">
-                        Lundi - Vendredi: 9h - 18h
+                        Du lundi au vendredi
+                        <br />
+                        9h - 18h
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="bg-neutral-800 dark:bg-neutral-900 p-8 rounded-lg text-white">
-                <h3 className="text-xl font-bold mb-4">
-                  Satisfaction garantie
-                </h3>
-                <p className="mb-4">
-                  Je m&apos;engage à vous fournir un service de qualité et à
-                  votre entière satisfaction. Si vous n&apos;êtes pas satisfait
-                  des résultats, je propose des révisions gratuites jusqu&apos;à
-                  votre satisfaction complète.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-amber-400 mt-1"
-                    >
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>Communication transparente</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-amber-400 mt-1"
-                    >
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>Respect des délais</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-amber-400 mt-1"
-                    >
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>Tarifs transparents sans surprises</span>
-                  </li>
-                </ul>
-                <div className="text-center">
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="border-amber-400 text-white hover:bg-blue-800 hover:text-white hover:border-blue-800"
-                  >
-                    <Link href="/freelance#reviews">
-                      Voir les témoignages clients
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-
-              {/* Social Media Links */}
-              <div className="mt-8">
-                <h3 className="text-lg font-semibold mb-4">Suivez-moi</h3>
-                <div className="flex space-x-4">
-                  <a
-                    href="#"
-                    className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                      <rect width="4" height="12" x="2" y="9" />
-                      <circle cx="4" cy="4" r="2" />
-                    </svg>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                    </svg>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="bg-neutral-100 dark:bg-neutral-800 p-3 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                      <path d="M9 18c-4.51 2-5-2-7-2" />
-                    </svg>
-                  </a>
+                <div className="mt-10 bg-neutral-50 dark:bg-neutral-800 p-6 rounded-lg border border-neutral-200 dark:border-neutral-700">
+                  <h3 className="font-semibold text-xl mb-3">
+                    Audit SEO gratuit
+                  </h3>
+                  <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                    Bénéficiez d&apos;une analyse gratuite de votre site web
+                    d&apos;une valeur de 250€. Mentionnez le code{" "}
+                    <span className="font-mono font-bold text-blue-700 dark:text-blue-400">
+                      AUDIT2023
+                    </span>{" "}
+                    dans votre message.
+                  </p>
+                  <ul className="space-y-2 text-neutral-600 dark:text-neutral-400">
+                    <li className="flex items-center gap-2">
+                      <svg
+                        className="w-5 h-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>Analyse technique complète</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <svg
+                        className="w-5 h-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>Étude des mots-clés</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <svg
+                        className="w-5 h-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        ></path>
+                      </svg>
+                      <span>Recommandations personnalisées</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -630,61 +566,75 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Map Section */}
       <section className="py-16 bg-white dark:bg-black">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-3xl font-bold text-center mb-10">
-            Questions fréquentes
-          </h2>
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-8 text-center">FAQ</h2>
 
-          <div className="space-y-6">
-            <div className="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-2">
-                Quels sont vos délais de réalisation pour un site web ?
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Les délais varient selon la complexité du projet, mais en
-                général, un site vitrine peut être réalisé en 2-4 semaines,
-                tandis qu&apos;un e-commerce peut prendre 4-8 semaines. Nous
-                établirons ensemble un calendrier précis lors de notre première
-                consultation.
-              </p>
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-6">
+              <div className="border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                <h3 className="text-xl font-semibold mb-2">
+                  Quel est le délai moyen pour la réalisation d&apos;un site web
+                  ?
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  Le délai varie en fonction de la complexité du projet. Un site
+                  vitrine prend généralement 2 à 4 semaines, tandis qu&apos;un
+                  e-commerce ou une application web peut nécessiter 1 à 3 mois
+                  de développement.
+                </p>
+              </div>
+
+              <div className="border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                <h3 className="text-xl font-semibold mb-2">
+                  Comment se déroule le processus de création ?
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  Nous commençons par un briefing pour comprendre vos besoins,
+                  puis créons des maquettes pour validation. Une fois
+                  approuvées, nous développons le site et effectuons des tests
+                  avant la mise en ligne.
+                </p>
+              </div>
+
+              <div className="border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                <h3 className="text-xl font-semibold mb-2">
+                  Proposez-vous un service de maintenance après la mise en ligne
+                  ?
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  Oui, nous proposons différentes formules de maintenance pour
+                  assurer le bon fonctionnement, la sécurité et la mise à jour
+                  de votre site web. Ces services peuvent être adaptés selon vos
+                  besoins.
+                </p>
+              </div>
+
+              <div className="pb-4">
+                <h3 className="text-xl font-semibold mb-2">
+                  Comment puis-je suivre l&apos;avancement de mon projet ?
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  Nous utilisons une plateforme de gestion de projet
+                  collaborative où vous pouvez suivre l&apos;avancement en temps
+                  réel, communiquer avec l&apos;équipe et valider les
+                  différentes étapes de développement.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-2">
-                Comment se déroule le processus de création ?
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Le processus commence par une consultation approfondie pour
-                comprendre vos besoins, suivie d&apos;une proposition détaillée.
-                Après validation, je passe à la conception, au développement et
-                aux tests. Vous êtes impliqué à chaque étape pour assurer que le
-                résultat final correspond parfaitement à vos attentes.
+            <div className="mt-10 text-center">
+              <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                Vous avez d&apos;autres questions ? N&apos;hésitez pas à me
+                contacter directement.
               </p>
+              <Button asChild>
+                <Link href="mailto:contact@kairodigital.com">
+                  Envoyer un email
+                </Link>
+              </Button>
             </div>
-
-            <div className="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-2">
-                Quels sont vos tarifs ?
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Mes tarifs sont adaptés à chaque projet en fonction de sa
-                complexité et de vos besoins spécifiques. Je propose des
-                formules à partir de 1500€ pour un site vitrine. Contactez-moi
-                pour obtenir un devis personnalisé gratuit et sans engagement.
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-              Vous avez d&apos;autres questions ? N&apos;hésitez pas à me
-              contacter directement.
-            </p>
-            <Button asChild>
-              <Link href="#top">Retour en haut</Link>
-            </Button>
           </div>
         </div>
       </section>
