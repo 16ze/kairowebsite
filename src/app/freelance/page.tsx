@@ -321,8 +321,9 @@ export default function FreelancePage() {
                   <h3 className="text-xl font-bold mb-2">Création</h3>
                   <p className="text-neutral-600 dark:text-neutral-400">
                     Je développe votre site ou optimise votre SEO selon vos
-                    besoins. Je vous tiens régulièrement informé de l'avancement
-                    et vous implique dans les décisions importantes.
+                    besoins. Je vous tiens régulièrement informé de
+                    l&apos;avancement et vous implique dans les décisions
+                    importantes.
                   </p>
                 </div>
               </div>
@@ -336,7 +337,7 @@ export default function FreelancePage() {
                     Révision et finalisation
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400">
-                    Vous validez les derniers détails, et j'apporte les
+                    Vous validez les derniers détails, et j&apos;apporte les
                     ajustements nécessaires avant de lancer le site. Votre
                     satisfaction est ma priorité.
                   </p>
