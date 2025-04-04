@@ -18,14 +18,14 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="pt-36 pb-16 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">
-          <ScrollReveal animation="fade-down">
+          <ScrollReveal animation="fade-down" threshold={0.2}>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               À propos de KAIRO Digital
             </h1>
             <div className="w-24 h-1 bg-blue-800 dark:bg-blue-700 mx-auto mb-8"></div>
           </ScrollReveal>
 
-          <ScrollReveal animation="fade-up" delay={1}>
+          <ScrollReveal animation="fade-up" delay={1} threshold={0.2}>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
               Nous sommes une agence spécialisée dans le développement web et
               l&apos;optimisation pour les moteurs de recherche, dédiée à
@@ -51,10 +51,10 @@ export default function AboutPage() {
       </section>
 
       {/* Notre Histoire */}
-      <section className="py-16 border-b border-neutral-100 dark:border-neutral-800">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <ScrollReveal animation="fade-right">
+            <ScrollReveal animation="fade-right" threshold={0.1}>
               <div>
                 <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
@@ -78,9 +78,10 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal animation="fade-left" delay={1}>
-              <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center">
-                <p className="text-neutral-400 text-center">
+            <ScrollReveal animation="fade-left" threshold={0.1} delay={2}>
+              <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <p className="text-neutral-400 text-center relative z-10 transform group-hover:scale-105 transition-transform duration-500">
                   Illustration historique de l&apos;agence
                 </p>
               </div>
@@ -92,7 +93,7 @@ export default function AboutPage() {
       {/* Nos Valeurs */}
       <section className="py-16 border-b border-neutral-100 dark:border-neutral-800">
         <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-down">
+          <ScrollReveal animation="fade-down" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-12 text-center">
               Nos Valeurs
             </h2>
@@ -101,10 +102,11 @@ export default function AboutPage() {
           <ScrollRevealGroup
             animation="fade-up"
             stagger={0.2}
+            threshold={0.1}
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center">
+            <div className="text-center p-6 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+              <div className="w-16 h-16 mx-auto mb-4 bg-blue-900 dark:bg-blue-700 text-white dark:text-white rounded-full flex items-center justify-center transform transition-transform duration-500 hover:rotate-12">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -126,8 +128,8 @@ export default function AboutPage() {
                 sur la qualité et la performance.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center">
+            <div className="text-center p-6 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+              <div className="w-16 h-16 mx-auto mb-4 bg-blue-900 dark:bg-blue-700 text-white dark:text-white rounded-full flex items-center justify-center transform transition-transform duration-500 hover:rotate-12">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -149,8 +151,8 @@ export default function AboutPage() {
                 comprendre leurs besoins et dépasser leurs attentes.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center">
+            <div className="text-center p-6 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+              <div className="w-16 h-16 mx-auto mb-4 bg-blue-900 dark:bg-blue-700 text-white dark:text-white rounded-full flex items-center justify-center transform transition-transform duration-500 hover:rotate-12">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -179,7 +181,7 @@ export default function AboutPage() {
       {/* Notre Équipe */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-down">
+          <ScrollReveal animation="fade-down" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-12 text-center">
               Notre Équipe
             </h2>
@@ -188,60 +190,81 @@ export default function AboutPage() {
           <ScrollRevealGroup
             animation="zoom"
             stagger={0.15}
+            threshold={0.1}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {/* Membre 1 */}
-            <div className="text-center">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center">
-                <p className="text-neutral-400">Photo</p>
+            <div className="text-center group">
+              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
+                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
+                  Photo
+                </p>
               </div>
-              <h3 className="text-xl font-bold">Thomas Laurent</h3>
+              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
+                Thomas Laurent
+              </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Fondateur & CEO
               </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
                 Expert en stratégie digitale avec plus de 10 ans
                 d&apos;expérience dans le développement web.
               </p>
             </div>
             {/* Membre 2 */}
-            <div className="text-center">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center">
-                <p className="text-neutral-400">Photo</p>
+            <div className="text-center group">
+              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
+                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
+                  Photo
+                </p>
               </div>
-              <h3 className="text-xl font-bold">Sophie Martin</h3>
+              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
+                Sophie Martin
+              </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Directrice Technique
               </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
                 Développeuse full-stack spécialisée dans les technologies React
                 et Node.js.
               </p>
             </div>
             {/* Membre 3 */}
-            <div className="text-center">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center">
-                <p className="text-neutral-400">Photo</p>
+            <div className="text-center group">
+              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
+                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
+                  Photo
+                </p>
               </div>
-              <h3 className="text-xl font-bold">Antoine Dubois</h3>
+              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
+                Antoine Dubois
+              </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Expert SEO
               </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
                 Consultant SEO avec une expertise particulière en référencement
                 local et e-commerce.
               </p>
             </div>
             {/* Membre 4 */}
-            <div className="text-center">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center">
-                <p className="text-neutral-400">Photo</p>
+            <div className="text-center group">
+              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
+                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
+                  Photo
+                </p>
               </div>
-              <h3 className="text-xl font-bold">Julie Moreau</h3>
+              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
+                Julie Moreau
+              </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 UI/UX Designer
               </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
                 Designer créative spécialisée dans la création d&apos;interfaces
                 utilisateur intuitives et élégantes.
               </p>
@@ -251,9 +274,10 @@ export default function AboutPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-black text-white">
-        <div className="container mx-auto px-4 text-center">
-          <ScrollReveal animation="fade-up">
+      <section className="py-20 bg-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-black/60 z-0"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <ScrollReveal animation="fade-up" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-6">
               Prêt à travailler avec nous ?
             </h2>
@@ -266,7 +290,7 @@ export default function AboutPage() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white hover:bg-white hover:text-black"
+              className="border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"
             >
               <Link href="/contact">Prendre contact</Link>
             </Button>
