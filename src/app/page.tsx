@@ -10,10 +10,26 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { MainLayout } from "@/components/layout/main-layout";
+import {
+  OrganizationStructuredData,
+  WebsiteStructuredData,
+} from "@/components/seo/structured-data";
 
 export default function Home() {
   return (
     <MainLayout>
+      {/* Structured Data pour SEO */}
+      <OrganizationStructuredData
+        name="KAIRO"
+        url="https://kairo.com"
+        logo="https://kairo.com/logo.png"
+      />
+      <WebsiteStructuredData
+        name="KAIRO | Agence de développement web et optimisation SEO"
+        url="https://kairo.com"
+        description="KAIRO est une agence spécialisée dans le développement web et l'optimisation SEO. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche."
+      />
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-white dark:bg-black overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-5">
