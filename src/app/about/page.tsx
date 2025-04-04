@@ -1,6 +1,7 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
 export const metadata = {
   title:
@@ -17,15 +18,20 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            À propos de KAIRO Digital
-          </h1>
-          <div className="w-24 h-1 bg-blue-800 dark:bg-blue-700 mx-auto mb-8"></div>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-            Nous sommes une agence spécialisée dans le développement web et
-            l&apos;optimisation pour les moteurs de recherche, dédiée à
-            propulser votre entreprise vers de nouveaux sommets.
-          </p>
+          <ScrollReveal animation="fade-down">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              À propos de KAIRO Digital
+            </h1>
+            <div className="w-24 h-1 bg-blue-800 dark:bg-blue-700 mx-auto mb-8"></div>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={1}>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+              Nous sommes une agence spécialisée dans le développement web et
+              l&apos;optimisation pour les moteurs de recherche, dédiée à
+              propulser votre entreprise vers de nouveaux sommets.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -48,31 +54,37 @@ export default function AboutPage() {
       <section className="py-16 border-b border-neutral-100 dark:border-neutral-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
-              <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                Fondée en 2020, KAIRO Digital est née de la passion commune de
-                ses fondateurs pour le développement web et le marketing
-                digital. Notre mission est simple : aider les entreprises à se
-                démarquer en ligne grâce à des solutions web performantes et
-                durables.
-              </p>
-              <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                Depuis nos débuts, nous avons accompagné plus de 50 entreprises
-                dans leur transformation numérique, en créant des sites web
-                performants et optimisés pour les moteurs de recherche.
-              </p>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                Notre expertise s&apos;est construite progressivement, en
-                restant toujours à la pointe des dernières technologies et des
-                meilleures pratiques du web.
-              </p>
-            </div>
-            <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center">
-              <p className="text-neutral-400 text-center">
-                Illustration historique de l&apos;agence
-              </p>
-            </div>
+            <ScrollReveal animation="fade-right">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                  Fondée en 2020, KAIRO Digital est née de la passion commune de
+                  ses fondateurs pour le développement web et le marketing
+                  digital. Notre mission est simple : aider les entreprises à se
+                  démarquer en ligne grâce à des solutions web performantes et
+                  durables.
+                </p>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                  Depuis nos débuts, nous avons accompagné plus de 50
+                  entreprises dans leur transformation numérique, en créant des
+                  sites web performants et optimisés pour les moteurs de
+                  recherche.
+                </p>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  Notre expertise s&apos;est construite progressivement, en
+                  restant toujours à la pointe des dernières technologies et des
+                  meilleures pratiques du web.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-left" delay={1}>
+              <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center">
+                <p className="text-neutral-400 text-center">
+                  Illustration historique de l&apos;agence
+                </p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -80,8 +92,17 @@ export default function AboutPage() {
       {/* Nos Valeurs */}
       <section className="py-16 border-b border-neutral-100 dark:border-neutral-800">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Nos Valeurs</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ScrollReveal animation="fade-down">
+            <h2 className="text-3xl font-bold mb-12 text-center">
+              Nos Valeurs
+            </h2>
+          </ScrollReveal>
+
+          <ScrollRevealGroup
+            animation="fade-up"
+            stagger={0.2}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-black dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center">
                 <svg
@@ -151,15 +172,24 @@ export default function AboutPage() {
                 offrir des solutions innovantes et performantes.
               </p>
             </div>
-          </div>
+          </ScrollRevealGroup>
         </div>
       </section>
 
       {/* Notre Équipe */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Notre Équipe</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <ScrollReveal animation="fade-down">
+            <h2 className="text-3xl font-bold mb-12 text-center">
+              Notre Équipe
+            </h2>
+          </ScrollReveal>
+
+          <ScrollRevealGroup
+            animation="zoom"
+            stagger={0.15}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {/* Membre 1 */}
             <div className="text-center">
               <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center">
@@ -216,29 +246,31 @@ export default function AboutPage() {
                 utilisateur intuitives et élégantes.
               </p>
             </div>
-          </div>
+          </ScrollRevealGroup>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="py-20 bg-black text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Prêt à travailler avec nous ?
-          </h2>
-          <p className="text-neutral-300 max-w-2xl mx-auto mb-8">
-            Contactez-nous dès aujourd&apos;hui pour discuter de votre projet et
-            découvrir comment notre équipe peut vous aider à atteindre vos
-            objectifs.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-white hover:bg-white hover:text-black"
-          >
-            <Link href="/contact">Prendre contact</Link>
-          </Button>
+          <ScrollReveal animation="fade-up">
+            <h2 className="text-3xl font-bold mb-6">
+              Prêt à travailler avec nous ?
+            </h2>
+            <p className="text-neutral-300 max-w-2xl mx-auto mb-8">
+              Contactez-nous dès aujourd&apos;hui pour discuter de votre projet
+              et découvrir comment notre équipe peut vous aider à atteindre vos
+              objectifs.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white hover:bg-white hover:text-black"
+            >
+              <Link href="/contact">Prendre contact</Link>
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
     </MainLayout>
