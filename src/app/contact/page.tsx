@@ -1,18 +1,155 @@
+"use client";
+
+import { useState, ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
-export const metadata = {
-  title:
-    "Contact | KAIRO Digital - Agence de développement web et optimisation SEO",
-  description:
-    "Contactez-nous pour discuter de votre projet de développement web ou d'optimisation SEO. Notre équipe est à votre écoute pour répondre à vos besoins.",
-};
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  project: string;
+  consent: boolean;
+}
+
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  subject?: string;
+  project?: string;
+  consent?: string;
+}
 
 export default function ContactPage() {
+  // États pour le formulaire
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    project: "",
+    consent: false,
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  // Gestion des changements dans les champs
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value, type } = e.target;
+    const checked =
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : false;
+
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+
+    // Effacer l'erreur pour ce champ si elle existe
+    if (errors[name as keyof FormErrors]) {
+      setErrors({
+        ...errors,
+        [name]: undefined,
+      });
+    }
+  };
+
+  // Validation du formulaire
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "Le prénom est requis";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Le nom est requis";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "L'email est requis";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Format d'email invalide";
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Le sujet est requis";
+    }
+
+    if (!formData.project.trim()) {
+      newErrors.project = "La description du projet est requise";
+    }
+
+    if (!formData.consent) {
+      newErrors.consent = "Vous devez accepter le traitement de vos données";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Soumission du formulaire
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      toast.error("Veuillez corriger les erreurs dans le formulaire");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(
+          "Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais."
+        );
+        // Réinitialiser le formulaire
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          project: "",
+          consent: false,
+        });
+      } else {
+        toast.error(
+          data.message ||
+            "Une erreur est survenue. Veuillez réessayer plus tard."
+        );
+      }
+    } catch (error) {
+      toast.error(
+        "Problème de connexion. Veuillez vérifier votre connexion internet et réessayer."
+      );
+      console.error("Erreur lors de l'envoi du formulaire:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <MainLayout>
       {/* Page Header */}
@@ -68,20 +205,42 @@ export default function ContactPage() {
                   </p>
                 </div>
 
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">Prénom *</Label>
                       <Input
                         id="firstName"
+                        name="firstName"
                         placeholder="Votre prénom"
                         required
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        className={errors.firstName ? "border-red-500" : ""}
                       />
+                      {errors.firstName && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.firstName}
+                        </p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="lastName">Nom *</Label>
-                      <Input id="lastName" placeholder="Votre nom" required />
+                      <Input
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Votre nom"
+                        required
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        className={errors.lastName ? "border-red-500" : ""}
+                      />
+                      {errors.lastName && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.lastName}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -90,17 +249,29 @@ export default function ContactPage() {
                       <Label htmlFor="email">Email *</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="votre@email.com"
                         required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={errors.email ? "border-red-500" : ""}
                       />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Téléphone</Label>
                       <Input
                         id="phone"
+                        name="phone"
                         placeholder="Votre numéro de téléphone"
+                        value={formData.phone}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -109,26 +280,49 @@ export default function ContactPage() {
                     <Label htmlFor="subject">Sujet *</Label>
                     <Input
                       id="subject"
+                      name="subject"
                       placeholder="L'objet de votre message"
                       required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className={errors.subject ? "border-red-500" : ""}
                     />
+                    {errors.subject && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.subject}
+                      </p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="project">Votre projet *</Label>
                     <Textarea
                       id="project"
+                      name="project"
                       placeholder="Décrivez brièvement votre projet et vos objectifs"
                       rows={6}
                       required
+                      value={formData.project}
+                      onChange={handleChange}
+                      className={errors.project ? "border-red-500" : ""}
                     />
+                    {errors.project && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.project}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex items-start space-x-2">
                     <input
                       type="checkbox"
                       id="consent"
-                      className="h-4 w-4 rounded border-neutral-300 text-black focus:ring-neutral-500"
+                      name="consent"
+                      checked={formData.consent}
+                      onChange={handleChange}
+                      className={`h-4 w-4 rounded border-neutral-300 text-black focus:ring-neutral-500 ${
+                        errors.consent ? "border-red-500" : ""
+                      }`}
                     />
                     <div className="grid gap-1.5 leading-none">
                       <label
@@ -141,6 +335,11 @@ export default function ContactPage() {
                         Vos données personnelles seront utilisées uniquement
                         pour répondre à votre demande.
                       </p>
+                      {errors.consent && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.consent}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -157,8 +356,11 @@ export default function ContactPage() {
                     type="submit"
                     size="lg"
                     className="w-full bg-blue-800 hover:bg-blue-900"
+                    disabled={isSubmitting}
                   >
-                    Envoyer votre message
+                    {isSubmitting
+                      ? "Envoi en cours..."
+                      : "Envoyer votre message"}
                   </Button>
                 </form>
               </div>
