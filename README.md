@@ -20,6 +20,45 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Configuration des emails
+
+Pour que le formulaire de contact fonctionne correctement, vous devez configurer les variables d'environnement d'email.
+
+Créez un fichier `.env.local` à la racine du projet avec les variables suivantes :
+
+```bash
+# Configuration du serveur SMTP
+EMAIL_SERVER_HOST=smtp.votreserveur.com
+EMAIL_SERVER_PORT=587
+EMAIL_SERVER_USER=votre-email@exemple.com
+EMAIL_SERVER_PASSWORD=votre_mot_de_passe
+EMAIL_SERVER_SECURE=false  # true pour le port 465, false pour les autres ports
+
+# Adresses email
+EMAIL_FROM=contact@votredomaine.com     # Adresse qui apparaîtra comme expéditeur
+EMAIL_RECIPIENT=vous@votredomaine.com   # Adresse qui recevra les messages
+```
+
+### Options de service SMTP
+
+Vous pouvez utiliser différents services SMTP :
+
+1. **Gmail** : Nécessite un "mot de passe d'application" si l'authentification à deux facteurs est activée
+
+   ```
+   EMAIL_SERVER_HOST=smtp.gmail.com
+   EMAIL_SERVER_PORT=587
+   ```
+
+2. **Outlook/Office365** :
+
+   ```
+   EMAIL_SERVER_HOST=smtp.office365.com
+   EMAIL_SERVER_PORT=587
+   ```
+
+3. **Services tiers** comme SendGrid, Mailgun, etc. qui fournissent leurs propres informations SMTP.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

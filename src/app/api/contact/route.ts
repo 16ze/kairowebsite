@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { sendContactEmail, sendAutoReplyEmail } from "@/lib/email";
 
 // Interface pour les données du formulaire
 interface ContactFormData {
@@ -41,31 +42,34 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Ici, dans un environnement de production, vous enverriez l'email
-    // Par exemple avec un service comme SendGrid, Mailgun, ou l'API Mail de votre hébergeur
-    // Pour l'instant, nous allons simuler un envoi réussi
+    try {
+      // Envoyer l'email principal de notification à l'équipe KAIRO
+      await sendContactEmail(formData);
 
-    console.log("Formulaire de contact reçu:", formData);
+      // Envoyer un email de confirmation à l'expéditeur (optionnel, ne bloque pas le processus)
+      sendAutoReplyEmail(formData.firstName, formData.email).catch((error) =>
+        console.error(
+          "Erreur lors de l'envoi de l'email de confirmation:",
+          error
+        )
+      );
 
-    // Journalisation pour tests/développement
-    console.log(`
-      Nouveau message de contact:
-      - Nom: ${formData.firstName} ${formData.lastName}
-      - Email: ${formData.email}
-      - Téléphone: ${formData.phone || "Non fourni"}
-      - Sujet: ${formData.subject}
-      - Projet: ${formData.project}
-    `);
-
-    // Pour une démo, nous simulons un délai pour imiter un traitement réel
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Retourne une réponse de succès
-    return NextResponse.json({
-      success: true,
-      message:
-        "Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.",
-    });
+      // Retourne une réponse de succès
+      return NextResponse.json({
+        success: true,
+        message:
+          "Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.",
+      });
+    } catch (emailError) {
+      console.error("Erreur lors de l'envoi de l'email:", emailError);
+      return NextResponse.json(
+        {
+          message:
+            "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer plus tard.",
+        },
+        { status: 500 }
+      );
+    }
   } catch (error) {
     console.error("Erreur lors du traitement du formulaire de contact:", error);
 
