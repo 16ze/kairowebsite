@@ -23,9 +23,22 @@ export function Navigation() {
         <div className="flex items-center">
           <Link
             href="/"
-            className="text-xl md:text-2xl font-bold tracking-tight hover:text-blue-800 dark:hover:text-blue-400 transition-colors"
+            className="font-bold tracking-tight transition-colors"
+            aria-label="KAIRO Digital - Retour à l'accueil"
           >
-            KAIRO Digital
+            <span className="flex items-center group">
+              <span className="text-xl md:text-2xl font-black tracking-tighter flex items-center relative">
+                <span className="bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-700 dark:to-blue-500 bg-clip-text text-transparent">
+                  KAIRO
+                </span>
+                <span className="relative">
+                  <span className="bg-gradient-to-r from-gold-500 to-amber-400 dark:from-gold-400 dark:to-amber-300 h-1.5 w-16 absolute -bottom-1 left-0 transform -skew-x-12 group-hover:w-20 transition-all duration-300 rounded-full"></span>
+                </span>
+              </span>
+              <span className="text-sm md:text-base font-medium ml-1.5 text-neutral-600 dark:text-neutral-400 group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors">
+                Digital
+              </span>
+            </span>
           </Link>
         </div>
 
