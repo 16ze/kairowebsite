@@ -6,7 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
 export const metadata = {
-  title: "Contact | KAIRO - Agence de développement web et optimisation SEO",
+  title:
+    "Contact | KAIRO Digital - Agence de développement web et optimisation SEO",
   description:
     "Contactez-nous pour discuter de votre projet de développement web ou d'optimisation SEO. Notre équipe est à votre écoute pour répondre à vos besoins.",
 };

@@ -11,9 +11,10 @@ import {
 } from "@/components/ui/card";
 
 export const metadata = {
-  title: "Portfolio | KAIRO - Agence de développement web et optimisation SEO",
+  title:
+    "Portfolio | KAIRO Digital - Agence de développement web et optimisation SEO",
   description:
-    "Découvrez nos projets de développement web et d'optimisation SEO. Notre portfolio présente les sites web et applications que nous avons créés pour nos clients.",
+    "Découvrez notre portfolio de projets de développement web et d'optimisation SEO. Des solutions sur mesure pour répondre à vos besoins spécifiques.",
   keywords:
     "portfolio, projets, développement web, optimisation SEO, site web, agence web, design",
 };

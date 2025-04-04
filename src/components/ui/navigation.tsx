@@ -20,12 +20,14 @@ export function Navigation() {
     <header className="py-4 border-b border-neutral-200 dark:border-neutral-800 bg-white/90 dark:bg-black/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
-        >
-          KAIRO
-        </Link>
+        <div className="flex items-center">
+          <Link
+            href="/"
+            className="text-xl md:text-2xl font-bold tracking-tight hover:text-blue-800 dark:hover:text-blue-400 transition-colors"
+          >
+            KAIRO Digital
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">

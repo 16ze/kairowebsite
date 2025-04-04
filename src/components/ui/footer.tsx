@@ -13,7 +13,7 @@ export function Footer() {
               href="/"
               className="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
             >
-              KAIRO
+              KAIRO Digital
             </Link>
             <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400 max-w-md">
               Agence spécialisée dans le développement web et l'optimisation
@@ -167,9 +167,9 @@ export function Footer() {
 
         {/* Copyright & Legal */}
         <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-neutral-500 dark:text-neutral-500">
-            © {currentYear} KAIRO. Tous droits réservés.
-          </p>
+          <div className="text-sm text-neutral-500 dark:text-neutral-400">
+            © {currentYear} KAIRO Digital. Tous droits réservés.
+          </div>
           <div className="mt-4 md:mt-0 flex flex-wrap justify-center space-x-4">
             <Link
               href="/mentions-legales"

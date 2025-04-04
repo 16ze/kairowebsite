@@ -3,27 +3,44 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export const metadata = {
-  title: "À propos | KAIRO - Agence de développement web et optimisation SEO",
+  title:
+    "À propos | KAIRO Digital - Agence de développement web et optimisation SEO",
   description:
-    "Découvrez l'histoire de KAIRO, notre équipe passionnée et nos valeurs. Nous sommes spécialisés dans le développement web et l'optimisation SEO pour maximiser votre présence en ligne.",
+    "Découvrez l'histoire de KAIRO Digital, notre équipe passionnée et nos valeurs. Nous sommes spécialisés dans le développement web et l'optimisation SEO pour maximiser votre présence en ligne.",
   keywords:
-    "à propos, équipe, agence web, développement web, optimisation SEO, histoire, valeurs",
+    "à propos, équipe, histoire, valeurs, développement web, optimisation SEO, site web, agence web",
 };
 
 export default function AboutPage() {
   return (
     <MainLayout>
-      {/* Header */}
-      <section className="pt-20 pb-10 bg-white dark:bg-black">
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            À propos de KAIRO
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            À propos de KAIRO Digital
           </h1>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-blue-800 dark:bg-blue-700 mx-auto mb-8"></div>
+          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
             Nous sommes une agence spécialisée dans le développement web et
-            l&apos;optimisation SEO, dédiée à transformer votre présence
-            numérique.
+            l&apos;optimisation pour les moteurs de recherche, dédiée à
+            propulser votre entreprise vers de nouveaux sommets.
           </p>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-6">Notre histoire</h2>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-6">
+              Fondée en 2020, KAIRO Digital est née de la passion commune de ses
+              fondateurs pour le développement web et le marketing digital.
+              Notre mission est simple : aider les entreprises à se démarquer en
+              ligne grâce à des solutions web performantes et durables.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -34,11 +51,11 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
               <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                Fondée en 2020, KAIRO est née de la passion commune de ses
-                fondateurs pour le web et l&apos;expérience utilisateur. Face à
-                un marché saturé de sites mal optimisés et peu performants, nous
-                avons décidé de créer une agence qui place la qualité au cœur de
-                chaque projet.
+                Fondée en 2020, KAIRO Digital est née de la passion commune de
+                ses fondateurs pour le développement web et le marketing
+                digital. Notre mission est simple : aider les entreprises à se
+                démarquer en ligne grâce à des solutions web performantes et
+                durables.
               </p>
               <p className="text-neutral-600 dark:text-neutral-400 mb-4">
                 Depuis nos débuts, nous avons accompagné plus de 50 entreprises

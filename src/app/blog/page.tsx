@@ -11,9 +11,10 @@ import {
 } from "@/components/ui/card";
 
 export const metadata = {
-  title: "Blog | KAIRO - Agence de développement web et optimisation SEO",
+  title:
+    "Blog | KAIRO Digital - Agence de développement web et optimisation SEO",
   description:
-    "Découvrez nos articles et conseils sur le développement web et l'optimisation SEO. Restez informé des dernières tendances et meilleures pratiques.",
+    "Découvrez nos articles et conseils sur le développement web, l'optimisation SEO et les tendances du digital pour améliorer votre présence en ligne.",
   keywords:
     "blog, articles, développement web, optimisation SEO, webdesign, tendances web",
 };

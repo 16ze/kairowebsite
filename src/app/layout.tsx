@@ -14,12 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KAIRO | Agence de développement web et optimisation SEO",
+  title: "KAIRO Digital | Agence de développement web et optimisation SEO",
   description:
-    "KAIRO est une agence spécialisée dans le développement web et l'optimisation SEO. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+    "KAIRO Digital est une agence spécialisée dans le développement web et l'optimisation SEO. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+  generator: "Next.js",
+  category: "technology",
+  authors: [{ name: "KAIRO Digital" }],
   keywords:
     "développement web, optimisation SEO, site web, agence web, design, responsive",
-  authors: [{ name: "KAIRO" }],
   robots: "index, follow",
 };
 
