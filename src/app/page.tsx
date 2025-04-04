@@ -142,6 +142,148 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Freelance Section */}
+      <section className="py-20 bg-white dark:bg-black border-t border-b border-neutral-200 dark:border-neutral-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="w-12 h-0.5 bg-neutral-300 dark:bg-neutral-700 mx-auto mb-6"></div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Développement Web Freelance pour Petites Entreprises
+              </h2>
+              <div className="w-12 h-0.5 bg-neutral-300 dark:bg-neutral-700 mx-auto mt-6"></div>
+            </div>
+
+            <p className="text-lg text-center text-neutral-600 dark:text-neutral-400 mb-12">
+              En tant que freelance, je propose des solutions de développement
+              web personnalisées pour les petites entreprises. De la création de
+              votre site à son optimisation SEO, je vous accompagne à chaque
+              étape pour booster votre visibilité en ligne et vous aider à
+              atteindre vos objectifs.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div className="flex items-start space-x-4">
+                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-neutral-700 dark:text-neutral-300"
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                    <path d="M3 9h18" />
+                    <path d="M9 21V9" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">
+                    Création de sites web sur mesure
+                  </h3>
+                  <p className="text-neutral-600 dark:text-neutral-400">
+                    Designs responsives et adaptés à vos besoins.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-neutral-700 dark:text-neutral-300"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m16 10-4 4-2-2" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">Optimisation SEO</h3>
+                  <p className="text-neutral-600 dark:text-neutral-400">
+                    Améliorez votre visibilité sur Google.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-neutral-700 dark:text-neutral-300"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">
+                    Maintenance et mise à jour
+                  </h3>
+                  <p className="text-neutral-600 dark:text-neutral-400">
+                    Restez à jour avec un site performant.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-neutral-700 dark:text-neutral-300"
+                  >
+                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1">
+                    Accompagnement personnalisé
+                  </h3>
+                  <p className="text-neutral-600 dark:text-neutral-400">
+                    Suivi sur mesure et conseils pour réussir en ligne.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Button asChild size="lg">
+                <Link href="/contact">Obtenez un devis gratuit</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Portfolio Preview Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
