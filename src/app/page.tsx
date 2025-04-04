@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Script from "next/script";
 import {
   Card,
   CardContent,
@@ -12,9 +13,81 @@ import {
 import { MainLayout } from "@/components/layout/main-layout";
 import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
+export const metadata = {
+  title: "KAIRO Digital | Agence de développement web et optimisation SEO",
+  description:
+    "KAIRO Digital est une agence de développement web et d'optimisation SEO qui vous aide à créer une présence en ligne puissante avec des sites web performants et optimisés.",
+  keywords:
+    "développement web, optimisation SEO, site web, agence web, design, responsive, Next.js, React, Tailwind CSS, Paris",
+  alternates: {
+    canonical: "https://www.kairo-digital.fr",
+  },
+};
+
 export default function Home() {
   return (
     <MainLayout>
+      <Script id="schema-website" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          url: "https://www.kairo-digital.fr/",
+          name: "KAIRO Digital",
+          description: "Agence de développement web et optimisation SEO",
+          potentialAction: {
+            "@type": "SearchAction",
+            target:
+              "https://www.kairo-digital.fr/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        })}
+      </Script>
+
+      <Script id="schema-business" type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "KAIRO Digital",
+          image: "https://www.kairo-digital.fr/images/kairo-hero-img.webp",
+          "@id": "https://www.kairo-digital.fr/#organization",
+          url: "https://www.kairo-digital.fr",
+          telephone: "+33-123-456-789",
+          priceRange: "€€",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "123 Rue de l'Innovation",
+            addressLocality: "Paris",
+            postalCode: "75000",
+            addressCountry: "FR",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 48.8566,
+            longitude: 2.3522,
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+              ],
+              opens: "09:00",
+              closes: "18:00",
+            },
+          ],
+          sameAs: [
+            "https://www.facebook.com/kairodigital",
+            "https://www.instagram.com/kairodigital",
+            "https://www.linkedin.com/company/kairodigital",
+            "https://twitter.com/kairodigital",
+          ],
+        })}
+      </Script>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-900/80 to-neutral-900/90 text-white overflow-hidden">
         <div className="absolute inset-0 z-0 will-change-transform perspective-1000 animate-subtle-float origin-center">
