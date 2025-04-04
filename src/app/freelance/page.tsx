@@ -374,7 +374,12 @@ export default function FreelancePage() {
             ligne.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-900">
+            <Button
+              asChild
+              size="lg"
+              variant="default"
+              className="bg-blue-800 hover:bg-blue-900"
+            >
               <Link href="/contact">
                 Contactez-moi pour un devis personnalisé
               </Link>
@@ -383,7 +388,7 @@ export default function FreelancePage() {
               asChild
               size="lg"
               variant="outline"
-              className="border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white"
+              className="border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black"
             >
               <Link href="/portfolio">Voir mes réalisations</Link>
             </Button>

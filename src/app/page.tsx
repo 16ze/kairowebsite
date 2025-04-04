@@ -41,9 +41,9 @@ export default function Home() {
             </span>
             .
           </p>
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg max-w-xl mx-auto mb-8 border border-blue-100 dark:border-blue-800">
+          <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg max-w-xl mx-auto mb-8">
             <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
-              <span className="text-amber-600 dark:text-amber-500">
+              <span className="text-amber-600 dark:text-amber-400">
                 OFFRE LIMITÉE
               </span>{" "}
               : Les 5 prochains clients bénéficient d&apos;un{" "}
@@ -55,16 +55,11 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="bg-blue-800 hover:bg-blue-900 border-0"
+              className="bg-blue-800 hover:bg-blue-900 text-white"
             >
               <Link href="/contact">Demander un devis gratuit</Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-blue-800 text-blue-800 hover:bg-blue-50 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-950"
-            >
+            <Button asChild variant="outline" size="lg">
               <Link href="/portfolio">Voir mes réalisations</Link>
             </Button>
           </div>
@@ -195,11 +190,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700"
-            >
+            <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-900">
               <Link href="/contact">
                 Obtenir mon devis personnalisé gratuit →
               </Link>
@@ -556,7 +547,7 @@ export default function Home() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-green-500 mt-1"
+                    className="text-amber-500 mt-1"
                   >
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
@@ -569,13 +560,13 @@ export default function Home() {
             <div className="text-center">
               <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-4">
                 Valeur estimée : <span className="line-through">250€</span>{" "}
-                <span className="text-green-500 font-bold">GRATUIT</span> (offre
+                <span className="text-amber-500 font-bold">GRATUIT</span> (offre
                 limitée)
               </p>
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700"
+                className="w-full sm:w-auto bg-blue-800 hover:bg-blue-900"
               >
                 <Link href="/contact?ref=audit">
                   Obtenir mon audit SEO gratuit
@@ -597,13 +588,13 @@ export default function Home() {
             Contactez-moi dès aujourd&apos;hui pour discuter de votre projet et
             découvrir comment je peux vous aider à atteindre vos objectifs.
           </p>
-          <p className="text-xl font-semibold text-yellow-400 mb-8">
+          <p className="text-xl font-semibold text-amber-500 mb-8">
             Réponse garantie sous 24h !
           </p>
           <Button
             asChild
             size="lg"
-            className="bg-amber-500 hover:bg-amber-600 border-0"
+            className="bg-blue-800 hover:bg-blue-900 border-0"
           >
             <Link href="/contact">Démarrer votre projet maintenant</Link>
           </Button>

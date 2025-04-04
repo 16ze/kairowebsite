@@ -40,7 +40,7 @@ export default function ContactPage() {
                   Envoyez-moi un message
                 </h2>
 
-                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 p-4 rounded-lg mb-8">
+                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-900 p-4 rounded-lg mb-8">
                   <p className="text-blue-800 dark:text-blue-300 font-medium flex items-start gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -278,7 +278,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="bg-blue-900 dark:bg-blue-950 p-8 rounded-lg text-white">
+              <div className="bg-neutral-800 dark:bg-neutral-900 p-8 rounded-lg text-white">
                 <h3 className="text-xl font-bold mb-4">
                   Satisfaction garantie
                 </h3>
@@ -300,7 +300,7 @@ export default function ContactPage() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-emerald-400 mt-1"
+                      className="text-amber-400 mt-1"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
@@ -317,7 +317,7 @@ export default function ContactPage() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-emerald-400 mt-1"
+                      className="text-amber-400 mt-1"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
@@ -334,7 +334,7 @@ export default function ContactPage() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-emerald-400 mt-1"
+                      className="text-amber-400 mt-1"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
@@ -345,7 +345,7 @@ export default function ContactPage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-blue-900"
+                    className="border-amber-400 text-white hover:bg-blue-800 hover:text-white hover:border-blue-800"
                   >
                     <Link href="/freelance#reviews">
                       Voir les témoignages clients
