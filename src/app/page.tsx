@@ -27,19 +27,26 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-4 z-10 text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">
-            Développeur web freelance pour petites entreprises
+            Développement web &{" "}
+            <span className="text-blue-800 dark:text-blue-500">
+              Optimisation SEO
+            </span>
           </h1>
           <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-8">
+            <span className="font-semibold">Propulsez votre entreprise</span>{" "}
+            grâce à des sites web performants et une stratégie de référencement
+            qui vous place devant vos concurrents. Artisans, PME ou startups :{" "}
             <span className="font-semibold">
-              Augmentez votre visibilité en ligne et boostez vos ventes
-            </span>{" "}
-            grâce à des sites web élégants, performants et optimisés pour les
-            moteurs de recherche.
+              transformez votre présence digitale
+            </span>
+            .
           </p>
-          <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg max-w-xl mx-auto mb-8">
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg max-w-xl mx-auto mb-8 border border-blue-100 dark:border-blue-800">
             <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
-              <span className="text-red-500">OFFRE LIMITÉE</span> : Les 5
-              prochains clients bénéficient d&apos;un{" "}
+              <span className="text-amber-600 dark:text-amber-500">
+                OFFRE LIMITÉE
+              </span>{" "}
+              : Les 5 prochains clients bénéficient d&apos;un{" "}
               <span className="font-bold">audit SEO gratuit</span> d&apos;une
               valeur de 250€
             </p>
@@ -48,11 +55,16 @@ export default function Home() {
             <Button
               asChild
               size="lg"
-              className="bg-green-600 hover:bg-green-700"
+              className="bg-blue-800 hover:bg-blue-900 border-0"
             >
               <Link href="/contact">Demander un devis gratuit</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-blue-800 text-blue-800 hover:bg-blue-50 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-950"
+            >
               <Link href="/portfolio">Voir mes réalisations</Link>
             </Button>
           </div>
@@ -183,7 +195,11 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center">
-            <Button asChild size="lg">
+            <Button
+              asChild
+              size="lg"
+              className="bg-emerald-600 hover:bg-emerald-700"
+            >
               <Link href="/contact">
                 Obtenir mon devis personnalisé gratuit →
               </Link>
@@ -346,7 +362,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="bg-green-600 hover:bg-green-700"
+                className="bg-blue-800 hover:bg-blue-900"
               >
                 <Link href="/contact">
                   Demander mon devis personnalisé gratuit
@@ -559,7 +575,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-green-600 hover:bg-green-700"
+                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700"
               >
                 <Link href="/contact?ref=audit">
                   Obtenir mon audit SEO gratuit
@@ -587,7 +603,7 @@ export default function Home() {
           <Button
             asChild
             size="lg"
-            className="bg-green-600 hover:bg-green-700 border-0"
+            className="bg-amber-500 hover:bg-amber-600 border-0"
           >
             <Link href="/contact">Démarrer votre projet maintenant</Link>
           </Button>

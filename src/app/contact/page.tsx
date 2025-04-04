@@ -3,7 +3,6 @@ import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
 export const metadata = {
@@ -41,8 +40,8 @@ export default function ContactPage() {
                   Envoyez-moi un message
                 </h2>
 
-                <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-900 p-4 rounded-lg mb-8">
-                  <p className="text-green-800 dark:text-green-300 font-medium flex items-start gap-2">
+                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 p-4 rounded-lg mb-8">
+                  <p className="text-blue-800 dark:text-blue-300 font-medium flex items-start gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -144,8 +143,8 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 p-4 rounded-lg">
-                    <p className="text-yellow-800 dark:text-yellow-300 font-medium text-sm">
+                  <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 rounded-lg">
+                    <p className="text-amber-800 dark:text-amber-300 font-medium text-sm">
                       <span className="font-bold">OFFRE LIMITÉE</span> :
                       Mentionnez le code &ldquo;AUDIT2023&rdquo; dans votre
                       message pour bénéficier d&apos;un audit SEO gratuit avec
@@ -156,7 +155,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-green-600 hover:bg-green-700"
+                    className="w-full bg-blue-800 hover:bg-blue-900"
                   >
                     Envoyer votre message
                   </Button>
@@ -279,7 +278,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="bg-neutral-800 dark:bg-neutral-900 p-8 rounded-lg text-white">
+              <div className="bg-blue-900 dark:bg-blue-950 p-8 rounded-lg text-white">
                 <h3 className="text-xl font-bold mb-4">
                   Satisfaction garantie
                 </h3>
@@ -301,7 +300,7 @@ export default function ContactPage() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-green-400 mt-1"
+                      className="text-emerald-400 mt-1"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
@@ -318,7 +317,7 @@ export default function ContactPage() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-green-400 mt-1"
+                      className="text-emerald-400 mt-1"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
@@ -335,7 +334,7 @@ export default function ContactPage() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-green-400 mt-1"
+                      className="text-emerald-400 mt-1"
                     >
                       <path d="M20 6 9 17l-5-5" />
                     </svg>
@@ -346,7 +345,7 @@ export default function ContactPage() {
                   <Button
                     asChild
                     variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    className="border-white text-white hover:bg-white hover:text-blue-900"
                   >
                     <Link href="/freelance#reviews">
                       Voir les témoignages clients
