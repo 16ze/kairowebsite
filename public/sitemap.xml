@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://www.kairo-digital.fr/</loc>
+    <lastmod>2023-04-04T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.kairo-digital.fr/images/kairo-og-image.jpg</image:loc>
+      <image:title>KAIRO Digital - Agence de développement web et optimisation SEO</image:title>
+    </image:image>
+  </url>
+
+  <!-- Page À propos -->
+  <url>
+    <loc>https://www.kairo-digital.fr/about</loc>
+    <lastmod>2023-04-04T18:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Page Services -->
+  <url>
+    <loc>https://www.kairo-digital.fr/services</loc>
+    <lastmod>2023-04-04T18:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Page Portfolio -->
+  <url>
+    <loc>https://www.kairo-digital.fr/portfolio</loc>
+    <lastmod>2023-04-04T18:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Page Blog -->
+  <url>
+    <loc>https://www.kairo-digital.fr/blog</loc>
+    <lastmod>2023-04-04T18:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Page Contact -->
+  <url>
+    <loc>https://www.kairo-digital.fr/contact</loc>
+    <lastmod>2023-04-04T18:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Page Freelance -->
+  <url>
+    <loc>https://www.kairo-digital.fr/freelance</loc>
+    <lastmod>2023-04-04T18:30:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset> 

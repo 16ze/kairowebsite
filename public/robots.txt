@@ -1,0 +1,34 @@
+# Règles pour tous les robots
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://www.kairo-digital.fr/sitemap.xml
+
+# Optimisation du crawl budget
+Crawl-delay: 1
+
+# Règles spécifiques pour Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Règles pour Google Images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /public/images/
+
+# Règles pour Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Bloquer l'accès aux dossiers d'administration ou privés (à ajuster selon les besoins)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Règles pour les réseaux sociaux
+User-agent: Twitterbot
+Allow: /
+User-agent: facebookexternalhit
+Allow: / 
