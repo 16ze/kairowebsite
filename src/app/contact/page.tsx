@@ -423,10 +423,10 @@ export default function ContactPage() {
                         Pour toute demande :
                       </p>
                       <a
-                        href="mailto:contact@kairodigital.com"
+                        href="mailto:contact@kairo-digital.fr"
                         className="text-blue-700 dark:text-blue-400 hover:underline"
                       >
-                        contact@kairodigital.com
+                        contact@kairo-digital.fr
                       </a>
                     </div>
                   </div>
@@ -454,12 +454,12 @@ export default function ContactPage() {
                         Visitez notre site :
                       </p>
                       <a
-                        href="https://www.kairodigital.com"
+                        href="https://www.kairo-digital.fr"
                         className="text-blue-700 dark:text-blue-400 hover:underline"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        www.kairodigital.com
+                        www.kairo-digital.fr
                       </a>
                     </div>
                   </div>
@@ -630,7 +630,7 @@ export default function ContactPage() {
                 contacter directement.
               </p>
               <Button asChild>
-                <Link href="mailto:contact@kairodigital.com">
+                <Link href="mailto:contact@kairo-digital.fr">
                   Envoyer un email
                 </Link>
               </Button>
