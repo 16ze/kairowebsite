@@ -205,7 +205,7 @@ export default function ContactPage() {
                     </svg>
                     <span>
                       <span className="font-bold">
-                        Réponse garantie sous 24h
+                        Réponse garantie sous 24h à 48h
                       </span>{" "}
                       - Je prends le temps de lire attentivement chaque demande
                       et d&apos;y répondre personnellement.
@@ -502,7 +502,7 @@ export default function ContactPage() {
                     Bénéficiez d&apos;une analyse gratuite de votre site web
                     d&apos;une valeur de 250€. Mentionnez le code{" "}
                     <span className="font-mono font-bold text-blue-700 dark:text-blue-400">
-                      AUDIT2023
+                      AUDIT2025
                     </span>{" "}
                     dans votre message.
                   </p>

@@ -23,25 +23,25 @@ export const metadata = {
 const projects = [
   {
     id: 1,
-    title: "Rénovation du site e-commerce Luxea",
-    client: "Luxea",
+    title: "Refonte du site web d'EcoVert",
+    category: "Site e-commerce",
     description:
-      "Refonte complète du site e-commerce avec amélioration des performances et de l'expérience utilisateur. Implémentation d'une nouvelle stratégie SEO qui a permis d'augmenter le trafic organique de 65%.",
-    technologies: ["Next.js", "Tailwind CSS", "Sanity CMS", "Stripe"],
-    category: "ecommerce",
-    year: 2023,
-    image: "/images/placeholder-project.jpg",
+      "Refonte complète du site e-commerce avec optimisation SEO et intégration d'un système de paiement sécurisé.",
+    image: "/projects/project1.jpg",
+    client: "EcoVert",
+    year: 2025,
+    link: "#",
   },
   {
     id: 2,
-    title: "Application web pour Finovo",
-    client: "Finovo",
+    title: "Application mobile InnoTech",
+    category: "Application mobile",
     description:
-      "Développement d'une plateforme de gestion financière permettant aux utilisateurs de suivre leurs investissements et de gérer leur portefeuille en temps réel.",
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    category: "application",
-    year: 2023,
-    image: "/images/placeholder-project.jpg",
+      "Développement d'une application mobile disponible sur iOS et Android pour la gestion de projets en temps réel.",
+    image: "/projects/project2.jpg",
+    client: "InnoTech Solutions",
+    year: 2025,
+    link: "#",
   },
   {
     id: 3,
@@ -78,14 +78,14 @@ const projects = [
   },
   {
     id: 6,
-    title: "Application mobile Sportify",
-    client: "Sportify",
+    title: "Plateforme éducative LearnUp",
+    category: "Plateforme web",
     description:
-      "Développement d'une application mobile permettant aux utilisateurs de suivre leurs activités sportives et de se connecter avec d'autres sportifs.",
-    technologies: ["React Native", "Node.js", "Firebase"],
-    category: "application",
-    year: 2022,
-    image: "/images/placeholder-project.jpg",
+      "Création d'une plateforme e-learning avec système de cours en ligne, quiz interactifs et suivi de progression.",
+    image: "/projects/project6.jpg",
+    client: "LearnUp",
+    year: 2025,
+    link: "#",
   },
 ];
 
@@ -154,7 +154,7 @@ export default function PortfolioPage() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
-                    {project.technologies.map((tech, index) => (
+                    {project.technologies?.map((tech, index) => (
                       <span
                         key={index}
                         className="px-2 py-1 bg-neutral-100 dark:bg-neutral-800 rounded text-xs"
@@ -166,9 +166,7 @@ export default function PortfolioPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild variant="outline" className="w-full">
-                    <Link href={`/portfolio/${project.id}`}>
-                      Voir les détails
-                    </Link>
+                    <Link href={project.link || "#"}>Voir les détails</Link>
                   </Button>
                 </CardFooter>
               </Card>

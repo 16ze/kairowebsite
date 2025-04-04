@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -20,71 +19,59 @@ export const metadata = {
 };
 
 // Articles fictifs pour la démonstration
-const articles = [
+const blogPosts = [
   {
     id: 1,
-    title: "Comment améliorer votre référencement local en 2023",
+    title: "Comment améliorer votre référencement local en 2025",
     excerpt:
-      "Le référencement local est crucial pour les entreprises ayant une présence physique. Découvrez les stratégies les plus efficaces pour améliorer votre visibilité dans les recherches locales.",
-    author: "Antoine Dubois",
+      "Découvrez les meilleures pratiques pour optimiser votre présence en ligne locale et attirer plus de clients dans votre région.",
+    date: "15 mars 2025",
     category: "SEO",
-    date: "15 mars 2023",
-    readTime: "8 min",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 2,
-    title: "Les avantages de Next.js pour votre projet web",
+    title: "Les tendances du développement web à surveiller",
     excerpt:
-      "Next.js s'impose comme un framework incontournable pour le développement web moderne. Découvrez pourquoi tant de développeurs et d'entreprises l'adoptent.",
-    author: "Sophie Martin",
+      "Exploration des technologies et frameworks émergents qui façonnent l'avenir du développement web moderne.",
+    date: "28 avril 2025",
     category: "Développement",
-    date: "28 avril 2023",
-    readTime: "6 min",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 3,
-    title: "L'importance du Core Web Vitals pour votre SEO",
+    title: "Pourquoi votre entreprise a besoin d'une stratégie mobile",
     excerpt:
-      "Les Core Web Vitals sont devenus un facteur de classement essentiel pour Google. Apprenez comment optimiser ces métriques pour améliorer votre référencement.",
-    author: "Thomas Laurent",
-    category: "Performance",
-    date: "10 mai 2023",
-    readTime: "7 min",
+      "L'importance d'une approche mobile-first dans le paysage numérique actuel et comment l'implémenter efficacement.",
+    date: "10 mai 2025",
+    category: "Stratégie",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 4,
-    title: "Design minimaliste : pourquoi moins c'est souvent plus",
+    title: "Optimiser la vitesse de chargement de votre site web",
     excerpt:
-      "Le design minimaliste gagne en popularité pour sa clarté et son élégance. Découvrez comment l'adopter pour créer des interfaces utilisateur plus efficaces.",
-    author: "Julie Moreau",
-    category: "Design",
-    date: "22 juin 2023",
-    readTime: "5 min",
+      "Guide complet pour améliorer les performances de votre site et offrir une meilleure expérience utilisateur.",
+    date: "22 juin 2025",
+    category: "Performance",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 5,
-    title: "Sécuriser votre site WordPress : guide complet",
+    title: "L'importance de l'accessibilité web pour votre site",
     excerpt:
-      "WordPress est souvent la cible d'attaques en raison de sa popularité. Voici les mesures essentielles pour protéger votre site et vos données.",
-    author: "Sophie Martin",
-    category: "Sécurité",
-    date: "7 juillet 2023",
-    readTime: "9 min",
+      "Comment rendre votre site accessible à tous les utilisateurs et pourquoi c'est essentiel pour votre entreprise.",
+    date: "7 juillet 2025",
+    category: "Accessibilité",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 6,
-    title: "Headless CMS : l'avenir de la gestion de contenu ?",
+    title: "Les avantages d'un site web sur mesure vs template",
     excerpt:
-      "Les CMS headless séparent le frontend du backend, offrant plus de flexibilité aux développeurs. Découvrez si cette approche convient à votre projet.",
-    author: "Thomas Laurent",
+      "Analyse comparative entre les solutions personnalisées et les templates préconçus pour votre présence en ligne.",
+    date: "19 août 2025",
     category: "Développement",
-    date: "19 août 2023",
-    readTime: "7 min",
     image: "/images/placeholder-blog.jpg",
   },
 ];
@@ -107,7 +94,7 @@ export default function BlogPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article) => (
+            {blogPosts.map((article) => (
               <Card key={article.id} className="flex flex-col h-full">
                 <div className="aspect-video bg-neutral-100 dark:bg-neutral-800 relative flex items-center justify-center">
                   <p className="text-neutral-400 text-center">
@@ -124,11 +111,6 @@ export default function BlogPage() {
                     </span>
                   </div>
                   <CardTitle className="text-xl">{article.title}</CardTitle>
-                  <CardDescription className="flex items-center text-xs">
-                    <span>Par {article.author}</span>
-                    <span className="mx-2">•</span>
-                    <span>{article.readTime} de lecture</span>
-                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">
