@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { event } from "@/lib/analytics";
 
 interface FormData {
   firstName: string;
@@ -112,10 +113,25 @@ export default function ContactPage() {
 
     if (!validateForm()) {
       toast.error("Veuillez corriger les erreurs dans le formulaire");
+
+      // Tracking des erreurs de validation
+      event({
+        action: "form_validation_error",
+        category: "contact",
+        label: Object.keys(errors).join(","),
+      });
+
       return;
     }
 
     setIsSubmitting(true);
+
+    // Tracking du début de soumission
+    event({
+      action: "contact_form_submit_start",
+      category: "contact",
+      label: formData.subject,
+    });
 
     try {
       const response = await fetch("/api/contact", {
@@ -129,6 +145,13 @@ export default function ContactPage() {
       const data = await response.json();
 
       if (response.ok) {
+        // Tracking du succès de la soumission
+        event({
+          action: "contact_form_submit_success",
+          category: "contact",
+          label: formData.subject,
+        });
+
         toast.success(
           "Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais."
         );
@@ -143,12 +166,26 @@ export default function ContactPage() {
           consent: false,
         });
       } else {
+        // Tracking des erreurs d'API
+        event({
+          action: "contact_form_submit_api_error",
+          category: "contact",
+          label: data.message || "Unknown API error",
+        });
+
         toast.error(
           data.message ||
             "Une erreur est survenue. Veuillez réessayer plus tard."
         );
       }
     } catch (error) {
+      // Tracking des erreurs réseau
+      event({
+        action: "contact_form_submit_network_error",
+        category: "contact",
+        label: error instanceof Error ? error.message : "Unknown error",
+      });
+
       toast.error(
         "Problème de connexion. Veuillez vérifier votre connexion internet et réessayer."
       );

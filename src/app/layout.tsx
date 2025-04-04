@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import "./seo.css";
+import Analytics from "@/lib/analytics";
+import CookieConsent from "@/components/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -139,8 +141,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-black dark:text-white min-h-screen`}
       >
+        <Analytics />
         {children}
         <Toaster />
+        <CookieConsent />
       </body>
     </html>
   );
