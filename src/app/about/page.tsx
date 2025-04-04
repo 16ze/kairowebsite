@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-white dark:bg-black">
+      <section className="pt-36 pb-16 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">
           <ScrollReveal animation="fade-down">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">

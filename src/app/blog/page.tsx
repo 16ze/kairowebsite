@@ -93,7 +93,7 @@ export default function BlogPage() {
   return (
     <MainLayout>
       {/* Header */}
-      <section className="pt-20 pb-10 bg-white dark:bg-black">
+      <section className="pt-36 pb-10 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">

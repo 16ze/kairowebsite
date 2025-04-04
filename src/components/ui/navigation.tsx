@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -16,6 +17,8 @@ const navLinks = [
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +39,9 @@ export function Navigation() {
       className={`py-4 border-b ${
         isScrolled
           ? "border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-black/95"
-          : "border-transparent bg-transparent dark:bg-transparent"
+          : isHomePage
+          ? "border-transparent bg-transparent dark:bg-transparent"
+          : "border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-black/95"
       } transition-all duration-300 backdrop-blur-sm fixed top-0 left-0 right-0 z-50`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -51,7 +56,7 @@ export function Navigation() {
               <span className="text-xl md:text-2xl font-black tracking-tighter flex items-center relative">
                 <span
                   className={`${
-                    isScrolled
+                    isScrolled || !isHomePage
                       ? "bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-700 dark:to-blue-500 bg-clip-text text-transparent"
                       : "text-white dark:text-white drop-shadow-md"
                   }`}
@@ -64,7 +69,7 @@ export function Navigation() {
               </span>
               <span
                 className={`text-sm md:text-base font-medium ml-1.5 ${
-                  isScrolled
+                  isScrolled || !isHomePage
                     ? "text-neutral-600 dark:text-neutral-400"
                     : "text-white dark:text-white"
                 } group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors`}
@@ -82,10 +87,12 @@ export function Navigation() {
               key={link.name}
               href={link.href}
               className={`text-sm font-medium ${
-                isScrolled
+                isScrolled || !isHomePage
                   ? "text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
                   : "text-white hover:text-white/80 dark:text-white dark:hover:text-white/80"
-              } transition-colors ${!isScrolled ? "drop-shadow-sm" : ""}`}
+              } transition-colors ${
+                !isScrolled && isHomePage ? "drop-shadow-sm" : ""
+              }`}
             >
               {link.name}
             </Link>
@@ -96,9 +103,9 @@ export function Navigation() {
         <div className="hidden md:block">
           <Button
             asChild
-            variant={isScrolled ? "default" : "outline"}
+            variant={isScrolled || !isHomePage ? "default" : "outline"}
             className={
-              !isScrolled
+              !isScrolled && isHomePage
                 ? "border-white/80 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white shadow-sm backdrop-blur-sm transition-all duration-300"
                 : "bg-blue-800 hover:bg-blue-900 border-none shadow-sm"
             }
@@ -110,7 +117,7 @@ export function Navigation() {
         {/* Mobile Menu Button */}
         <button
           className={`md:hidden ${
-            isScrolled
+            isScrolled || !isHomePage
               ? "text-neutral-600 dark:text-neutral-300"
               : "text-white dark:text-white drop-shadow-sm"
           }`}

@@ -102,7 +102,7 @@ export default function PortfolioPage() {
   return (
     <MainLayout>
       {/* Header */}
-      <section className="pt-20 pb-10 bg-white dark:bg-black">
+      <section className="pt-36 pb-10 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Notre Portfolio
