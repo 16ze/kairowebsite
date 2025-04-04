@@ -16,12 +16,12 @@ export default function Home() {
     <MainLayout>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-white dark:bg-black overflow-hidden">
-        <div className="absolute inset-0 z-0 animate-subtle-float">
+        <div className="absolute inset-0 z-0 will-change-transform perspective-1000 animate-subtle-float origin-center">
           <Image
             src="/images/kairo-hero-img.webp"
             alt="Hero background"
             fill
-            className="object-cover opacity-20 dark:opacity-10"
+            className="object-cover opacity-25 dark:opacity-15"
             priority
           />
         </div>
