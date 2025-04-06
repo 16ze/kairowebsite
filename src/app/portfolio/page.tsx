@@ -12,11 +12,11 @@ import {
 
 export const metadata = {
   title:
-    "Portfolio | KAIRO Digital - Agence de développement web et optimisation SEO",
+    "Portfolio | KAIRO Digital - Développeur web freelance et consultant SEO",
   description:
-    "Découvrez notre portfolio de projets de développement web et d'optimisation SEO. Des solutions sur mesure pour répondre à vos besoins spécifiques.",
+    "Découvrez mes projets de développement web et d'optimisation SEO. Des sites web performants, élégants et optimisés pour les moteurs de recherche.",
   keywords:
-    "portfolio, projets, développement web, optimisation SEO, site web, agence web, design",
+    "portfolio, projets, développement web, optimisation SEO, site web, freelance, développeur indépendant, design",
 };
 
 // Projets fictifs pour la démonstration

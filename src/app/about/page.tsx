@@ -5,11 +5,11 @@ import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
 export const metadata = {
   title:
-    "À propos | KAIRO Digital - Agence de développement web et optimisation SEO",
+    "À propos | KAIRO Digital - Développeur web freelance et consultant SEO",
   description:
-    "Découvrez l'histoire de KAIRO Digital, notre équipe passionnée et nos valeurs. Nous sommes spécialisés dans le développement web et l'optimisation SEO pour maximiser votre présence en ligne.",
+    "Découvrez mon parcours, mes compétences et ma philosophie de travail. Je suis spécialisé dans le développement web et l'optimisation SEO pour maximiser votre présence en ligne.",
   keywords:
-    "à propos, équipe, histoire, valeurs, développement web, optimisation SEO, site web, agence web",
+    "à propos, parcours, compétences, développement web, optimisation SEO, site web, freelance, développeur indépendant",
 };
 
 export default function AboutPage() {
@@ -27,51 +27,36 @@ export default function AboutPage() {
 
           <ScrollReveal animation="fade-up" delay={1} threshold={0.2}>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-              Nous sommes une agence spécialisée dans le développement web et
-              l&apos;optimisation pour les moteurs de recherche, dédiée à
-              propulser votre entreprise vers de nouveaux sommets.
+              Je suis un développeur web freelance spécialisé dans la création
+              de sites web performants et l&apos;optimisation pour les moteurs
+              de recherche, dédié à propulser votre entreprise vers de nouveaux
+              sommets.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6">Notre histoire</h2>
-            <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-              Fondée en 2020, KAIRO Digital est née de la passion commune de ses
-              fondateurs pour le développement web et le marketing digital.
-              Notre mission est simple : aider les entreprises à se démarquer en
-              ligne grâce à des solutions web performantes et durables.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Notre Histoire */}
+      {/* Mon parcours */}
       <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <ScrollReveal animation="fade-right" threshold={0.1}>
               <div>
-                <h2 className="text-3xl font-bold mb-6">Notre Histoire</h2>
+                <h2 className="text-3xl font-bold mb-6">Mon Parcours</h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Fondée en 2020, KAIRO Digital est née de la passion commune de
-                  ses fondateurs pour le développement web et le marketing
-                  digital. Notre mission est simple : aider les entreprises à se
-                  démarquer en ligne grâce à des solutions web performantes et
-                  durables.
+                  J'ai débuté ma carrière en 2015 en tant que développeur web,
+                  travaillant sur divers projets qui m'ont permis d'acquérir une
+                  solide expertise technique. En 2020, j'ai décidé de me lancer
+                  en tant que freelance sous le nom KAIRO Digital pour offrir
+                  des services plus personnalisés à mes clients.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Depuis nos débuts, nous avons accompagné plus de 50
-                  entreprises dans leur transformation numérique, en créant des
-                  sites web performants et optimisés pour les moteurs de
-                  recherche.
+                  Depuis, j'ai accompagné plus de 50 entreprises dans leur
+                  transformation numérique, en créant des sites web performants
+                  et optimisés pour les moteurs de recherche.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Notre expertise s&apos;est construite progressivement, en
+                  Mon expertise s&apos;est construite progressivement, en
                   restant toujours à la pointe des dernières technologies et des
                   meilleures pratiques du web.
                 </p>
@@ -82,7 +67,7 @@ export default function AboutPage() {
               <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <p className="text-neutral-400 text-center relative z-10 transform group-hover:scale-105 transition-transform duration-500">
-                  Illustration historique de l&apos;agence
+                  Photo du développeur
                 </p>
               </div>
             </ScrollReveal>
@@ -90,12 +75,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Nos Valeurs */}
+      {/* Mes Valeurs */}
       <section className="py-16 border-b border-neutral-100 dark:border-neutral-800">
         <div className="container mx-auto px-4">
           <ScrollReveal animation="fade-down" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-12 text-center">
-              Nos Valeurs
+              Mes Valeurs
             </h2>
           </ScrollReveal>
 
@@ -124,8 +109,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Excellence</h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Nous visons l&apos;excellence dans chaque projet, sans compromis
-                sur la qualité et la performance.
+                Je vise l&apos;excellence dans chaque projet, sans compromis sur
+                la qualité et la performance.
               </p>
             </div>
             <div className="text-center p-6 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1">
@@ -147,7 +132,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Collaboration</h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Nous travaillons en étroite collaboration avec nos clients pour
+                Je travaille en étroite collaboration avec mes clients pour
                 comprendre leurs besoins et dépasser leurs attentes.
               </p>
             </div>
@@ -170,7 +155,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Innovation</h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Nous restons à la pointe des technologies et des pratiques pour
+                Je reste à la pointe des technologies et des pratiques pour
                 offrir des solutions innovantes et performantes.
               </p>
             </div>
@@ -178,98 +163,64 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Notre Équipe */}
+      {/* Mes Compétences */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <ScrollReveal animation="fade-down" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-12 text-center">
-              Notre Équipe
+              Mes Compétences
             </h2>
           </ScrollReveal>
 
-          <ScrollRevealGroup
-            animation="zoom"
-            stagger={0.15}
-            threshold={0.1}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {/* Membre 1 */}
-            <div className="text-center group">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
-                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
-                  Photo
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <ScrollReveal animation="fade-right">
+              <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-sm">
+                <h3 className="text-xl font-bold mb-4">Développement Web</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>React, Next.js, TypeScript</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>Tailwind CSS, Styled Components</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>Node.js, Express</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>Sites e-commerce (Shopify, WooCommerce)</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
-                Thomas Laurent
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-                Fondateur & CEO
-              </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
-                Expert en stratégie digitale avec plus de 10 ans
-                d&apos;expérience dans le développement web.
-              </p>
-            </div>
-            {/* Membre 2 */}
-            <div className="text-center group">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
-                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
-                  Photo
-                </p>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-left" delay={1}>
+              <div className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow-sm">
+                <h3 className="text-xl font-bold mb-4">SEO & Marketing</h3>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>Optimisation technique SEO</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>Recherche de mots-clés & stratégie de contenu</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>Google Analytics & Search Console</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="mr-2 text-blue-600">✓</span>
+                    <span>Audit SEO & optimisations</span>
+                  </li>
+                </ul>
               </div>
-              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
-                Sophie Martin
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-                Directrice Technique
-              </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
-                Développeuse full-stack spécialisée dans les technologies React
-                et Node.js.
-              </p>
-            </div>
-            {/* Membre 3 */}
-            <div className="text-center group">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
-                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
-                  Photo
-                </p>
-              </div>
-              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
-                Antoine Dubois
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-                Expert SEO
-              </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
-                Consultant SEO avec une expertise particulière en référencement
-                local et e-commerce.
-              </p>
-            </div>
-            {/* Membre 4 */}
-            <div className="text-center group">
-              <div className="aspect-square bg-neutral-100 dark:bg-neutral-800 rounded-full w-40 h-40 mx-auto mb-4 flex items-center justify-center overflow-hidden relative transform transition-all duration-500 group-hover:shadow-lg">
-                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <p className="text-neutral-400 group-hover:scale-110 transition-transform duration-500">
-                  Photo
-                </p>
-              </div>
-              <h3 className="text-xl font-bold group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors duration-300">
-                Julie Moreau
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-                UI/UX Designer
-              </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500 max-w-xs mx-auto">
-                Designer créative spécialisée dans la création d&apos;interfaces
-                utilisateur intuitives et élégantes.
-              </p>
-            </div>
-          </ScrollRevealGroup>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -279,12 +230,11 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <ScrollReveal animation="fade-up" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-6">
-              Prêt à travailler avec nous ?
+              Prêt à travailler avec moi ?
             </h2>
             <p className="text-neutral-300 max-w-2xl mx-auto mb-8">
-              Contactez-nous dès aujourd&apos;hui pour discuter de votre projet
-              et découvrir comment notre équipe peut vous aider à atteindre vos
-              objectifs.
+              Contactez-moi dès aujourd&apos;hui pour discuter de votre projet
+              et découvrir comment je peux vous aider à atteindre vos objectifs.
             </p>
             <Button
               asChild

@@ -29,20 +29,35 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kairo-digital.fr"),
   title: {
-    default: "KAIRO Digital | Agence de développement web et optimisation SEO",
+    default: "KAIRO Digital | Développeur web freelance et consultant SEO",
     template: "%s | KAIRO Digital",
   },
   description:
-    "KAIRO Digital est une agence spécialisée dans le développement web et l'optimisation SEO. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+    "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
   generator: "Next.js",
   applicationName: "KAIRO Digital",
   referrer: "origin-when-cross-origin",
-  keywords:
-    "développement web, optimisation SEO, site web, agence web, design, responsive, Next.js, React, Tailwind CSS",
-  authors: [{ name: "KAIRO Digital", url: "https://www.kairo-digital.fr" }],
+  keywords: [
+    "développement web",
+    "optimisation SEO",
+    "site web",
+    "freelance",
+    "développeur indépendant",
+    "design",
+    "responsive",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+  ],
+  authors: [
+    {
+      name: "KAIRO Digital",
+      url: "https://www.kairo-digital.fr",
+    },
+  ],
   creator: "KAIRO Digital",
   publisher: "KAIRO Digital",
-  category: "technology",
+  category: "Web Development",
   formatDetection: {
     email: false,
     address: false,
@@ -56,31 +71,23 @@ export const metadata: Metadata = {
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
-      "max-video-preview": -1,
     },
   },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://www.kairo-digital.fr",
-    title: "KAIRO Digital | Agence de développement web et optimisation SEO",
+    url: "https://www.kairo-digital.fr/",
+    title: "KAIRO Digital | Développeur web freelance et consultant SEO",
     description:
-      "KAIRO Digital est une agence spécialisée dans le développement web et l'optimisation SEO. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+      "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
     siteName: "KAIRO Digital",
-    images: [
-      {
-        url: "https://www.kairo-digital.fr/images/kairo-og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "KAIRO Digital - Agence de développement web et optimisation SEO",
-      },
-    ],
+    images: ["https://www.kairo-digital.fr/images/kairo-og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KAIRO Digital | Agence de développement web et optimisation SEO",
+    title: "KAIRO Digital | Développeur web freelance et consultant SEO",
     description:
-      "KAIRO Digital est une agence spécialisée dans le développement web et l'optimisation SEO. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+      "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
     creator: "@kairodigital",
     images: ["https://www.kairo-digital.fr/images/kairo-og-image.jpg"],
   },

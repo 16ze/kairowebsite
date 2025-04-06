@@ -29,8 +29,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400 max-w-md">
-              Agence spécialisée dans le développement web et
-              l&apos;optimisation SEO. Nous créons des sites web performants,
+              Développeur freelance spécialisé dans le développement web et
+              l&apos;optimisation SEO. Je crée des sites web performants,
               élégants et optimisés pour les moteurs de recherche.
             </p>
 

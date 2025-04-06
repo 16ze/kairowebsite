@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata = {
   title:
-    "Nos Services | KAIRO Digital - Agence de développement web et optimisation SEO",
+    "Nos Services | KAIRO Digital - Développeur web freelance et consultant SEO",
   description:
     "Découvrez nos services de développement web et d'optimisation SEO. Des solutions sur mesure pour améliorer votre présence en ligne et générer plus de trafic qualifié.",
 };

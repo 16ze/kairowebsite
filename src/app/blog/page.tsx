@@ -10,8 +10,7 @@ import {
 } from "@/components/ui/card";
 
 export const metadata = {
-  title:
-    "Blog | KAIRO Digital - Agence de développement web et optimisation SEO",
+  title: "Blog | KAIRO Digital - Développeur web freelance et consultant SEO",
   description:
     "Découvrez nos articles et conseils sur le développement web, l'optimisation SEO et les tendances du digital pour améliorer votre présence en ligne.",
   keywords:

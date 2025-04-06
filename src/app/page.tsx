@@ -14,11 +14,11 @@ import { MainLayout } from "@/components/layout/main-layout";
 import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
 export const metadata = {
-  title: "KAIRO Digital | Agence de développement web et optimisation SEO",
+  title: "KAIRO Digital | Développeur web freelance et consultant SEO",
   description:
-    "KAIRO Digital est une agence de développement web et d'optimisation SEO qui vous aide à créer une présence en ligne puissante avec des sites web performants et optimisés.",
+    "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
   keywords:
-    "développement web, optimisation SEO, site web, agence web, design, responsive, Next.js, React, Tailwind CSS, Paris",
+    "développement web, optimisation SEO, site web, freelance, développeur indépendant, design, responsive, Next.js, React, Tailwind CSS, Paris",
   alternates: {
     canonical: "https://www.kairo-digital.fr",
   },
@@ -33,7 +33,7 @@ export default function Home() {
           "@type": "WebSite",
           url: "https://www.kairo-digital.fr/",
           name: "KAIRO Digital",
-          description: "Agence de développement web et optimisation SEO",
+          description: "Développeur web freelance et consultant SEO",
           potentialAction: {
             "@type": "SearchAction",
             target:
