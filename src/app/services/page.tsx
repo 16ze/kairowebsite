@@ -1,13 +1,8 @@
+"use client";
+
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
-export const metadata = {
-  title:
-    "Nos Services | KAIRO Digital - Développeur web freelance et consultant SEO",
-  description:
-    "Découvrez nos services de développement web et d'optimisation SEO. Des solutions sur mesure pour améliorer votre présence en ligne et générer plus de trafic qualifié.",
-};
 
 export default function ServicesPage() {
   return (
@@ -17,8 +12,8 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Nos Services</h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-            Des solutions sur mesure pour répondre à vos besoins en
-            développement web et référencement naturel.
+            Des solutions web sur mesure et abordables pour les TPE, PME et
+            startups. Développez votre activité en ligne sans vous ruiner.
           </p>
         </div>
       </section>
@@ -127,10 +122,17 @@ export default function ServicesPage() {
                 <Link href="/contact">Demander un devis</Link>
               </Button>
             </div>
-            <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center">
-              <p className="text-neutral-400 text-center">
-                Illustration du service de développement web
-              </p>
+            <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center overflow-hidden">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+              >
+                <source src="/images/Developpement-web.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
             </div>
           </div>
         </div>
@@ -142,10 +144,17 @@ export default function ServicesPage() {
       >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1 bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center">
-              <p className="text-neutral-400 text-center">
-                Illustration du service d&apos;optimisation SEO
-              </p>
+            <div className="order-2 md:order-1 bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center overflow-hidden">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+              >
+                <source src="/images/Optimisation-SEO.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold mb-4">Optimisation SEO</h2>
@@ -350,10 +359,17 @@ export default function ServicesPage() {
                 <Link href="/contact">En savoir plus</Link>
               </Button>
             </div>
-            <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center">
-              <p className="text-neutral-400 text-center">
-                Illustration du service de maintenance
-              </p>
+            <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center overflow-hidden">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover rounded-lg"
+              >
+                <source src="/images/Maintenance.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
             </div>
           </div>
         </div>
@@ -373,7 +389,7 @@ export default function ServicesPage() {
             asChild
             size="lg"
             variant="outline"
-            className="border-white hover:bg-white hover:text-black"
+            className="border-2 border-white dark:border-white text-neutral-800 dark:text-white bg-white dark:bg-transparent hover:bg-transparent dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-300"
           >
             <Link href="/contact">Prendre contact</Link>
           </Button>

@@ -28,9 +28,9 @@ export default function AboutPage() {
           <ScrollReveal animation="fade-up" delay={1} threshold={0.2}>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
               Je suis un développeur web freelance spécialisé dans la création
-              de sites web performants et l&apos;optimisation pour les moteurs
-              de recherche, dédié à propulser votre entreprise vers de nouveaux
-              sommets.
+              de sites web performants et rentables pour les TPE, PME et
+              startups. Mon objectif : vous offrir des solutions web accessibles
+              qui propulsent votre entreprise, même avec un budget limité.
             </p>
           </ScrollReveal>
         </div>
@@ -44,21 +44,23 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Mon Parcours</h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  J'ai débuté ma carrière en 2015 en tant que développeur web,
-                  travaillant sur divers projets qui m'ont permis d'acquérir une
-                  solide expertise technique. En 2020, j'ai décidé de me lancer
-                  en tant que freelance sous le nom KAIRO Digital pour offrir
-                  des services plus personnalisés à mes clients.
+                  J&apos;ai débuté ma carrière en 2015 en tant que développeur
+                  web, travaillant sur divers projets qui m&apos;ont permis
+                  d&apos;acquérir une solide expertise technique. En 2020,
+                  j&apos;ai décidé de me lancer en tant que freelance sous le
+                  nom KAIRO Digital pour offrir des services plus personnalisés
+                  à mes clients.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Depuis, j'ai accompagné plus de 50 entreprises dans leur
+                  Depuis, j&apos;ai accompagné plus de 50 TPE et PME dans leur
                   transformation numérique, en créant des sites web performants
-                  et optimisés pour les moteurs de recherche.
+                  et accessibles financièrement, sans compromettre la qualité.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Mon expertise s&apos;est construite progressivement, en
-                  restant toujours à la pointe des dernières technologies et des
-                  meilleures pratiques du web.
+                  Mon expertise s&apos;est construite en comprenant les défis
+                  spécifiques des petites structures : budgets limités, besoin
+                  de résultats rapides et nécessité d&apos;un accompagnement
+                  personnalisé.
                 </p>
               </div>
             </ScrollReveal>
@@ -191,7 +193,7 @@ export default function AboutPage() {
                   </li>
                   <li className="flex items-center">
                     <span className="mr-2 text-blue-600">✓</span>
-                    <span>Sites e-commerce (Shopify, WooCommerce)</span>
+                    <span>Sites de réservation en ligne</span>
                   </li>
                 </ul>
               </div>

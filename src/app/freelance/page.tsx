@@ -9,19 +9,19 @@ export default function FreelancePage() {
       <section className="pt-36 pb-16 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8">
-            Développement Web Freelance pour Petites Entreprises
+            Développement Web & Solutions Digitales Sur Mesure
           </h1>
           <div className="w-20 h-1 bg-neutral-200 dark:bg-neutral-800 mx-auto mb-12"></div>
 
           {/* Introduction */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Je suis Bryan, développeur web freelance spécialisé dans
-              l&apos;accompagnement des petites entreprises. Mon objectif est de
-              vous aider à développer une présence en ligne solide grâce à des
-              sites web adaptés à vos besoins et une optimisation SEO efficace.
-              Vous avez un projet en tête ? Je suis là pour le concrétiser avec
-              vous.
+              Je suis Bryan, développeur web freelance et expert en solutions
+              digitales. Mon approche personnalisée me permet d&apos;accompagner
+              chaque client dans la création d&apos;une présence en ligne
+              percutante et efficace. Que vous soyez une startup, une PME ou une
+              organisation établie, je transforme vos idées en réalisations
+              concrètes et adaptées à vos objectifs.
             </p>
           </div>
         </div>
@@ -170,54 +170,66 @@ export default function FreelancePage() {
         </div>
       </section>
 
-      {/* Pourquoi choisir un freelance */}
+      {/* Mes avantages en tant que freelance */}
       <section className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Pourquoi choisir un freelance plutôt qu&apos;une agence ?
+              Les atouts d&apos;une collaboration personnalisée
             </h2>
 
             <div className="grid gap-8 md:grid-cols-2 mb-12">
               <div className="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-3">Contact direct</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Contact direct et immédiat
+                </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Vous travaillez directement avec moi, sans intermédiaire. Une
-                  communication plus fluide et des décisions plus rapides.
+                  Communication directe sans intermédiaire. Vous discutez avec
+                  la personne qui travaille concrètement sur votre projet.
                 </p>
               </div>
 
               <div className="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-3">Tarifs transparents</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Structure légère et efficace
+                </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Des prix plus abordables sans compromis sur la qualité. Pas de
-                  frais cachés ni de surprises.
+                  Une structure simplifiée permet d&apos;offrir des tarifs
+                  adaptés aux petites entreprises tout en maintenant une qualité
+                  professionnelle.
                 </p>
               </div>
 
               <div className="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-3">Flexibilité</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Souplesse d&apos;intervention
+                </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Je m&apos;adapte à vos besoins spécifiques et à votre budget.
-                  Des solutions sur mesure, pas de formules toutes faites.
+                  Adaptation rapide à l&apos;évolution de vos besoins et de
+                  votre budget, avec des solutions ajustées en temps réel.
                 </p>
               </div>
 
               <div className="bg-neutral-50 dark:bg-neutral-900 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-3">Réactivité</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Disponibilité optimisée
+                </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Des délais plus courts et une capacité d&apos;adaptation
-                  rapide aux changements et aux nouvelles demandes.
+                  En limitant volontairement mon nombre de clients, je garantis
+                  une attention soutenue et une réactivité maximale à chaque
+                  projet.
                 </p>
               </div>
             </div>
 
             <p className="text-center text-lg text-neutral-600 dark:text-neutral-400">
-              En choisissant de travailler avec un freelance, vous bénéficiez
-              d&apos;une approche plus personnalisée et d&apos;une relation
-              directe. Contrairement aux grandes agences, je me concentre sur un
-              nombre limité de projets à la fois, ce qui garantit une meilleure
-              attention à vos besoins.
+              Mon approche freelance est idéale pour les TPE, PME et startups
+              cherchant un accompagnement personnalisé et direct. Selon vos
+              besoins spécifiques, l&apos;ampleur de votre projet et vos
+              objectifs, différentes solutions existent - parfois un freelance
+              comme moi est le meilleur choix, d&apos;autres fois une agence
+              peut être plus adaptée, et souvent nous pouvons collaborer
+              ensemble.
             </p>
           </div>
         </div>

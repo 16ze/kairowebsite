@@ -17,60 +17,103 @@ export const metadata = {
     "blog, articles, développement web, optimisation SEO, webdesign, tendances web",
 };
 
-// Articles fictifs pour la démonstration
+// Articles à jour pour 2025
 const blogPosts = [
   {
     id: 1,
-    title: "Comment améliorer votre référencement local en 2025",
+    slug: "ia-seo-2025-google-gemini",
+    title:
+      "IA et SEO en 2025 : Comment Google Gemini révolutionne le référencement",
     excerpt:
-      "Découvrez les meilleures pratiques pour optimiser votre présence en ligne locale et attirer plus de clients dans votre région.",
-    date: "15 mars 2025",
+      "Analyse de l'impact des nouveaux algorithmes d'IA de Google sur les stratégies SEO et les méthodes pour adapter votre contenu à cette évolution majeure.",
+    date: "12 février 2025",
     category: "SEO",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 2,
-    title: "Les tendances du développement web à surveiller",
+    slug: "web-components-micro-frontends-2025",
+    title:
+      "Web Components et Micro-Frontends : L'architecture frontale en 2025",
     excerpt:
-      "Exploration des technologies et frameworks émergents qui façonnent l'avenir du développement web moderne.",
-    date: "28 avril 2025",
+      "Comment les Web Components et l'approche Micro-Frontends transforment le développement d'applications web modernes avec une meilleure modularité et maintenabilité.",
+    date: "3 mars 2025",
     category: "Développement",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 3,
-    title: "Pourquoi votre entreprise a besoin d'une stratégie mobile",
+    slug: "core-web-vitals-2-nouveaux-metriques-2025",
+    title:
+      "Les Core Web Vitals 2.0 : Nouveaux métriques de performance pour 2025",
     excerpt:
-      "L'importance d'une approche mobile-first dans le paysage numérique actuel et comment l'implémenter efficacement.",
-    date: "10 mai 2025",
-    category: "Stratégie",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 4,
-    title: "Optimiser la vitesse de chargement de votre site web",
-    excerpt:
-      "Guide complet pour améliorer les performances de votre site et offrir une meilleure expérience utilisateur.",
-    date: "22 juin 2025",
+      "Google a mis à jour ses métriques Core Web Vitals avec de nouveaux indicateurs. Découvrez comment optimiser votre site pour ces critères qui impactent directement votre classement.",
+    date: "27 mars 2025",
     category: "Performance",
     image: "/images/placeholder-blog.jpg",
   },
   {
-    id: 5,
-    title: "L'importance de l'accessibilité web pour votre site",
+    id: 4,
+    slug: "edge-computing-serverless-2025",
+    title:
+      "Edge Computing et Serverless : Optimiser les applications web en 2025",
     excerpt:
-      "Comment rendre votre site accessible à tous les utilisateurs et pourquoi c'est essentiel pour votre entreprise.",
-    date: "7 juillet 2025",
-    category: "Accessibilité",
+      "Comment combiner Edge Computing et architectures Serverless pour créer des applications web ultra-performantes avec une latence minimale, même à l'échelle mondiale.",
+    date: "15 avril 2025",
+    category: "Architecture",
+    image: "/images/placeholder-blog.jpg",
+  },
+  {
+    id: 5,
+    slug: "seo-local-2025-strategies-recherches-geolocalisees",
+    title:
+      "SEO local 2025 : Stratégies pour dominer les recherches géolocalisées",
+    excerpt:
+      "Les dernières techniques pour optimiser votre présence locale, exploiter Google Business Profile 2.0 et attirer plus de clients dans votre zone géographique.",
+    date: "29 avril 2025",
+    category: "SEO Local",
     image: "/images/placeholder-blog.jpg",
   },
   {
     id: 6,
-    title: "Les avantages d'un site web sur mesure vs template",
+    slug: "web3-ecommerce-tpe-pme-2025",
+    title:
+      "Web3 et commerce électronique : Nouvelles possibilités pour les TPE/PME",
     excerpt:
-      "Analyse comparative entre les solutions personnalisées et les templates préconçus pour votre présence en ligne.",
-    date: "19 août 2025",
-    category: "Développement",
+      "Comment les petites entreprises peuvent tirer parti des technologies Web3, comme les NFT et les smart contracts, pour créer de nouvelles opportunités commerciales.",
+    date: "18 mai 2025",
+    category: "Innovation",
+    image: "/images/placeholder-blog.jpg",
+  },
+  {
+    id: 7,
+    slug: "ia-generative-creation-sites-web-2025",
+    title: "L'impact de l'IA générative sur la création de sites web en 2025",
+    excerpt:
+      "L'IA générative transforme la conception et le développement web. Découvrez comment l'utiliser efficacement tout en maintenant l'originalité et la qualité de votre présence en ligne.",
+    date: "2 juin 2025",
+    category: "IA & Design",
+    image: "/images/placeholder-blog.jpg",
+  },
+  {
+    id: 8,
+    slug: "progressive-web-apps-2025-standard-mobile",
+    title:
+      "Progressive Web Apps en 2025 : Le nouveau standard pour les sites mobiles",
+    excerpt:
+      "Les PWA sont désormais incontournables pour offrir une expérience mobile optimale. Découvrez les dernières fonctionnalités et comment les implémenter efficacement.",
+    date: "24 juin 2025",
+    category: "Mobile",
+    image: "/images/placeholder-blog.jpg",
+  },
+  {
+    id: 9,
+    slug: "gdpr-2-cookieless-tracking-2025",
+    title: "GDPR 2.0 et Cookie-less Tracking : Conformité et analytics en 2025",
+    excerpt:
+      "Les nouvelles régulations européennes et la fin des cookies tiers transforment l'analyse de données. Voici comment rester conforme tout en collectant des données pertinentes.",
+    date: "8 juillet 2025",
+    category: "Légal & Analytics",
     image: "/images/placeholder-blog.jpg",
   },
 ];
@@ -118,7 +161,7 @@ export default function BlogPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild variant="outline" className="w-full">
-                    <Link href={`/blog/${article.id}`}>
+                    <Link href={`/blog/${article.slug}`}>
                       Lire l&apos;article
                     </Link>
                   </Button>

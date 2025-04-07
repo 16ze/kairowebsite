@@ -7,22 +7,93 @@ export function Footer() {
   return (
     <footer className="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 py-12 mt-auto">
       <div className="container mx-auto px-4">
-        {/* CTA Section */}
-        <div className="text-center mb-12 pb-12 border-b border-neutral-200 dark:border-neutral-800">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Prêt à Développer Votre Présence en Ligne ?
-          </h2>
-          <p className="text-neutral-600 dark:text-neutral-400 mb-6 max-w-2xl mx-auto">
-            Obtenez un audit SEO gratuit d&apos;une valeur de 250€ et un devis
-            personnalisé pour votre projet.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700">
-              <Link href="/contact">Demander mon audit gratuit →</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/portfolio">Voir mes réalisations</Link>
-            </Button>
+        {/* Mise en avant projets rapides */}
+        <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-800 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center p-6 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
+            <div className="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full mx-auto mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <h3 className="font-bold mb-2">Site Express</h3>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+              Un site vitrine professionnel livré en 7 jours seulement.
+            </p>
+            <Link
+              href="/contact?projet=express"
+              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              À partir de 990€ →
+            </Link>
+          </div>
+
+          <div className="text-center p-6 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
+            <div className="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full mx-auto mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="font-bold mb-2">Audit SEO Rapide</h3>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+              Un diagnostic complet de votre site en 48h.
+            </p>
+            <Link
+              href="/contact?projet=audit"
+              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              250€ offert avec un projet →
+            </Link>
+          </div>
+
+          <div className="text-center p-6 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
+            <div className="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full mx-auto mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+            </div>
+            <h3 className="font-bold mb-2">Maintenance Mensuelle</h3>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+              Gardez votre site à jour et sécurisé.
+            </p>
+            <Link
+              href="/contact?projet=maintenance"
+              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              À partir de 49€/mois →
+            </Link>
           </div>
         </div>
 
@@ -49,9 +120,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400 max-w-md">
-              Développeur freelance spécialisé dans le développement web et
-              l&apos;optimisation SEO. Je crée des sites web performants,
-              élégants et optimisés pour les moteurs de recherche.
+              Développeur web freelance spécialisé dans la création de sites web
+              performants et accessibles pour les TPE, PME et startups. Des
+              solutions sur mesure adaptées à votre budget.
             </p>
 
             {/* Trust Badges */}
@@ -207,14 +278,14 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
-              Contact
+              Contact Direct
             </h3>
             <ul className="space-y-3">
               <li className="text-sm text-neutral-600 dark:text-neutral-400">
                 <div className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-blue-600 dark:text-blue-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -227,10 +298,10 @@ export function Footer() {
                     />
                   </svg>
                   <a
-                    href="mailto:contact@kairo.com"
-                    className="hover:text-black dark:hover:text-white transition-colors"
+                    href="mailto:contact@kairo-digital.fr"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    contact@kairo.com
+                    contact@kairo-digital.fr
                   </a>
                 </div>
               </li>
@@ -238,7 +309,7 @@ export function Footer() {
                 <div className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-blue-600 dark:text-blue-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -251,10 +322,10 @@ export function Footer() {
                     />
                   </svg>
                   <a
-                    href="tel:+33123456789"
-                    className="hover:text-black dark:hover:text-white transition-colors"
+                    href="tel:+33766121696"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    +33 1 23 45 67 89
+                    07 66 12 16 96
                   </a>
                 </div>
               </li>
@@ -262,7 +333,7 @@ export function Footer() {
                 <div className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-5 w-5 text-blue-600 dark:text-blue-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -280,13 +351,22 @@ export function Footer() {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <span>Paris, France</span>
+                  <span>Belfort, France</span>
                 </div>
               </li>
               <li className="pt-2">
-                <Button asChild variant="outline" size="sm" className="w-full">
-                  <Link href="/contact">Prendre rendez-vous</Link>
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800"
+                >
+                  <Link href="/contact">Réserver un appel gratuit</Link>
                 </Button>
+              </li>
+              <li className="pt-2">
+                <div className="text-xs text-amber-600 dark:text-amber-400 font-medium text-center">
+                  Disponibilité limitée cette semaine
+                </div>
               </li>
             </ul>
           </div>

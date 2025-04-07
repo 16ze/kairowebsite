@@ -18,6 +18,11 @@ User-agent: Googlebot-Image
 Allow: /images/
 Allow: /public/images/
 
+# Règles pour le blog - priorité d'indexation
+User-agent: Googlebot
+Allow: /blog/
+Crawl-delay: 0.3
+
 # Règles pour Bing
 User-agent: Bingbot
 Allow: /

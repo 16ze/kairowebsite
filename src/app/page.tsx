@@ -149,7 +149,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal animation="zoom" delay={2}>
+          <ScrollReveal animation="zoom" delay={3}>
             <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg max-w-xl mx-auto mb-8 animate-fade-in-delay-2 hover:shadow-lg transition-shadow duration-300 border border-white/20">
               <p className="text-sm font-medium text-white">
                 <span className="text-amber-400 dark:text-amber-300 font-bold">
@@ -162,7 +162,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal animation="fade-up" delay={3}>
+          <ScrollReveal animation="fade-up" delay={4}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
               <Button
                 asChild
@@ -206,16 +206,17 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
+      <section id="services" className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <ScrollReveal animation="fade-up">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Comment je peux vous aider
+              <h2 className="text-3xl font-bold mb-4">
+                Solutions web adaptées aux petites entreprises
               </h2>
               <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                Des solutions sur mesure pour développer votre activité en ligne
-                et attirer plus de clients qualifiés.
+                Des services pensés pour les TPE, PME et startups avec un
+                rapport qualité-prix imbattable et des résultats concrets pour
+                votre activité.
               </p>
             </div>
           </ScrollReveal>
