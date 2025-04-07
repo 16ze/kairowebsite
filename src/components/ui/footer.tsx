@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "./button";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,6 +7,25 @@ export function Footer() {
   return (
     <footer className="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 py-12 mt-auto">
       <div className="container mx-auto px-4">
+        {/* CTA Section */}
+        <div className="text-center mb-12 pb-12 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            Prêt à Développer Votre Présence en Ligne ?
+          </h2>
+          <p className="text-neutral-600 dark:text-neutral-400 mb-6 max-w-2xl mx-auto">
+            Obtenez un audit SEO gratuit d&apos;une valeur de 250€ et un devis
+            personnalisé pour votre projet.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-blue-800 hover:bg-blue-700">
+              <Link href="/contact">Demander mon audit gratuit →</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="/portfolio">Voir mes réalisations</Link>
+            </Button>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-2">
@@ -33,6 +53,51 @@ export function Footer() {
               l&apos;optimisation SEO. Je crée des sites web performants,
               élégants et optimisés pour les moteurs de recherche.
             </p>
+
+            {/* Trust Badges */}
+            <div className="mt-6 flex flex-wrap gap-4">
+              <div className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-green-500"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>Satisfaction garantie</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-green-500"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>Paiement sécurisé</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-green-500"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                </svg>
+                <span>+50 clients satisfaits</span>
+              </div>
+            </div>
 
             {/* Social Media Icons */}
             <div className="mt-6 flex items-center space-x-4">
@@ -92,10 +157,10 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
               Navigation
             </h3>
-            <ul className="mt-4 space-y-2">
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
@@ -141,67 +206,118 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
               Contact
             </h3>
-            <ul className="mt-4 space-y-2">
+            <ul className="space-y-3">
               <li className="text-sm text-neutral-600 dark:text-neutral-400">
-                Email:{" "}
-                <a
-                  href="mailto:contact@kairo.com"
-                  className="hover:text-black dark:hover:text-white transition-colors"
-                >
-                  contact@kairo.com
-                </a>
+                <div className="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <a
+                    href="mailto:contact@kairo.com"
+                    className="hover:text-black dark:hover:text-white transition-colors"
+                  >
+                    contact@kairo.com
+                  </a>
+                </div>
               </li>
               <li className="text-sm text-neutral-600 dark:text-neutral-400">
-                Téléphone:{" "}
-                <a
-                  href="tel:+33123456789"
-                  className="hover:text-black dark:hover:text-white transition-colors"
-                >
-                  +33 1 23 45 67 89
-                </a>
+                <div className="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  <a
+                    href="tel:+33123456789"
+                    className="hover:text-black dark:hover:text-white transition-colors"
+                  >
+                    +33 1 23 45 67 89
+                  </a>
+                </div>
               </li>
               <li className="text-sm text-neutral-600 dark:text-neutral-400">
-                Adresse: Paris, France
+                <div className="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  <span>Paris, France</span>
+                </div>
               </li>
               <li className="pt-2">
-                <Link
-                  href="/contact"
-                  className="text-sm font-medium hover:underline"
-                >
-                  Nous contacter
-                </Link>
+                <Button asChild variant="outline" size="sm" className="w-full">
+                  <Link href="/contact">Prendre rendez-vous</Link>
+                </Button>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Copyright & Legal */}
-        <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-neutral-500 dark:text-neutral-400">
-            © {currentYear} KAIRO Digital. Tous droits réservés.
-          </div>
-          <div className="mt-4 md:mt-0 flex flex-wrap justify-center space-x-4">
-            <Link
-              href="/mentions-legales"
-              className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-            >
-              Mentions légales
-            </Link>
-            <Link
-              href="/politique-confidentialite"
-              className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-            >
-              Politique de confidentialité
-            </Link>
-            <Link
-              href="/cgv"
-              className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-            >
-              CGV
-            </Link>
+        <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-sm text-neutral-500 dark:text-neutral-400">
+              © {currentYear} KAIRO Digital. Tous droits réservés.
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/mentions-legales"
+                className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+              >
+                Mentions légales
+              </Link>
+              <Link
+                href="/politique-confidentialite"
+                className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+              >
+                Politique de confidentialité
+              </Link>
+              <Link
+                href="/cgv"
+                className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+              >
+                CGV
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/card";
 import { MainLayout } from "@/components/layout/main-layout";
 import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
+import { StickyCTA } from "@/components/ui/sticky-cta";
+import { Guarantees } from "@/components/sections/guarantees";
 
 export const metadata = {
   title: "KAIRO Digital | Développeur web freelance et consultant SEO",
@@ -89,15 +91,18 @@ export default function Home() {
       </Script>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-900/80 to-neutral-900/90 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 will-change-transform perspective-1000 animate-subtle-float origin-center">
-          <Image
-            src="/images/kairo-hero-img.webp"
-            alt="Hero background"
-            fill
-            className="object-cover opacity-40 dark:opacity-30 mix-blend-overlay"
-            priority
-          />
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-900/30 to-neutral-900/40 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-80 dark:opacity-70 mix-blend-overlay"
+          >
+            <source src="/images/69371-533801345.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-neutral-900/30"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center pt-24 sm:pt-32">
           <ScrollReveal animation="fade-down">
@@ -113,13 +118,35 @@ export default function Home() {
             <p className="text-lg md:text-xl text-white dark:text-neutral-200 max-w-3xl mx-auto mb-8 animate-fade-in-delay drop-shadow-sm">
               <span className="font-semibold">Propulsez votre entreprise</span>{" "}
               grâce à des sites web performants et une stratégie de
-              référencement qui vous place devant vos concurrents. Artisans, PME
-              ou startups :{" "}
-              <span className="font-semibold">
-                transformez votre présence digitale
-              </span>
-              .
+              référencement qui vous place devant vos concurrents.
             </p>
+          </ScrollReveal>
+
+          <ScrollReveal animation="fade-up" delay={2}>
+            <div className="bg-amber-500/10 border border-amber-500/20 p-4 rounded-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-sm md:text-base font-medium flex items-center gap-2 justify-center text-amber-200">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 8v4l3 3"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
+                <span>
+                  <span className="font-bold">Places limitées</span> : Je ne
+                  prends que 3 nouveaux clients par mois pour garantir un suivi
+                  optimal
+                </span>
+              </p>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal animation="zoom" delay={2}>
@@ -140,9 +167,14 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="bg-blue-800 hover:bg-blue-700 text-white shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-blue-900/30 border-none"
+                className="bg-blue-800 hover:bg-blue-700 text-white shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-blue-900/30 border-none group"
               >
-                <Link href="/contact">Demander un devis gratuit</Link>
+                <Link href="/contact" className="flex items-center gap-2">
+                  Demander mon devis gratuit
+                  <span className="group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </Link>
               </Button>
               <Button
                 asChild
@@ -316,179 +348,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Freelance Section */}
-      <section className="py-20 bg-white dark:bg-black border-t border-b border-neutral-200 dark:border-neutral-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <ScrollReveal animation="fade-up">
-              <div className="text-center mb-10">
-                <div className="w-12 h-0.5 bg-neutral-300 dark:bg-neutral-700 mx-auto mb-6"></div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Pourquoi travailler avec un freelance ?
-                </h2>
-                <div className="w-12 h-0.5 bg-neutral-300 dark:bg-neutral-700 mx-auto mt-6"></div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal animation="text" delay={1}>
-              <p className="text-lg text-center text-neutral-600 dark:text-neutral-400 mb-12">
-                En tant que freelance, je vous offre une approche personnalisée
-                et flexible pour répondre exactement à vos besoins.{" "}
-                <span className="font-semibold">
-                  Contrairement aux agences web, vous travaillez directement
-                  avec moi
-                </span>{" "}
-                - le développeur qui crée votre site - pour une communication
-                transparente et des résultats alignés avec vos objectifs.
-              </p>
-            </ScrollReveal>
-
-            <ScrollRevealGroup
-              animation="fade-left"
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-700 dark:text-neutral-300"
-                  >
-                    <rect width="18" height="18" x="3" y="3" rx="2" />
-                    <path d="M3 9h18" />
-                    <path d="M9 21V9" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">
-                    Création de sites web sur mesure
-                  </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Designs responsives qui s&apos;adaptent parfaitement à votre
-                    marque.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-700 dark:text-neutral-300"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="m16 10-4 4-2-2" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Optimisation SEO</h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Positionnez-vous en tête des résultats Google pour vos
-                    mots-clés.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-700 dark:text-neutral-300"
-                  >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">
-                    Maintenance et mise à jour
-                  </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Un site toujours performant, sécurisé et à jour.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="mt-1 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-neutral-700 dark:text-neutral-300"
-                  >
-                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
-                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">
-                    Accompagnement personnalisé
-                  </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Un support direct et des conseils d&apos;expert pour votre
-                    réussite en ligne.
-                  </p>
-                </div>
-              </div>
-            </ScrollRevealGroup>
-
-            <ScrollReveal animation="pulse">
-              <div className="bg-neutral-100 dark:bg-neutral-800 p-6 rounded-lg text-center mb-8">
-                <p className="font-semibold mb-2">
-                  Garantie satisfaction 30 jours
-                </p>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Si vous n&apos;êtes pas satisfait des résultats dans les 30
-                  premiers jours, je vous propose des révisions gratuites
-                  jusqu&apos;à votre entière satisfaction.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal animation="fade-up" delay={2} className="text-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-blue-800 hover:bg-blue-700 shadow-md transition-all"
-              >
-                <Link href="/contact">
-                  Demander mon devis personnalisé gratuit
-                </Link>
-              </Button>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
+      {/* Guarantees Section */}
+      <Guarantees />
 
       {/* Portfolio Preview Section */}
       <section className="py-20">
@@ -510,23 +371,52 @@ export default function Home() {
             animation="zoom"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {/* Placeholder for portfolio items - to be replaced with real content */}
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="aspect-video bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden flex items-center justify-center relative group"
-              >
-                <p className="text-neutral-400">Projet {item}</p>
-                <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button
-                    variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-black"
-                  >
-                    Voir le projet
-                  </Button>
+            <div className="relative aspect-video bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
+              <Image
+                src="/images/PurpleNailsStudio.png"
+                alt="Purple Nails Studio - Design moderne pour salon de manucure"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <div className="text-white">
+                  <h3 className="font-semibold mb-1">Purple Nails Studio</h3>
+                  <p className="text-sm text-white/80">Site vitrine</p>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="relative aspect-video bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
+              <Image
+                src="/images/Projet-Kairo-Digital.png"
+                alt="KAIRO Digital - Site vitrine de développeur web freelance"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <div className="text-white">
+                  <h3 className="font-semibold mb-1">KAIRO Digital</h3>
+                  <p className="text-sm text-white/80">Site vitrine</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative aspect-video bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
+              <Image
+                src="/images/HOLY Beauty.png"
+                alt="HOLY Beauty - Site vitrine pour prestations beauté haut de gamme"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <div className="text-white">
+                  <h3 className="font-semibold mb-1">HOLY Beauty</h3>
+                  <p className="text-sm text-white/80">
+                    Institut de beauté haut de gamme
+                  </p>
+                </div>
+              </div>
+            </div>
           </ScrollRevealGroup>
 
           <ScrollReveal
@@ -660,108 +550,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Lead Magnet */}
-      <section className="py-20 bg-white dark:bg-black">
-        <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-up">
-            <div className="max-w-3xl mx-auto bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Audit SEO Gratuit pour votre Site Web
-                </h2>
-                <p className="text-neutral-600 dark:text-neutral-400">
-                  Découvrez comment améliorer votre référencement et attirer
-                  plus de visiteurs qualifiés sur votre site.
-                </p>
-              </div>
-
-              <ScrollRevealGroup
-                animation="fade-left"
-                className="mb-8 space-y-3"
-              >
-                {[
-                  "Analyse complète de votre positionnement actuel",
-                  "Identification des mots-clés stratégiques à cibler",
-                  "Audit technique de votre site",
-                  "Recommandations personnalisées pour améliorer vos résultats",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-amber-500 mt-1"
-                    >
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                    </svg>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ScrollRevealGroup>
-
-              <ScrollReveal
-                animation="fade-up"
-                delay={1}
-                className="text-center"
-              >
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-4">
-                  Valeur estimée : <span className="line-through">250€</span>{" "}
-                  <span className="text-amber-500 font-bold">GRATUIT</span>{" "}
-                  (offre limitée)
-                </p>
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full sm:w-auto bg-blue-800 hover:bg-blue-700 shadow-md transition-all"
-                >
-                  <Link href="/contact?ref=audit">
-                    Obtenir mon audit SEO gratuit
-                  </Link>
-                </Button>
-              </ScrollReveal>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-20 bg-black text-white">
-        <div className="container mx-auto px-4 text-center">
-          <ScrollReveal animation="fade-down">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Prêt à transformer votre présence en ligne ?
-            </h2>
-          </ScrollReveal>
-
-          <ScrollReveal animation="fade-up" delay={1}>
-            <p className="text-neutral-300 max-w-2xl mx-auto mb-4">
-              Ne laissez pas vos concurrents vous devancer sur internet.
-              Contactez-moi dès aujourd&apos;hui pour discuter de votre projet
-              et découvrir comment je peux vous aider à atteindre vos objectifs.
-            </p>
-            <p className="text-xl font-semibold text-amber-500 mb-8">
-              Réponse garantie sous 24h à 48h !
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal animation="pulse" delay={2}>
-            <Button
-              asChild
-              size="lg"
-              className="bg-blue-800 hover:bg-blue-700 shadow-lg border-0 transform transition-all duration-300 hover:scale-105 hover:shadow-blue-900/50"
-            >
-              <Link href="/contact">Démarrer votre projet maintenant</Link>
-            </Button>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Sticky CTA */}
+      <StickyCTA />
     </MainLayout>
   );
 }
