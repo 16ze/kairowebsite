@@ -2,7 +2,7 @@
   "siteName": "KAIRO Digital",
   "siteDescription": "Agence de développement web et consulting digital",
   "contactEmail": "contact.kairodigital@gmail.com",
-  "phoneNumber": "06 XX XX XX XX",
+  "phoneNumber": "0766121696",
   "socialMedia": {
     "instagram": "https://instagram.com/kairodigital",
     "facebook": "https://facebook.com/kairodigital",
@@ -14,12 +14,16 @@
     "minimumNoticeHours": 24,
     "bookingTimeSlotMinutes": 60,
     "autoConfirmBookings": false,
-    "sendEmailNotifications": true
+    "sendEmailNotifications": true,
+    "maxAdvanceBookingDays": 30,
+    "shootingDuration": 180
   },
   "seoSettings": {
-    "defaultMetaTitle": "KAIRO Digital | Agence web & consulting digital",
+    "defaultMetaTitle": "KAIRO Digital | Développement d'application web et mobile & Optimisation SEO",
     "defaultMetaDescription": "KAIRO Digital vous accompagne dans vos projets web et votre transformation digitale.",
-    "googleAnalyticsId": ""
+    "googleAnalyticsId": "",
+    "keywords": "web, digital, développement, consulting, kairo"
   },
-  "updatedAt": "2025-04-08T14:03:56.904Z"
+  "updatedAt": "2025-04-08T14:37:23.775Z",
+  "address": ""
 }

@@ -21,63 +21,6 @@ export const metadata = {
     "portfolio, projets, développement web, optimisation SEO, site web, freelance, développeur indépendant, design",
 };
 
-// Projets réels
-const realProjects = [
-  {
-    id: 1,
-    title: "Purple Nails Studio",
-    category: "Site vitrine",
-    description:
-      "Design moderne et élégant pour un salon de manucure haut de gamme. Le site met en valeur les services et le savoir-faire du salon tout en facilitant la prise de rendez-vous en ligne. L'optimisation SEO locale a permis d'augmenter la visibilité dans la région.",
-    image: "/images/PurpleNailsStudio.png",
-    client: "Purple Nails Studio",
-    year: 2024,
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "SEO Local"],
-    results: [
-      "Augmentation de 60% des prises de RDV en ligne",
-      "Top 3 sur Google pour 'salon manucure' dans la région",
-    ],
-    link: "/portfolio/purple-nails-studio",
-  },
-  {
-    id: 2,
-    title: "KAIRO Digital",
-    category: "Site vitrine",
-    description:
-      "Vitrine professionnelle mettant en avant mes services de développement web et d'optimisation SEO. Le site combine performance technique et design moderne pour démontrer mon expertise et générer des leads qualifiés.",
-    image: "/images/Projet-Kairo-Digital.png",
-    client: "KAIRO Digital",
-    year: 2024,
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "SEO Avancé"],
-    results: [
-      "Score PageSpeed de 98/100",
-      "Taux de conversion de 15% sur les demandes de devis",
-    ],
-    link: "/portfolio/kairo-digital",
-  },
-  {
-    id: 3,
-    title: "HOLY Beauty",
-    category: "Site vitrine",
-    description:
-      "Site vitrine élégant pour un institut de beauté haut de gamme. L'accent a été mis sur l'expérience utilisateur et le design pour refléter l'identité premium de l'établissement tout en optimisant les conversions.",
-    image: "/images/HOLY Beauty.png",
-    client: "HOLY Beauty",
-    year: 2024,
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "Animations avancées",
-      "SEO Local",
-    ],
-    results: [
-      "Augmentation du temps moyen passé sur le site de 45%",
-      "Réduction du taux de rebond de 35%",
-    ],
-    link: "/portfolio/holy-beauty",
-  },
-];
-
 // Types de projets que je peux réaliser
 const projectTypes = [
   {
@@ -125,7 +68,51 @@ const projectTypes = [
   },
 ];
 
-export default function PortfolioPage() {
+// Fonction pour formater les projets de l'API pour l'affichage
+const formatApiProject = (project) => {
+  return {
+    id: project.id,
+    title: project.title,
+    category: project.categories?.[0] || "Site Web",
+    description: project.description || project.summary,
+    image: project.coverImage || "/images/placeholder-project.jpg",
+    client: project.client || "Client confidentiel",
+    year: parseInt(project.year) || new Date().getFullYear(),
+    technologies: project.technologies || [],
+    results: project.results || [],
+    link: project.link || `/portfolio/${project.slug || project.id}`,
+  };
+};
+
+// Récupérer les projets depuis l'API
+async function getProjects() {
+  try {
+    // Utiliser publishedOnly=true pour ne récupérer que les projets publiés
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_BASE_URL + "/api/portfolio?publishedOnly=true",
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error("Erreur lors de la récupération des projets");
+    }
+
+    const data = await res.json();
+
+    // Formater les projets pour l'affichage
+    return data.projects.map(formatApiProject);
+  } catch (error) {
+    console.error("Erreur lors de la récupération des projets:", error);
+    return [];
+  }
+}
+
+export default async function PortfolioPage() {
+  // Récupérer les projets depuis l'API
+  const realProjects = await getProjects();
+
   return (
     <MainLayout>
       {/* Header */}
@@ -157,81 +144,91 @@ export default function PortfolioPage() {
             animation="fade-up"
             className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           >
-            {realProjects.map((project) => (
-              <Card
-                key={project.id}
-                className="overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="aspect-video relative overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <CardDescription>{project.category}</CardDescription>
-                    </div>
-                    <span className="text-sm text-neutral-500">
-                      {project.year}
-                    </span>
+            {realProjects.length > 0 ? (
+              realProjects.map((project) => (
+                <Card
+                  key={project.id}
+                  className="overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="aspect-video relative overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-xs"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <CardTitle className="text-xl">
+                          {project.title}
+                        </CardTitle>
+                        <CardDescription>{project.category}</CardDescription>
+                      </div>
+                      <span className="text-sm text-neutral-500">
+                        {project.year}
+                      </span>
                     </div>
-                    <div className="space-y-2">
-                      {project.results.map((result, index) => (
-                        <p
-                          key={index}
-                          className="text-sm text-green-600 dark:text-green-400 flex items-center gap-2"
-                        >
-                          <svg
-                            className="w-4 h-4"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, index) => (
+                          <span
+                            key={index}
+                            className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-xs"
                           >
-                            <path
-                              d="M20 6L9 17L4 12"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          {result}
-                        </p>
-                      ))}
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="space-y-2">
+                        {project.results.map((result, index) => (
+                          <p
+                            key={index}
+                            className="text-sm text-green-600 dark:text-green-400 flex items-center gap-2"
+                          >
+                            <svg
+                              className="w-4 h-4"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M20 6L9 17L4 12"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            {result}
+                          </p>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-                <CardFooter className="flex gap-4">
-                  <Button
-                    asChild
-                    className="w-full bg-blue-800 hover:bg-blue-700"
-                  >
-                    <Link href="/contact">Projet similaire ?</Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+                  </CardContent>
+                  <CardFooter className="flex gap-4">
+                    <Button
+                      asChild
+                      className="w-full bg-blue-800 hover:bg-blue-700"
+                    >
+                      <Link href="/contact">Projet similaire ?</Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))
+            ) : (
+              <div className="col-span-3 text-center py-10">
+                <p className="text-lg text-gray-500">
+                  Aucun projet disponible pour le moment.
+                </p>
+              </div>
+            )}
           </ScrollRevealGroup>
         </div>
       </section>

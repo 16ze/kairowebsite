@@ -1,3 +1,5 @@
+"use client";
+
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -8,119 +10,49 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useBlogStore, BlogArticle } from "@/lib/store/blog-store";
 
-export const metadata = {
-  title: "Blog | KAIRO Digital - Développeur web freelance et consultant SEO",
-  description:
-    "Découvrez nos articles et conseils sur le développement web, l'optimisation SEO et les tendances du digital pour améliorer votre présence en ligne.",
-  keywords:
-    "blog, articles, développement web, optimisation SEO, webdesign, tendances web",
-};
+// Formatage de la date pour l'affichage
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
-// Articles à jour pour 2025
-const blogPosts = [
-  {
-    id: 1,
-    slug: "ia-seo-2025-google-gemini",
-    title:
-      "IA et SEO en 2025 : Comment Google Gemini révolutionne le référencement",
-    excerpt:
-      "Analyse de l'impact des nouveaux algorithmes d'IA de Google sur les stratégies SEO et les méthodes pour adapter votre contenu à cette évolution majeure.",
-    date: "12 février 2025",
-    category: "SEO",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 2,
-    slug: "web-components-micro-frontends-2025",
-    title:
-      "Web Components et Micro-Frontends : L'architecture frontale en 2025",
-    excerpt:
-      "Comment les Web Components et l'approche Micro-Frontends transforment le développement d'applications web modernes avec une meilleure modularité et maintenabilité.",
-    date: "3 mars 2025",
-    category: "Développement",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 3,
-    slug: "core-web-vitals-2-nouveaux-metriques-2025",
-    title:
-      "Les Core Web Vitals 2.0 : Nouveaux métriques de performance pour 2025",
-    excerpt:
-      "Google a mis à jour ses métriques Core Web Vitals avec de nouveaux indicateurs. Découvrez comment optimiser votre site pour ces critères qui impactent directement votre classement.",
-    date: "27 mars 2025",
-    category: "Performance",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 4,
-    slug: "edge-computing-serverless-2025",
-    title:
-      "Edge Computing et Serverless : Optimiser les applications web en 2025",
-    excerpt:
-      "Comment combiner Edge Computing et architectures Serverless pour créer des applications web ultra-performantes avec une latence minimale, même à l'échelle mondiale.",
-    date: "15 avril 2025",
-    category: "Architecture",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 5,
-    slug: "seo-local-2025-strategies-recherches-geolocalisees",
-    title:
-      "SEO local 2025 : Stratégies pour dominer les recherches géolocalisées",
-    excerpt:
-      "Les dernières techniques pour optimiser votre présence locale, exploiter Google Business Profile 2.0 et attirer plus de clients dans votre zone géographique.",
-    date: "29 avril 2025",
-    category: "SEO Local",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 6,
-    slug: "web3-ecommerce-tpe-pme-2025",
-    title:
-      "Web3 et commerce électronique : Nouvelles possibilités pour les TPE/PME",
-    excerpt:
-      "Comment les petites entreprises peuvent tirer parti des technologies Web3, comme les NFT et les smart contracts, pour créer de nouvelles opportunités commerciales.",
-    date: "18 mai 2025",
-    category: "Innovation",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 7,
-    slug: "ia-generative-creation-sites-web-2025",
-    title: "L'impact de l'IA générative sur la création de sites web en 2025",
-    excerpt:
-      "L'IA générative transforme la conception et le développement web. Découvrez comment l'utiliser efficacement tout en maintenant l'originalité et la qualité de votre présence en ligne.",
-    date: "2 juin 2025",
-    category: "IA & Design",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 8,
-    slug: "progressive-web-apps-2025-standard-mobile",
-    title:
-      "Progressive Web Apps en 2025 : Le nouveau standard pour les sites mobiles",
-    excerpt:
-      "Les PWA sont désormais incontournables pour offrir une expérience mobile optimale. Découvrez les dernières fonctionnalités et comment les implémenter efficacement.",
-    date: "24 juin 2025",
-    category: "Mobile",
-    image: "/images/placeholder-blog.jpg",
-  },
-  {
-    id: 9,
-    slug: "gdpr-2-cookieless-tracking-2025",
-    title: "GDPR 2.0 et Cookie-less Tracking : Conformité et analytics en 2025",
-    excerpt:
-      "Les nouvelles régulations européennes et la fin des cookies tiers transforment l'analyse de données. Voici comment rester conforme tout en collectant des données pertinentes.",
-    date: "8 juillet 2025",
-    category: "Légal & Analytics",
-    image: "/images/placeholder-blog.jpg",
-  },
-];
+function BlogContent() {
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get("page") || "1");
+  const postsPerPage = 6;
 
-export default function BlogPage() {
+  // Récupération des articles via le store
+  const { getPublishedArticles, articles } = useBlogStore();
+  const [publishedPosts, setPublishedPosts] = useState<BlogArticle[]>([]);
+
+  // Initialisation du state articles après hydration
+  useEffect(() => {
+    // Récupérer uniquement les articles publiés
+    const published = getPublishedArticles();
+    // Trier les articles par date de création (du plus récent au plus ancien)
+    const sorted = [...published].sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+    setPublishedPosts(sorted);
+  }, [articles, getPublishedArticles]);
+
+  // Pagination logic
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  const currentPosts = publishedPosts.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(publishedPosts.length / postsPerPage);
+
   return (
-    <MainLayout>
+    <>
       {/* Header */}
       <section className="pt-36 pb-10 bg-white dark:bg-black">
         <div className="container mx-auto px-4 text-center">
@@ -136,7 +68,7 @@ export default function BlogPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((article) => (
+            {currentPosts.map((article) => (
               <Card key={article.id} className="flex flex-col h-full">
                 <div className="aspect-video bg-neutral-100 dark:bg-neutral-800 relative flex items-center justify-center">
                   <p className="text-neutral-400 text-center">
@@ -149,7 +81,7 @@ export default function BlogPage() {
                       {article.category}
                     </span>
                     <span className="text-xs text-neutral-500">
-                      {article.date}
+                      {formatDate(article.createdAt)}
                     </span>
                   </div>
                   <CardTitle className="text-xl">{article.title}</CardTitle>
@@ -169,6 +101,74 @@ export default function BlogPage() {
               </Card>
             ))}
           </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <nav className="flex justify-center mt-12" aria-label="Pagination">
+              <ul className="flex items-center gap-1">
+                {/* Previous page button */}
+                <li>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={currentPage <= 1}
+                    asChild={currentPage > 1}
+                  >
+                    {currentPage > 1 ? (
+                      <Link
+                        href={`/blog?page=${currentPage - 1}`}
+                        aria-label="Previous page"
+                      >
+                        &laquo;
+                      </Link>
+                    ) : (
+                      <span>&laquo;</span>
+                    )}
+                  </Button>
+                </li>
+
+                {/* Page numbers */}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <li key={page}>
+                      <Button
+                        variant={currentPage === page ? "default" : "outline"}
+                        size="sm"
+                        asChild={currentPage !== page}
+                      >
+                        {currentPage !== page ? (
+                          <Link href={`/blog?page=${page}`}>{page}</Link>
+                        ) : (
+                          <span>{page}</span>
+                        )}
+                      </Button>
+                    </li>
+                  )
+                )}
+
+                {/* Next page button */}
+                <li>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    disabled={currentPage >= totalPages}
+                    asChild={currentPage < totalPages}
+                  >
+                    {currentPage < totalPages ? (
+                      <Link
+                        href={`/blog?page=${currentPage + 1}`}
+                        aria-label="Next page"
+                      >
+                        &raquo;
+                      </Link>
+                    ) : (
+                      <span>&raquo;</span>
+                    )}
+                  </Button>
+                </li>
+              </ul>
+            </nav>
+          )}
         </div>
       </section>
 
@@ -196,6 +196,23 @@ export default function BlogPage() {
           </p>
         </div>
       </section>
+    </>
+  );
+}
+
+// Séparer le composant serveur du composant client
+export default function BlogPage() {
+  return (
+    <MainLayout>
+      <Suspense
+        fallback={
+          <div className="h-screen flex items-center justify-center">
+            Chargement...
+          </div>
+        }
+      >
+        <BlogContent />
+      </Suspense>
     </MainLayout>
   );
 }

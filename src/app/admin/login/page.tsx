@@ -102,16 +102,7 @@ function LoginContent() {
           <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md text-blue-600 dark:text-blue-400 flex items-start text-sm">
             <Info className="h-4 w-4 mr-2 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-medium mb-1">Identifiants de démonstration</p>
-              <p>Email: contact.kairodigital@gmail.com</p>
-              <p>Mot de passe: admin123</p>
-              <Button
-                variant="link"
-                className="text-blue-600 dark:text-blue-400 p-0 h-auto mt-1"
-                onClick={handleDemoLogin}
-              >
-                Remplir automatiquement
-              </Button>
+              <p className="font-medium mb-1">KAIRO Digital Administration</p>
             </div>
           </div>
 
