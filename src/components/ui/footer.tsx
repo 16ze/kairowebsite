@@ -22,19 +22,19 @@ export function Footer() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 />
               </svg>
             </div>
-            <h3 className="font-bold mb-2">Site Express</h3>
+            <h3 className="font-bold mb-2">Application Web</h3>
             <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-              Un site vitrine professionnel livré en 7 jours seulement.
+              Solutions web personnalisées pour vos besoins spécifiques.
             </p>
             <Link
-              href="/contact?projet=express"
+              href="/contact?projet=application"
               className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
             >
-              À partir de 990€ →
+              Demander un devis →
             </Link>
           </div>
 
