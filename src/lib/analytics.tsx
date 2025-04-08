@@ -2,7 +2,7 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
 // ID de mesure Google Analytics
 const GA_MEASUREMENT_ID = "G-58FT91034E";
@@ -48,7 +48,8 @@ declare global {
   }
 }
 
-export default function Analytics() {
+// Composant interne qui utilise useSearchParams
+function AnalyticsContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -82,5 +83,14 @@ export default function Analytics() {
         }}
       />
     </>
+  );
+}
+
+// Composant principal avec Suspense
+export default function Analytics() {
+  return (
+    <Suspense fallback={null}>
+      <AnalyticsContent />
+    </Suspense>
   );
 }
