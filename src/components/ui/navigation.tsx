@@ -325,12 +325,12 @@ export function Navigation() {
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium ${
+                className={`text-xs md:text-sm lg:text-sm font-medium ${
                   isScrolled || !isHomePage
                     ? "text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
                     : "text-white hover:text-white/80 dark:text-white dark:hover:text-white/80"
@@ -350,8 +350,8 @@ export function Navigation() {
               variant={isScrolled || !isHomePage ? "default" : "outline"}
               className={
                 !isScrolled && isHomePage
-                  ? "border-white/80 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white shadow-sm backdrop-blur-sm transition-all duration-300"
-                  : "bg-blue-800 hover:bg-blue-900 border-none shadow-sm"
+                  ? "border-white/80 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white shadow-sm backdrop-blur-sm transition-all duration-300 text-xs md:text-xs lg:text-sm py-1 md:py-1 lg:py-2 px-2 md:px-2 lg:px-4 h-auto"
+                  : "bg-blue-800 hover:bg-blue-900 border-none shadow-sm text-xs md:text-xs lg:text-sm py-1 md:py-1 lg:py-2 px-2 md:px-2 lg:px-4 h-auto"
               }
             >
               <Link href="/contact">Contact</Link>
@@ -360,7 +360,7 @@ export function Navigation() {
             <Button
               asChild
               variant="default"
-              className="bg-green-700 hover:bg-green-800 border-none shadow-sm transition-all duration-300"
+              className="bg-green-700 hover:bg-green-800 border-none shadow-sm transition-all duration-300 text-xs md:text-xs lg:text-sm py-1 md:py-1 lg:py-2 px-2 md:px-2 lg:px-4 h-auto"
             >
               <Link href="/consultation">Réserver</Link>
             </Button>
