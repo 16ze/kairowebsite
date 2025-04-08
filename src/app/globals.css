@@ -349,3 +349,24 @@ body {
     transform: scale(1.05);
   }
 }
+
+/* Animation pour le menu mobile */
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+/* Effet parallaxe */
+.parallax-bg {
+  transform: translateY(var(--parallax-offset, 0));
+  transition: transform 0.1s linear;
+  will-change: transform;
+}

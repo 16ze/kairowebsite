@@ -7,9 +7,10 @@
 3. [Problèmes rencontrés et solutions](#problèmes-rencontrés-et-solutions)
 4. [Décisions architecturales](#décisions-architecturales)
 5. [Fonctionnalités implémentées](#fonctionnalités-implémentées)
-6. [Dépendances et versions](#dépendances-et-versions)
-7. [Documentation officielle](#documentation-officielle)
-8. [Index des problèmes](#index-des-problèmes)
+6. [Tests automatisés](#tests-automatisés)
+7. [Dépendances et versions](#dépendances-et-versions)
+8. [Documentation officielle](#documentation-officielle)
+9. [Index des problèmes](#index-des-problèmes)
 
 ## Introduction
 
@@ -58,6 +59,12 @@ Ce DevBook documente l'ensemble du processus de développement du site web KAIRO
 - `FormData` pour les données du formulaire
 - `FormErrors` pour les erreurs de validation
   De plus, nous avons typé correctement les gestionnaires d'événements avec `ChangeEvent<HTMLInputElement | HTMLTextAreaElement>` et `FormEvent<HTMLFormElement>`.
+
+### P004: Problèmes avec les tests d'accessibilité au clavier
+
+**Description:** Lors de l'exécution des tests d'accessibilité au clavier, nous avons rencontré des problèmes avec la navigation par tabulation et la vérification de la navigation vers une autre page.
+
+**Solution:** Nous avons modifié le test pour vérifier la visibilité du focus et nous avons ajusté le nombre de pressions de touche Tab en fonction de la structure réelle de la page.
 
 ## Décisions architecturales
 
@@ -132,6 +139,72 @@ Implémentation d'un formulaire de contact complet avec validation et traitement
 - Mise en place de reCAPTCHA pour prévenir les spams
 - Stockage des soumissions dans une base de données
 
+## Tests automatisés
+
+### Date: 08/04/2023
+
+#### Mise en place de Playwright pour les tests end-to-end
+
+**Description:**
+Implémentation d'une suite de tests automatisés avec Playwright pour valider les fonctionnalités principales du site :
+
+1. **Configuration** :
+
+   - Installation de Playwright : `@playwright/test`
+   - Configuration des navigateurs : Chromium, Firefox, WebKit
+   - Adaptation pour les tests sur appareils mobiles (Pixel 5, iPhone 12)
+   - Configuration du serveur de développement pour les tests
+
+2. **Tests de la page d'accueil** :
+
+   - Vérification du titre et de la méta description
+   - Validation de l'affichage des éléments principaux
+   - Test des liens de navigation
+   - Vérification de la responsive sur mobile
+
+3. **Tests du formulaire de contact** :
+
+   - Validation de l'affichage du formulaire
+   - Test des messages d'erreur pour champs vides
+   - Validation du format d'email
+   - Test de soumission réussie avec mock de l'API
+   - Gestion des erreurs serveur
+
+4. **Tests du système de réservation** :
+
+   - Vérification de la page de réservation
+   - Test des types de consultation disponibles
+   - Validation de la sélection de date et créneau
+   - Test de soumission du formulaire
+   - Gestion des erreurs
+
+5. **Tests d'accessibilité et SEO** :
+   - Vérification des balises méta SEO
+   - Validation de la structure des headings
+   - Test des attributs alt des images
+   - Navigation au clavier
+   - Accessibilité des formulaires
+   - Contraste des couleurs
+
+**Commandes de test ajoutées au package.json** :
+
+```json
+"scripts": {
+  "test": "playwright test",
+  "test:ui": "playwright test --ui",
+  "test:headed": "playwright test --headed",
+  "test:debug": "playwright test --debug",
+  "test:report": "playwright show-report"
+}
+```
+
+**Points d'amélioration future** :
+
+- Augmenter la couverture de test pour les fonctionnalités avancées
+- Intégrer les tests dans un pipeline CI/CD
+- Ajouter des tests de performance plus approfondis
+- Mettre en place des tests de régression visuelle
+
 ## Dépendances et versions
 
 ```json
@@ -146,6 +219,7 @@ Implémentation d'un formulaire de contact complet avec validation et traitement
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@playwright/test": "^1.34.3",
     "typescript": "^5",
     "tailwindcss": "^3.3.0",
     "eslint": "^8",
@@ -163,12 +237,14 @@ Implémentation d'un formulaire de contact complet avec validation et traitement
 - [Shadcn/UI](https://ui.shadcn.com/)
 - [Node.js](https://nodejs.org/en/docs/)
 - [Next.js API Routes](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)
+- [Playwright](https://playwright.dev/docs/intro)
 
 ## Index des problèmes
 
 - [P001: Problème d'initialisation du projet](#p001-problème-dinitialisation-du-projet)
 - [P002: Conflit entre "use client" et métadonnées d'exportation](#p002-conflit-entre-use-client-et-métadonnées-dexportation)
 - [P003: Gestion des erreurs TypeScript dans le formulaire](#p003-gestion-des-erreurs-typescript-dans-le-formulaire)
+- [P004: Problèmes avec les tests d'accessibilité au clavier](#p004-problèmes-avec-les-tests-daccessibilité-au-clavier)
 
 ---
 

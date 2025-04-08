@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modèle utilisateur pour l'authentification admin
+model User {
+  id             String         @id @default(uuid())
+  name           String
+  email          String         @unique
+  hashedPassword String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  availabilities Availability[]
+  reservations   Reservation[]
+}
+
+// Types de rendez-vous disponibles
+enum ReservationType {
+  DISCOVERY     // Appel découverte (15-30 min)
+  CONSULTATION  // Consultation stratégique (1h)
+  PRESENTATION  // Présentation de projet (45 min)
+  FOLLOWUP      // Suivi de projet (30 min)
+}
+
+// Statut des réservations
+enum ReservationStatus {
+  PENDING    // En attente de confirmation
+  CONFIRMED  // Confirmé
+  CANCELLED  // Annulé
+  COMPLETED  // Terminé
+}
+
+// Modèle pour les disponibilités récurrentes
+model Availability {
+  id         String   @id @default(uuid())
+  userId     String   // ID de l'utilisateur admin
+  user       User     @relation(fields: [userId], references: [id])
+  dayOfWeek  Int      // 0-6 (Dimanche-Samedi)
+  startTime  String   // Format "HH:MM" en 24h
+  endTime    String   // Format "HH:MM" en 24h
+  isRecurring Boolean  @default(true)
+  date       DateTime? // Pour des disponibilités spécifiques à une date
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId])
+  @@index([dayOfWeek])
+  @@index([date])
+}
+
+// Modèle pour les exclusions (jours fériés, vacances)
+model Exclusion {
+  id          String   @id @default(uuid())
+  startDate   DateTime
+  endDate     DateTime
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Modèle pour les réservations
+model Reservation {
+  id                String            @id @default(uuid())
+  userId            String            // ID de l'utilisateur admin
+  user              User              @relation(fields: [userId], references: [id])
+  clientName        String
+  clientEmail       String
+  clientPhone       String?
+  reservationType   ReservationType
+  status            ReservationStatus @default(PENDING)
+  startTime         DateTime
+  endTime           DateTime
+  projectDescription String?          // Description du projet client
+  communicationMethod String?         // Visio, téléphone, etc.
+  meetingLink       String?          // Lien de visioconférence
+  notes             String?          // Notes internes pour l'admin
+  reminderSent      Boolean          @default(false)
+  cancellationToken String           @unique @default(cuid())
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  @@index([userId])
+  @@index([startTime, endTime])
+  @@index([status])
+  @@index([clientEmail])
+}
+
+// Modèle pour les paramètres du système de réservation
+model ReservationSettings {
+  id                      String  @id @default(uuid())
+  minNoticeTime           Int     @default(1)   // Min d'heures avant une réservation
+  maxAdvanceBookingDays   Int     @default(60)  // Max de jours à l'avance pour réserver
+  defaultSessionDuration  Int     @default(60)  // Durée par défaut en minutes
+  reminderHoursBeforeEvent Int    @default(24)  // Heures avant l'événement pour rappel
+  discoverySessionDuration Int    @default(30)  // Minutes
+  consultationSessionDuration Int @default(60)  // Minutes
+  presentationSessionDuration Int @default(45)  // Minutes
+  followupSessionDuration Int    @default(30)  // Minutes
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
