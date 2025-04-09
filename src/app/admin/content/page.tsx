@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { LogOut, Save } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "sonner";
 
 interface AdminUser {
   id: string;
@@ -26,6 +28,14 @@ interface SiteContent {
   about: PageContent;
   services: PageContent;
   [key: string]: PageContent;
+}
+
+interface Content {
+  id: string;
+  title: string;
+  content: string;
+  type: string;
+  updatedAt: string;
 }
 
 function ContentEditorContent() {
@@ -139,52 +149,24 @@ function ContentEditorContent() {
     setCurrentPageContent(updatedContent);
   };
 
-  const handleSave = async () => {
-    if (!currentPageContent) return;
-
+  const handleSave = async (content: Content) => {
     try {
-      setSaving(true);
-      setMessage(null);
-
       const response = await fetch("/api/content", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          page: selectedPage,
-          content: currentPageContent,
-        }),
+        body: JSON.stringify(content),
       });
 
       if (!response.ok) {
-        throw new Error("Erreur lors de la sauvegarde du contenu");
+        throw new Error("Erreur lors de la sauvegarde");
       }
 
-      // Mettre à jour le contenu global
-      if (content) {
-        const updatedContent = { ...content };
-        updatedContent[selectedPage] = currentPageContent;
-        setContent(updatedContent);
-      }
-
-      setMessage({
-        type: "success",
-        text: "Contenu sauvegardé avec succès",
-      });
-
-      // Effacer le message après 3 secondes
-      setTimeout(() => {
-        setMessage(null);
-      }, 3000);
+      toast.success("Contenu sauvegardé avec succès");
     } catch (error) {
-      console.error("Erreur lors de la sauvegarde:", error);
-      setMessage({
-        type: "error",
-        text: "Erreur lors de la sauvegarde du contenu",
-      });
-    } finally {
-      setSaving(false);
+      toast.error("Erreur lors de la sauvegarde");
+      console.error(error);
     }
   };
 
@@ -360,7 +342,7 @@ function ContentEditorContent() {
             </div>
 
             <Button
-              onClick={handleSave}
+              onClick={() => handleSave(currentPageContent as Content)}
               disabled={saving}
               className="flex items-center"
             >
@@ -420,7 +402,7 @@ function ContentEditorContent() {
             {/* Bouton d'enregistrement en bas de page */}
             <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-700 flex justify-end">
               <Button
-                onClick={handleSave}
+                onClick={() => handleSave(currentPageContent as Content)}
                 disabled={saving}
                 className="flex items-center"
               >

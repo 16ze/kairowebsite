@@ -207,33 +207,37 @@ export default function AdminBlogPage() {
     }
   };
 
+  // Affichage loading
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        <span className="ml-2">Chargement...</span>
+        <div className="text-center">
+          <Loader2 className="mx-auto h-12 w-12 animate-spin text-gray-400" />
+          <p className="mt-4 text-gray-500">Chargement...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex">
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex flex-col">
       <AdminSidebar activePage="blog" onLogout={handleLogout} user={user} />
-      <div className="flex-1 p-6 ml-64">
-        <main className="overflow-auto">
-          <div className="mb-6 flex items-center justify-between">
-            <h1 className="text-2xl font-bold">Gestion du Blog</h1>
+
+      <main className="flex-1 px-3 sm:px-4 md:px-6 pt-14 pb-6 lg:pt-6 lg:ml-64 transition-all duration-300 ease-in-out">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-5 md:mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <h1 className="text-xl md:text-2xl font-bold">Gestion du Blog</h1>
             <Button onClick={openNewArticleForm}>
               <Plus className="mr-2 h-4 w-4" />
               Nouvel article
             </Button>
           </div>
 
-          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="mb-5 md:mb-6 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <Input
-                className="pl-10"
+                className="pl-10 w-full"
                 placeholder="Rechercher un article..."
                 value={searchTerm}
                 onChange={handleSearch}
@@ -259,7 +263,7 @@ export default function AdminBlogPage() {
           </div>
 
           {currentArticles.length === 0 ? (
-            <div className="rounded-lg border border-dashed p-8 text-center">
+            <div className="rounded-lg border border-dashed p-6 md:p-8 text-center">
               <Info className="mx-auto mb-2 h-8 w-8 text-gray-400" />
               <h2 className="mb-1 text-lg font-medium">Aucun article trouvé</h2>
               <p className="text-sm text-gray-500">
@@ -270,70 +274,82 @@ export default function AdminBlogPage() {
             </div>
           ) : (
             <>
-              <div className="mb-4 overflow-hidden rounded-lg border">
-                <table className="w-full table-auto">
-                  <thead className="bg-gray-100">
-                    <tr>
-                      <th className="px-4 py-3 text-left text-sm font-medium">
-                        Titre
-                      </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium">
-                        Catégorie
-                      </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium">
-                        Date
-                      </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium">
-                        Statut
-                      </th>
-                      <th className="px-4 py-3 text-left text-sm font-medium">
-                        Actions
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y">
-                    {currentArticles.map((article) => (
-                      <tr key={article.id} className="hover:bg-gray-50">
-                        <td className="px-4 py-3 text-sm">{article.title}</td>
-                        <td className="px-4 py-3 text-sm">
-                          {article.category}
-                        </td>
-                        <td className="px-4 py-3 text-sm">
-                          {new Date(article.createdAt).toLocaleDateString()}
-                        </td>
-                        <td className="px-4 py-3 text-sm">
-                          <span
-                            className={`inline-flex rounded-full px-2 py-1 text-xs font-medium ${
-                              article.published
-                                ? "bg-green-100 text-green-800"
-                                : "bg-yellow-100 text-yellow-800"
-                            }`}
-                          >
-                            {article.published ? "Publié" : "Brouillon"}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3 text-sm">
-                          <div className="flex space-x-2">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => openEditForm(article)}
-                            >
-                              <Edit className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => handleDeleteArticle(article.id)}
-                            >
-                              <Trash2 className="h-4 w-4" />
-                            </Button>
-                          </div>
-                        </td>
+              <div className="mb-4 overflow-hidden rounded-lg border bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700">
+                <div className="overflow-x-auto">
+                  <table className="w-full table-auto">
+                    <thead className="bg-neutral-50 dark:bg-neutral-900/50 text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700">
+                      <tr>
+                        <th className="px-3 md:px-4 py-3 text-left text-sm font-medium">
+                          Titre
+                        </th>
+                        <th className="px-3 md:px-4 py-3 text-left text-sm font-medium hidden md:table-cell">
+                          Catégorie
+                        </th>
+                        <th className="px-3 md:px-4 py-3 text-left text-sm font-medium hidden md:table-cell">
+                          Date
+                        </th>
+                        <th className="px-3 md:px-4 py-3 text-left text-sm font-medium">
+                          Statut
+                        </th>
+                        <th className="px-3 md:px-4 py-3 text-left text-sm font-medium">
+                          Actions
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-neutral-200 dark:divide-neutral-700">
+                      {currentArticles.map((article) => (
+                        <tr
+                          key={article.id}
+                          className="hover:bg-neutral-50 dark:hover:bg-neutral-700/30"
+                        >
+                          <td className="px-3 md:px-4 py-3 md:py-4 text-sm">
+                            <span className="font-medium text-neutral-900 dark:text-neutral-100">
+                              {article.title}
+                            </span>
+                            <div className="md:hidden text-xs text-neutral-500 mt-1">
+                              {article.category}
+                            </div>
+                          </td>
+                          <td className="px-3 md:px-4 py-3 md:py-4 text-sm hidden md:table-cell">
+                            {article.category}
+                          </td>
+                          <td className="px-3 md:px-4 py-3 md:py-4 text-sm hidden md:table-cell">
+                            {new Date(article.createdAt).toLocaleDateString()}
+                          </td>
+                          <td className="px-3 md:px-4 py-3 md:py-4 text-sm">
+                            <span
+                              className={`inline-flex rounded-full px-2 py-1 text-xs font-medium ${
+                                article.published
+                                  ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
+                                  : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
+                              }`}
+                            >
+                              {article.published ? "Publié" : "Brouillon"}
+                            </span>
+                          </td>
+                          <td className="px-3 md:px-4 py-3 md:py-4 text-sm">
+                            <div className="flex space-x-2">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => openEditForm(article)}
+                              >
+                                <Edit className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => handleDeleteArticle(article.id)}
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </Button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
               {totalPages > 1 && (
@@ -348,7 +364,7 @@ export default function AdminBlogPage() {
                   >
                     Précédent
                   </Button>
-                  <span className="flex items-center px-2">
+                  <span className="flex items-center px-2 text-sm">
                     Page {currentPage} sur {totalPages}
                   </span>
                   <Button
@@ -498,8 +514,8 @@ export default function AdminBlogPage() {
               </div>
             </div>
           )}
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
   );
 }

@@ -6,14 +6,14 @@ import { persist } from "zustand/middleware";
 export interface BlogArticle {
   id: string;
   title: string;
-  content: string;
+  slug: string;
   excerpt: string;
+  content: string;
   category: string;
-  image: string;
   published: boolean;
   createdAt: string;
-  updatedAt: string;
-  slug?: string;
+  updatedAt?: string;
+  image?: string;
 }
 
 // Articles par défaut pour initialiser le store
@@ -169,12 +169,10 @@ export function generateSlug(title: string): string {
 interface BlogStore {
   articles: BlogArticle[];
   categories: string[];
-
-  // Actions
   setArticles: (articles: BlogArticle[]) => void;
   addArticle: (
     article: Omit<BlogArticle, "id" | "createdAt" | "updatedAt" | "slug">
-  ) => void;
+  ) => BlogArticle;
   updateArticle: (id: string, articleData: Partial<BlogArticle>) => void;
   deleteArticle: (id: string) => void;
   getArticleBySlug: (slug: string) => BlogArticle | undefined;
@@ -197,9 +195,7 @@ export const useBlogStore = create<BlogStore>()(
         "Mobile",
         "Légal & Analytics",
       ],
-
       setArticles: (articles) => set({ articles }),
-
       addArticle: (articleData) => {
         const newArticle: BlogArticle = {
           ...articleData,
@@ -215,7 +211,6 @@ export const useBlogStore = create<BlogStore>()(
 
         return newArticle;
       },
-
       updateArticle: (id, articleData) => {
         set((state) => ({
           articles: state.articles.map((article) =>
@@ -225,27 +220,22 @@ export const useBlogStore = create<BlogStore>()(
                   ...articleData,
                   updatedAt: new Date().toISOString(),
                   slug: articleData.title
-                    ? generateSlug(articleData.title)
+                    ? articleData.slug || generateSlug(articleData.title)
                     : article.slug,
                 }
               : article
           ),
         }));
       },
-
       deleteArticle: (id) => {
         set((state) => ({
           articles: state.articles.filter((article) => article.id !== id),
         }));
       },
-
-      getArticleBySlug: (slug) => {
-        return get().articles.find((article) => article.slug === slug);
-      },
-
-      getPublishedArticles: () => {
-        return get().articles.filter((article) => article.published);
-      },
+      getArticleBySlug: (slug) =>
+        get().articles.find((article) => article.slug === slug),
+      getPublishedArticles: () =>
+        get().articles.filter((article) => article.published),
     }),
     {
       name: "blog-storage",

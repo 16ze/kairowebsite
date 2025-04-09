@@ -124,6 +124,7 @@ function NavigationContent() {
   // Référence pour le conteneur du menu mobile
   const mobileMenuRef = React.useRef<HTMLDivElement>(null);
 
+  // Gérer le défilement et définir isScrolled
   React.useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -151,6 +152,11 @@ function NavigationContent() {
     };
   }, [isMenuOpen]);
 
+  // Fermer le menu lors des changements de route
+  React.useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   // Fermer le menu lorsqu'on clique en dehors
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -163,9 +169,19 @@ function NavigationContent() {
       }
     };
 
+    // Ajouter une touche d'échappement pour fermer le menu
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [isMenuOpen]);
 
@@ -217,29 +233,32 @@ function NavigationContent() {
         <div className="flex items-center justify-between md:hidden">
           {/* Hamburger Button - toujours visible et clickable */}
           <button
-            className={`p-2 relative z-[9999] ${
+            type="button"
+            className={`p-3 relative z-[9999] ${
               isScrolled || !isHomePage
-                ? "text-neutral-600 dark:text-neutral-300"
-                : "text-white dark:text-white drop-shadow-sm"
+                ? "text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                : "text-white dark:text-white drop-shadow-sm hover:bg-white/10"
+            } rounded-md transition-colors active:scale-95 touch-manipulation -ml-1 ${
+              isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-controls="mobile-menu"
           >
+            <span className="sr-only">
+              {isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              strokeWidth={1.5}
+              strokeWidth={2}
               stroke="currentColor"
               className="w-6 h-6"
+              aria-hidden="true"
             >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
+              {isMenuOpen ? null : (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -312,6 +331,108 @@ function NavigationContent() {
             </Link>
           </div>
         </div>
+
+        {/* Menu mobile - TOUJOURS présent dans le DOM mais caché/affiché avec CSS */}
+        <div
+          id="mobile-menu"
+          ref={mobileMenuRef}
+          className={`fixed top-0 bottom-0 left-0 w-[80%] bg-white dark:bg-neutral-900 shadow-2xl ring-1 ring-black/5 dark:ring-white/10 z-[9000] md:hidden transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          {/* Header avec bouton de fermeture */}
+          <div className="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
+            <Logo
+              className="text-neutral-900 dark:text-white"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            <button
+              type="button"
+              className="p-2 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Liens de navigation */}
+          <div
+            className="p-4 overflow-y-auto bg-white dark:bg-neutral-900"
+            style={{ height: "calc(100vh - 73px)" }}
+          >
+            <nav>
+              <ul className="space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className={`flex items-center p-3 rounded-md ${
+                        pathname === link.href
+                          ? "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-medium"
+                          : "text-neutral-900 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="mr-3">{navIcons[link.name]}</span>
+                      <span className="text-base">{link.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-neutral-700 space-y-4">
+                <Button
+                  asChild
+                  variant="default"
+                  className="w-full bg-blue-800 hover:bg-blue-700 h-12"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Link href="/contact">Contact</Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="default"
+                  className="w-full bg-green-700 hover:bg-green-600 h-12"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Link href="/consultation">Réserver</Link>
+                </Button>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        {/* Overlay pour le menu mobile avec effet de flou */}
+        <div
+          className={`fixed inset-0 bg-black/70 backdrop-blur-md z-[8000] md:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        />
+
+        {/* Effet de flou sur le contenu principal */}
+        <div
+          className={`fixed inset-0 z-[7500] transition-opacity duration-300 md:hidden ${
+            isMenuOpen
+              ? "backdrop-blur-md opacity-100"
+              : "backdrop-blur-none opacity-0 pointer-events-none"
+          }`}
+          aria-hidden="true"
+        />
 
         {/* Desktop Logo & Navigation */}
         <div className="hidden md:flex md:items-center md:justify-start">

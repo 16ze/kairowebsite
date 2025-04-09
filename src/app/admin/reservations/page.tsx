@@ -2,20 +2,10 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import {
-  CalendarRange,
-  Users,
-  BarChart3,
-  Settings,
-  LogOut,
-  Check,
-  X,
-  Search,
-  Eye,
-} from "lucide-react";
+import { Check, X, Search, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import AdminSidebar from "../components/AdminSidebar";
 
 interface AdminUser {
   id: string;
@@ -252,6 +242,7 @@ function ReservationsContent() {
     );
   };
 
+  // Gérer la déconnexion
   const handleLogout = async () => {
     try {
       await fetch("/api/auth/logout", {
@@ -282,99 +273,19 @@ function ReservationsContent() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex">
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex flex-col">
       {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-neutral-800 border-r border-neutral-200 dark:border-neutral-700 fixed inset-y-0 z-50">
-        <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div className="p-4 border-b border-neutral-200 dark:border-neutral-700">
-            <Link href="/" className="inline-block">
-              <h1 className="text-xl font-black tracking-tighter">
-                <span className="bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-700 dark:to-blue-500 bg-clip-text text-transparent">
-                  KAIRO
-                </span>
-                <span className="text-sm font-medium ml-1.5 text-neutral-600 dark:text-neutral-400">
-                  Digital
-                </span>
-                <span className="text-blue-600 dark:text-blue-400">.</span>
-              </h1>
-            </Link>
-          </div>
-
-          {/* Navigation */}
-          <nav className="p-4 flex-1">
-            <ul className="space-y-1">
-              <li>
-                <Link
-                  href="/admin/dashboard"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <BarChart3 className="w-5 h-5 mr-3" />
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/reservations"
-                  className="flex items-center p-2 rounded-md text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 font-medium"
-                >
-                  <CalendarRange className="w-5 h-5 mr-3" />
-                  Réservations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/users"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <Users className="w-5 h-5 mr-3" />
-                  Utilisateurs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/settings"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <Settings className="w-5 h-5 mr-3" />
-                  Paramètres
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Profil et déconnexion */}
-          <div className="p-4 border-t border-neutral-200 dark:border-neutral-700">
-            <div className="flex items-center mb-4">
-              <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-3">
-                {user?.name?.charAt(0) || "A"}
-              </div>
-              <div className="flex-1 overflow-hidden">
-                <p className="font-medium truncate text-sm">
-                  {user?.name || "Admin"}
-                </p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate">
-                  {user?.email}
-                </p>
-              </div>
-            </div>
-            <Button
-              onClick={handleLogout}
-              variant="outline"
-              className="w-full justify-start text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-700 dark:hover:text-red-300 border-red-200 dark:border-red-900/30"
-            >
-              <LogOut className="w-4 h-4 mr-2" />
-              Déconnexion
-            </Button>
-          </div>
-        </div>
-      </aside>
+      <AdminSidebar
+        activePage="reservations"
+        onLogout={handleLogout}
+        user={user}
+      />
 
       {/* Contenu principal */}
-      <main className="flex-1 ml-64 p-6">
+      <main className="flex-1 px-3 sm:px-4 md:px-6 pt-14 pb-6 lg:pt-6 lg:ml-64 transition-all duration-300 ease-in-out">
         <div className="max-w-7xl mx-auto">
-          <header className="mb-8">
-            <h1 className="text-2xl font-bold mb-2">
+          <header className="mb-5 md:mb-6">
+            <h1 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">
               Gestion des réservations
             </h1>
             <p className="text-neutral-600 dark:text-neutral-400">
@@ -383,50 +294,54 @@ function ReservationsContent() {
           </header>
 
           {/* Filtres et recherche */}
-          <div className="mb-6 flex flex-col md:flex-row gap-4">
+          <div className="mb-5 md:mb-6 flex flex-col sm:flex-row gap-3 md:gap-4">
             <div className="flex-1 relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-4 w-4 text-neutral-500" />
               </div>
               <Input
                 type="text"
-                placeholder="Rechercher par nom, email ou description..."
-                className="pl-10"
+                placeholder="Rechercher par nom, email..."
+                className="pl-10 w-full"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <Button
+                size="sm"
                 variant={statusFilter === "ALL" ? "default" : "outline"}
                 onClick={() => setStatusFilter("ALL")}
-                className="whitespace-nowrap"
+                className="whitespace-nowrap text-xs h-9"
               >
                 Toutes
               </Button>
               <Button
+                size="sm"
                 variant={statusFilter === "PENDING" ? "default" : "outline"}
                 onClick={() => setStatusFilter("PENDING")}
-                className="whitespace-nowrap text-amber-600 dark:text-amber-400"
+                className="whitespace-nowrap text-amber-600 dark:text-amber-400 text-xs h-9"
               >
-                <span className="w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
+                <span className="w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>
                 En attente
               </Button>
               <Button
+                size="sm"
                 variant={statusFilter === "CONFIRMED" ? "default" : "outline"}
                 onClick={() => setStatusFilter("CONFIRMED")}
-                className="whitespace-nowrap text-green-600 dark:text-green-400"
+                className="whitespace-nowrap text-green-600 dark:text-green-400 text-xs h-9"
               >
-                <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+                <span className="w-2 h-2 rounded-full bg-green-500 mr-1.5"></span>
                 Confirmées
               </Button>
               <Button
+                size="sm"
                 variant={statusFilter === "CANCELLED" ? "default" : "outline"}
                 onClick={() => setStatusFilter("CANCELLED")}
-                className="whitespace-nowrap text-red-600 dark:text-red-400"
+                className="whitespace-nowrap text-red-600 dark:text-red-400 text-xs h-9"
               >
-                <span className="w-2 h-2 rounded-full bg-red-500 mr-2"></span>
+                <span className="w-2 h-2 rounded-full bg-red-500 mr-1.5"></span>
                 Annulées
               </Button>
             </div>
@@ -438,12 +353,24 @@ function ReservationsContent() {
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50 dark:bg-neutral-900/50 text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700">
                   <tr>
-                    <th className="px-6 py-3 text-left font-medium">Client</th>
-                    <th className="px-6 py-3 text-left font-medium">Type</th>
-                    <th className="px-6 py-3 text-left font-medium">Date</th>
-                    <th className="px-6 py-3 text-left font-medium">Horaire</th>
-                    <th className="px-6 py-3 text-left font-medium">Statut</th>
-                    <th className="px-6 py-3 text-left font-medium">Actions</th>
+                    <th className="px-3 md:px-4 py-3 text-left font-medium">
+                      Client
+                    </th>
+                    <th className="px-3 md:px-4 py-3 text-left font-medium">
+                      Type
+                    </th>
+                    <th className="px-3 md:px-4 py-3 text-left font-medium hidden md:table-cell">
+                      Date
+                    </th>
+                    <th className="px-3 md:px-4 py-3 text-left font-medium hidden md:table-cell">
+                      Horaire
+                    </th>
+                    <th className="px-3 md:px-4 py-3 text-left font-medium">
+                      Statut
+                    </th>
+                    <th className="px-3 md:px-4 py-3 text-left font-medium">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-200 dark:divide-neutral-700">
@@ -453,25 +380,29 @@ function ReservationsContent() {
                         key={reservation.id}
                         className="hover:bg-neutral-50 dark:hover:bg-neutral-700/30"
                       >
-                        <td className="px-6 py-4">
-                          <div className="font-medium text-neutral-900 dark:text-neutral-100">
+                        <td className="px-3 md:px-4 py-3 md:py-4">
+                          <div className="font-medium text-neutral-900 dark:text-neutral-100 truncate">
                             {reservation.clientName}
                           </div>
-                          <div className="text-neutral-500 dark:text-neutral-400 text-xs">
+                          <div className="text-neutral-500 dark:text-neutral-400 text-xs truncate">
                             {reservation.clientEmail}
                           </div>
+                          <div className="md:hidden text-xs text-neutral-500 mt-1">
+                            {formatDate(reservation.startTime)} ·{" "}
+                            {formatTime(reservation.startTime)}
+                          </div>
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-4 py-3 md:py-4">
                           {getReservationTypeLabel(reservation.reservationType)}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-4 py-3 md:py-4 hidden md:table-cell">
                           {formatDate(reservation.startTime)}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-4 py-3 md:py-4 hidden md:table-cell">
                           {formatTime(reservation.startTime)} -{" "}
                           {formatTime(reservation.endTime)}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-4 py-3 md:py-4">
                           <span
                             className={getStatusBadgeClasses(
                               reservation.status
@@ -480,7 +411,7 @@ function ReservationsContent() {
                             {getStatusLabel(reservation.status)}
                           </span>
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-4 py-3 md:py-4">
                           <div className="flex gap-2">
                             <Button
                               size="sm"

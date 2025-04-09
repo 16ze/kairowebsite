@@ -482,16 +482,18 @@ function PortfolioManagementContent() {
   }
 
   return (
-    <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex flex-col">
       <AdminSidebar
         activePage="portfolio"
         onLogout={handleLogout}
         user={user}
       />
-      <div className="flex-1 overflow-x-hidden overflow-y-auto p-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold">Gestion du Portfolio</h1>
+      <main className="flex-1 px-3 sm:px-4 md:px-6 pt-14 pb-6 lg:pt-6 lg:ml-64 transition-all duration-300 ease-in-out">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-5 md:mb-6">
+            <h1 className="text-xl md:text-2xl font-bold">
+              Gestion du Portfolio
+            </h1>
             {!editingProject && !newProject && (
               <button
                 onClick={handleAddProject}
@@ -504,7 +506,7 @@ function PortfolioManagementContent() {
           </div>
 
           {successMessage && (
-            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-5 md:mb-6">
               {successMessage}
             </div>
           )}
@@ -898,7 +900,7 @@ function PortfolioManagementContent() {
             </>
           )}
         </div>
-      </div>
+      </main>
     </div>
   );
 }

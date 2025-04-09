@@ -2,20 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import {
-  CalendarRange,
-  Users,
-  BarChart3,
-  Settings,
-  LogOut,
-  Edit,
-  Trash2,
-  PlusCircle,
-  Search,
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Search, PlusCircle, Trash2, Edit } from "lucide-react";
+import AdminSidebar from "../components/AdminSidebar";
 
 interface AdminUser {
   id: string;
@@ -227,99 +217,19 @@ export default function AdminUsersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex">
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex flex-col">
       {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-neutral-800 border-r border-neutral-200 dark:border-neutral-700 fixed inset-y-0 z-50">
-        <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div className="p-4 border-b border-neutral-200 dark:border-neutral-700">
-            <Link href="/" className="inline-block">
-              <h1 className="text-xl font-black tracking-tighter">
-                <span className="bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-700 dark:to-blue-500 bg-clip-text text-transparent">
-                  KAIRO
-                </span>
-                <span className="text-sm font-medium ml-1.5 text-neutral-600 dark:text-neutral-400">
-                  Digital
-                </span>
-                <span className="text-blue-600 dark:text-blue-400">.</span>
-              </h1>
-            </Link>
-          </div>
-
-          {/* Navigation */}
-          <nav className="p-4 flex-1">
-            <ul className="space-y-1">
-              <li>
-                <Link
-                  href="/admin/dashboard"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <BarChart3 className="w-5 h-5 mr-3" />
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/reservations"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <CalendarRange className="w-5 h-5 mr-3" />
-                  Réservations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/users"
-                  className="flex items-center p-2 rounded-md text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 font-medium"
-                >
-                  <Users className="w-5 h-5 mr-3" />
-                  Utilisateurs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/settings"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <Settings className="w-5 h-5 mr-3" />
-                  Paramètres
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Profil et déconnexion */}
-          <div className="p-4 border-t border-neutral-200 dark:border-neutral-700">
-            <div className="flex items-center mb-4">
-              <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-3">
-                {adminUser?.name?.charAt(0) || "A"}
-              </div>
-              <div className="flex-1 overflow-hidden">
-                <p className="font-medium truncate text-sm">
-                  {adminUser?.name || "Admin"}
-                </p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate">
-                  {adminUser?.email}
-                </p>
-              </div>
-            </div>
-            <Button
-              onClick={handleLogout}
-              variant="outline"
-              className="w-full justify-start text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-700 dark:hover:text-red-300 border-red-200 dark:border-red-900/30"
-            >
-              <LogOut className="w-4 h-4 mr-2" />
-              Déconnexion
-            </Button>
-          </div>
-        </div>
-      </aside>
+      <AdminSidebar
+        activePage="users"
+        onLogout={handleLogout}
+        user={adminUser}
+      />
 
       {/* Contenu principal */}
-      <main className="flex-1 ml-64 p-6">
+      <main className="flex-1 px-3 sm:px-4 md:px-6 pt-14 pb-6 lg:pt-6 lg:ml-64 transition-all duration-300 ease-in-out">
         <div className="max-w-7xl mx-auto">
-          <header className="mb-8">
-            <h1 className="text-2xl font-bold mb-2">
+          <header className="mb-5 md:mb-6">
+            <h1 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">
               Gestion des utilisateurs
             </h1>
             <p className="text-neutral-600 dark:text-neutral-400">
@@ -329,21 +239,21 @@ export default function AdminUsersPage() {
 
           {/* Message d'erreur */}
           {error && (
-            <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md text-red-600 dark:text-red-400">
+            <div className="mb-4 md:mb-5 p-3 md:p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md text-red-600 dark:text-red-400">
               {error}
             </div>
           )}
 
           {/* Formulaire de création d'utilisateur */}
-          <div className="mb-8 bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 shadow-sm p-6">
-            <h2 className="text-lg font-semibold mb-4">
+          <div className="mb-5 md:mb-6 bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 shadow-sm p-4">
+            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">
               Ajouter un utilisateur
             </h2>
             <form
               onSubmit={handleCreateUser}
-              className="grid grid-cols-1 md:grid-cols-4 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4"
             >
-              <div className="md:col-span-1">
+              <div className="sm:col-span-1">
                 <Input
                   placeholder="Nom"
                   value={newUser.name}
@@ -351,9 +261,10 @@ export default function AdminUsersPage() {
                     setNewUser({ ...newUser, name: e.target.value })
                   }
                   required
+                  className="w-full"
                 />
               </div>
-              <div className="md:col-span-1">
+              <div className="sm:col-span-1">
                 <Input
                   type="email"
                   placeholder="Email"
@@ -362,9 +273,10 @@ export default function AdminUsersPage() {
                     setNewUser({ ...newUser, email: e.target.value })
                   }
                   required
+                  className="w-full"
                 />
               </div>
-              <div className="md:col-span-1">
+              <div className="sm:col-span-1">
                 <Input
                   type="password"
                   placeholder="Mot de passe"
@@ -373,9 +285,10 @@ export default function AdminUsersPage() {
                     setNewUser({ ...newUser, password: e.target.value })
                   }
                   required
+                  className="w-full"
                 />
               </div>
-              <div className="md:col-span-1">
+              <div className="sm:col-span-1">
                 <Button type="submit" className="w-full" disabled={isCreating}>
                   <PlusCircle className="h-4 w-4 mr-2" />
                   {isCreating ? "Création..." : "Ajouter"}
@@ -385,37 +298,39 @@ export default function AdminUsersPage() {
           </div>
 
           {/* Actions et recherche */}
-          <div className="mb-6">
-            <div className="relative w-full md:w-80">
+          <div className="mb-4 md:mb-5">
+            <div className="relative w-full sm:w-64 md:w-80">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-4 w-4 text-neutral-500" />
               </div>
               <Input
                 type="text"
                 placeholder="Rechercher un utilisateur..."
-                className="pl-10"
+                className="pl-10 w-full"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
 
-          {/* Liste des utilisateurs */}
+          {/* Liste des utilisateurs - avec scroll horizontal sur mobile */}
           <div className="bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-neutral-50 dark:bg-neutral-900/50 text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700">
                   <tr>
-                    <th className="px-6 py-3 text-left font-medium">
+                    <th className="px-3 md:px-4 py-3 text-left font-medium">
                       Utilisateur
                     </th>
-                    <th className="px-6 py-3 text-left font-medium">
-                      Date d'inscription
+                    <th className="px-3 md:px-4 py-3 text-left font-medium hidden md:table-cell">
+                      Date d&apos;inscription
                     </th>
-                    <th className="px-6 py-3 text-left font-medium">
+                    <th className="px-3 md:px-4 py-3 text-left font-medium hidden md:table-cell">
                       Dernière mise à jour
                     </th>
-                    <th className="px-6 py-3 text-left font-medium">Actions</th>
+                    <th className="px-3 md:px-4 py-3 text-left font-medium">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-neutral-200 dark:divide-neutral-700">
@@ -425,28 +340,31 @@ export default function AdminUsersPage() {
                         key={user.id}
                         className="hover:bg-neutral-50 dark:hover:bg-neutral-700/30"
                       >
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-4 py-3 md:py-4">
                           <div className="flex items-center">
-                            <div className="h-8 w-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-3">
+                            <div className="h-8 w-8 shrink-0 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-3">
                               {user.name.charAt(0)}
                             </div>
-                            <div>
-                              <div className="font-medium text-neutral-900 dark:text-neutral-100">
+                            <div className="min-w-0">
+                              <div className="font-medium text-neutral-900 dark:text-neutral-100 truncate">
                                 {user.name}
                               </div>
-                              <div className="text-neutral-500 dark:text-neutral-400 text-xs">
+                              <div className="text-neutral-500 dark:text-neutral-400 text-xs truncate">
                                 {user.email}
+                              </div>
+                              <div className="md:hidden text-xs text-neutral-500 mt-1">
+                                Créé: {formatDate(user.createdAt)}
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td className="px-6 py-4 text-neutral-600 dark:text-neutral-400">
+                        <td className="px-3 md:px-4 py-3 md:py-4 text-neutral-600 dark:text-neutral-400 hidden md:table-cell">
                           {formatDate(user.createdAt)}
                         </td>
-                        <td className="px-6 py-4 text-neutral-600 dark:text-neutral-400">
+                        <td className="px-3 md:px-4 py-3 md:py-4 text-neutral-600 dark:text-neutral-400 hidden md:table-cell">
                           {formatDate(user.updatedAt)}
                         </td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-4 py-3 md:py-4">
                           <div className="flex gap-2">
                             <Button
                               size="sm"
@@ -481,7 +399,7 @@ export default function AdminUsersPage() {
                     <tr>
                       <td
                         colSpan={5}
-                        className="px-6 py-10 text-center text-neutral-500 dark:text-neutral-400"
+                        className="px-4 py-8 text-center text-neutral-500 dark:text-neutral-400"
                       >
                         Aucun utilisateur ne correspond à votre recherche.
                       </td>

@@ -2,23 +2,14 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import {
-  CalendarRange,
-  Users,
-  BarChart3,
-  Settings as SettingsIcon,
-  LogOut,
-  Sun,
-  Moon,
-  Save,
-} from "lucide-react";
+import { Sun, Moon, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import AdminSidebar from "../components/AdminSidebar";
 
 interface AdminUser {
   id: string;
@@ -354,183 +345,22 @@ function SettingsContent() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-neutral-800 border-r border-neutral-200 dark:border-neutral-700 fixed inset-y-0 z-50">
-        <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div className="p-4 border-b border-neutral-200 dark:border-neutral-700">
-            <Link href="/" className="inline-block">
-              <h1 className="text-xl font-black tracking-tighter">
-                <span className="bg-gradient-to-r from-blue-800 to-blue-600 dark:from-blue-700 dark:to-blue-500 bg-clip-text text-transparent">
-                  KAIRO
-                </span>
-                <span className="text-sm font-medium ml-1.5 text-neutral-600 dark:text-neutral-400">
-                  Digital
-                </span>
-                <span className="text-blue-600 dark:text-blue-400">.</span>
-              </h1>
-            </Link>
-          </div>
-
-          {/* Navigation */}
-          <nav className="p-4 flex-1">
-            <ul className="space-y-1">
-              <li>
-                <Link
-                  href="/admin/dashboard"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <BarChart3 className="w-5 h-5 mr-3" />
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/reservations"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <CalendarRange className="w-5 h-5 mr-3" />
-                  Réservations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/content"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-5 h-5 mr-3"
-                  >
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                  </svg>
-                  Contenu
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/blog"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-5 h-5 mr-3"
-                  >
-                    <path d="M18 2h-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path>
-                    <path d="M8 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path>
-                    <path d="M14 8h1"></path>
-                    <path d="M14 12h1"></path>
-                    <path d="M14 16h1"></path>
-                    <path d="M3 8h1"></path>
-                    <path d="M3 12h1"></path>
-                    <path d="M3 16h1"></path>
-                  </svg>
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/portfolio"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-5 h-5 mr-3"
-                  >
-                    <rect
-                      x="3"
-                      y="3"
-                      width="18"
-                      height="18"
-                      rx="2"
-                      ry="2"
-                    ></rect>
-                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                    <polyline points="21 15 16 10 5 21"></polyline>
-                  </svg>
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/users"
-                  className="flex items-center p-2 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
-                >
-                  <Users className="w-5 h-5 mr-3" />
-                  Utilisateurs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/settings"
-                  className="flex items-center p-2 rounded-md text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 font-medium"
-                >
-                  <SettingsIcon className="w-5 h-5 mr-3" />
-                  Paramètres
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Profil et déconnexion */}
-          <div className="p-4 border-t border-neutral-200 dark:border-neutral-700">
-            <div className="flex items-center mb-4">
-              <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-3">
-                {adminUser?.name?.charAt(0) || "A"}
-              </div>
-              <div className="flex-1 overflow-hidden">
-                <p className="font-medium truncate text-sm">
-                  {adminUser?.name || "Admin"}
-                </p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate">
-                  {adminUser?.email}
-                </p>
-              </div>
-            </div>
-            <Button
-              onClick={handleLogout}
-              variant="outline"
-              className="w-full justify-start text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-700 dark:hover:text-red-300 border-red-200 dark:border-red-900/30"
-            >
-              <LogOut className="w-4 h-4 mr-2" />
-              Déconnexion
-            </Button>
-          </div>
-        </div>
-      </aside>
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900 flex flex-col">
+      {/* Sidebar responsive */}
+      <AdminSidebar
+        activePage="settings"
+        onLogout={handleLogout}
+        user={adminUser}
+      />
 
       {/* Contenu principal */}
-      <main className="flex-1 ml-64 p-6">
+      <main className="flex-1 px-3 sm:px-4 md:px-6 pt-14 pb-6 lg:pt-6 lg:ml-64 transition-all duration-300 ease-in-out">
         <div className="max-w-5xl mx-auto">
-          <header className="mb-8 flex justify-between items-center">
+          <header className="mb-5 md:mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
             <div>
-              <h1 className="text-2xl font-bold mb-2">Paramètres</h1>
+              <h1 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">
+                Paramètres
+              </h1>
               <p className="text-neutral-600 dark:text-neutral-400">
                 Configurez les paramètres de votre site
               </p>
@@ -538,7 +368,7 @@ function SettingsContent() {
 
             <Button
               variant="outline"
-              className="flex items-center"
+              className="flex items-center self-start"
               onClick={toggleDarkMode}
             >
               {darkMode ? (
@@ -558,7 +388,7 @@ function SettingsContent() {
           {/* Message de confirmation ou d'erreur */}
           {message && (
             <div
-              className={`mb-6 p-4 rounded-md ${
+              className={`mb-5 md:mb-6 p-3 md:p-4 rounded-md ${
                 message.type === "success"
                   ? "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-600 dark:text-green-400"
                   : "bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400"
@@ -569,17 +399,23 @@ function SettingsContent() {
           )}
 
           <Tabs defaultValue="general" className="w-full">
-            <TabsList className="w-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md p-1">
-              <TabsTrigger value="general" className="flex-1">
-                Informations générales
+            <TabsList className="w-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-md p-1 flex flex-wrap">
+              <TabsTrigger
+                value="general"
+                className="flex-1 text-xs sm:text-sm"
+              >
+                Informations
               </TabsTrigger>
-              <TabsTrigger value="social" className="flex-1">
-                Réseaux sociaux
+              <TabsTrigger value="social" className="flex-1 text-xs sm:text-sm">
+                Réseaux
               </TabsTrigger>
-              <TabsTrigger value="booking" className="flex-1">
+              <TabsTrigger
+                value="booking"
+                className="flex-1 text-xs sm:text-sm"
+              >
                 Réservations
               </TabsTrigger>
-              <TabsTrigger value="seo" className="flex-1">
+              <TabsTrigger value="seo" className="flex-1 text-xs sm:text-sm">
                 SEO
               </TabsTrigger>
             </TabsList>
@@ -587,9 +423,9 @@ function SettingsContent() {
             {/* Section Informations Générales */}
             <TabsContent
               value="general"
-              className="bg-white dark:bg-neutral-800 p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
+              className="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div>
                   <Label htmlFor="siteName">Nom du site</Label>
                   <Input
@@ -675,9 +511,9 @@ function SettingsContent() {
             {/* Section Réseaux Sociaux */}
             <TabsContent
               value="social"
-              className="bg-white dark:bg-neutral-800 p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
+              className="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div>
                   <Label htmlFor="facebook">Facebook</Label>
                   <Input
@@ -735,9 +571,9 @@ function SettingsContent() {
             {/* Section Réservations */}
             <TabsContent
               value="booking"
-              className="bg-white dark:bg-neutral-800 p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
+              className="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div>
                   <Label htmlFor="minNoticeHours">
                     Délai minimum pour réserver (heures)
@@ -850,9 +686,9 @@ function SettingsContent() {
             {/* Section SEO */}
             <TabsContent
               value="seo"
-              className="bg-white dark:bg-neutral-800 p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
+              className="bg-white dark:bg-neutral-800 p-4 md:p-6 rounded-lg mt-4 border border-neutral-200 dark:border-neutral-700"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 <div>
                   <Label htmlFor="metaTitle">Titre (balise meta title)</Label>
                   <Input
@@ -900,15 +736,24 @@ function SettingsContent() {
             </TabsContent>
           </Tabs>
 
-          {/* Bouton pour sauvegarder les paramètres */}
-          <div className="mt-8 flex justify-center">
+          {/* Bouton Enregistrer */}
+          <div className="mt-6 text-right">
             <Button
               onClick={handleSaveSettings}
               disabled={saving}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
+              className="bg-blue-600 hover:bg-blue-700 text-white"
             >
-              <Save className="w-4 h-4 mr-2" />
-              {saving ? "Sauvegarde..." : "Sauvegarder les paramètres"}
+              {saving ? (
+                <>
+                  <div className="h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Enregistrement...
+                </>
+              ) : (
+                <>
+                  <Save className="h-4 w-4 mr-2" />
+                  Enregistrer
+                </>
+              )}
             </Button>
           </div>
         </div>
