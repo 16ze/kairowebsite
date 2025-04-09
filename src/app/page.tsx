@@ -100,7 +100,10 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover opacity-80 dark:opacity-70 mix-blend-overlay"
           >
-            <source src="/images/69371-533801345.mp4" type="video/mp4" />
+            <source
+              src="https://res.cloudinary.com/demo/video/upload/v1425762047/cool-car.mp4"
+              type="video/mp4"
+            />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-neutral-900/30"></div>
         </div>
