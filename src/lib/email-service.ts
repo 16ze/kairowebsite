@@ -9,18 +9,29 @@ interface EmailOptions {
 
 // Fonction d'envoi d'email
 export async function sendEmail({ to, subject, text, html }: EmailOptions) {
+  // Afficher toujours les informations de débogage en cas de problème
+  console.log("=== TENTATIVE ENVOI EMAIL ===");
+  console.log(`To: ${to}`);
+  console.log(`Subject: ${subject}`);
+  console.log(`Environnement: ${process.env.NODE_ENV}`);
+  console.log(
+    `Configuration email: ${process.env.EMAIL_SERVER ? "PRÉSENTE" : "ABSENTE"}`
+  );
+
   // Si on est en mode développement et qu'aucun service d'email n'est configuré
   // Journaliser simplement l'email au lieu de l'envoyer
   if (process.env.NODE_ENV !== "production" || !process.env.EMAIL_SERVER) {
-    console.log("=== EMAIL WOULD BE SENT (DEV MODE) ===");
-    console.log(`To: ${to}`);
-    console.log(`Subject: ${subject}`);
-    console.log(`Text: ${text}`);
-    console.log("====================================");
+    console.log("=== EMAIL NON ENVOYÉ (MODE DEV OU CONFIG ABSENTE) ===");
     return;
   }
 
   try {
+    // Afficher les configurations (sans le mot de passe)
+    console.log(`Serveur SMTP: ${process.env.EMAIL_SERVER}`);
+    console.log(`Port: ${process.env.EMAIL_PORT}`);
+    console.log(`Utilisateur: ${process.env.EMAIL_USER}`);
+    console.log(`Sécurisé: ${process.env.EMAIL_SECURE}`);
+
     // Créer un transporteur SMTP
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_SERVER || "",
@@ -32,6 +43,18 @@ export async function sendEmail({ to, subject, text, html }: EmailOptions) {
       },
     });
 
+    // Vérifier la connexion avant d'envoyer
+    try {
+      await transporter.verify();
+      console.log("Connexion SMTP vérifiée avec succès");
+    } catch (verifyError: unknown) {
+      console.error(
+        "Erreur lors de la vérification SMTP:",
+        verifyError instanceof Error ? verifyError.message : String(verifyError)
+      );
+      throw new Error("Impossible de se connecter au serveur SMTP");
+    }
+
     // Envoyer l'email
     const result = await transporter.sendMail({
       from: process.env.EMAIL_FROM || "contact@kairo-digital.fr",
@@ -41,14 +64,15 @@ export async function sendEmail({ to, subject, text, html }: EmailOptions) {
       html,
     });
 
-    console.log(`Email envoyé: ${result.messageId}`);
+    console.log(`Email envoyé avec succès: ${result.messageId}`);
     return result;
   } catch (error: unknown) {
     console.error(
       "Erreur lors de l'envoi de l'email:",
       error instanceof Error ? error.message : String(error)
     );
-    throw error;
+    // Ne pas propager l'erreur pour ne pas bloquer le processus de réservation
+    return null;
   }
 }
 
