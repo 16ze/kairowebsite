@@ -108,25 +108,31 @@ export default function Home() {
               loop
               playsInline
               preload="auto"
+              poster="/images/video-poster.jpg"
               controlsList="nodownload"
               disablePictureInPicture
               disableRemotePlayback
               className="w-full h-full object-cover opacity-80 dark:opacity-70 mix-blend-overlay"
               style={{ visibility: "visible" }}
             >
-              {/* Version hébergée sur Amazon S3 (priorité 1) */}
+              {/* Version locale compressée (priorité 1) */}
+              <source
+                src="/images/69371-533801345-compressed-720p.mp4"
+                type="video/mp4"
+              />
+              {/* Version hébergée sur Amazon S3 (priorité 2) */}
               <source
                 src="https://kairo-digital-videos.s3.amazonaws.com/69371-533801345.mp4"
                 type="video/mp4"
               />
-              {/* Version CDN externe (priorité 2) */}
+              {/* Version CDN externe (priorité 3) */}
               <source
                 src="https://res.cloudinary.com/dh23iusd3/video/upload/v1684952302/kairo_hero_video_q7aszr.mp4"
                 type="video/mp4"
               />
-              {/* Version locale original (priorité 3) */}
+              {/* Version locale original (priorité 4) */}
               <source src="/images/69371-533801345.mp4" type="video/mp4" />
-              {/* Version locale alternative (priorité 4) */}
+              {/* Version locale alternative (priorité 5) */}
               <source src="/videos/hero.mp4" type="video/mp4" />
             </video>
           </div>
