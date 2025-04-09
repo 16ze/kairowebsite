@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { sendEmail } from "@/lib/email-service";
+import { sendEmail } from "../../../../lib/email-service";
 
 // Types pour la réservation
 type ReservationStatus = "PENDING" | "CONFIRMED" | "CANCELLED";
@@ -34,9 +34,21 @@ const reservations: Array<{
 }> = [];
 
 export async function POST(request: Request) {
+  console.log("📝 API: Début de traitement POST /api/booking/reservation");
+
   try {
     // Extraire les données de la requête
-    const data: ReservationRequest = await request.json();
+    let data: ReservationRequest;
+    try {
+      data = await request.json();
+      console.log("📝 Données reçues:", JSON.stringify(data, null, 2));
+    } catch (parseError) {
+      console.error("❌ Erreur de parsing JSON:", parseError);
+      return NextResponse.json(
+        { error: "Format de données invalide" },
+        { status: 400 }
+      );
+    }
 
     // Valider les données reçues
     if (
@@ -45,6 +57,7 @@ export async function POST(request: Request) {
       !data.startTime ||
       !data.endTime
     ) {
+      console.error("❌ Données de réservation incomplètes:", data);
       return NextResponse.json(
         { error: "Informations manquantes pour la réservation" },
         { status: 400 }
@@ -74,10 +87,16 @@ export async function POST(request: Request) {
 
     // Ajouter la réservation à notre "base de données"
     reservations.push(newReservation);
+    console.log(`✅ Réservation créée avec l'ID: ${reservationId}`);
 
     // Envoyer un email de confirmation au client
+    console.log("📧 Tentative d'envoi des emails de confirmation...");
+    let emailClientSent = false;
+    let emailAdminSent = false;
+
     try {
-      await sendEmail({
+      // Email au client
+      const emailToClientResult = await sendEmail({
         to: data.clientEmail,
         subject:
           "Confirmation de votre demande de consultation avec KAIRO Digital",
@@ -125,9 +144,16 @@ export async function POST(request: Request) {
         `,
       });
 
-      // Envoyer une notification à l'administrateur
-      await sendEmail({
-        to: process.env.ADMIN_EMAIL || "admin@kairo-digital.fr",
+      emailClientSent = !!emailToClientResult;
+      console.log(`📧 Email au client ${emailClientSent ? "envoyé" : "échec"}`);
+
+      // Email à l'administrateur
+      const adminEmail =
+        process.env.ADMIN_EMAIL ||
+        process.env.EMAIL_RECIPIENT ||
+        "contact.kairodigital@gmail.com";
+      const emailToAdminResult = await sendEmail({
+        to: adminEmail,
         subject: "Nouvelle demande de consultation",
         text: `Nouvelle demande de consultation de ${data.clientName} (${
           data.clientEmail
@@ -182,39 +208,57 @@ export async function POST(request: Request) {
           </div>
         `,
       });
+
+      emailAdminSent = !!emailToAdminResult;
+      console.log(
+        `📧 Email à l'administrateur ${emailAdminSent ? "envoyé" : "échec"}`
+      );
     } catch (emailError) {
-      console.error("Erreur lors de l'envoi des emails:", emailError);
-      // Continuer même si l'envoi d'email échoue
+      console.error(
+        "❌ Erreur globale lors de l'envoi des emails:",
+        emailError
+      );
     }
 
-    // Retourner la réservation créée
+    // Même si l'envoi d'email échoue, la réservation reste créée
     return NextResponse.json(
       {
         success: true,
-        message: "Réservation créée avec succès",
+        message:
+          "Réservation créée avec succès" +
+          (emailClientSent ? "" : " (notification email non envoyée)"),
         reservation: newReservation,
+        emailStatus: {
+          clientEmailSent: emailClientSent,
+          adminEmailSent: emailAdminSent,
+        },
       },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Erreur lors de la création de la réservation:", error);
+    console.error("❌ Erreur lors de la création de la réservation:", error);
     return NextResponse.json(
       { error: "Erreur lors de la création de la réservation" },
       { status: 500 }
     );
+  } finally {
+    console.log("📝 API: Fin de traitement POST /api/booking/reservation");
   }
 }
 
 // Endpoint pour récupérer les réservations
 export async function GET() {
+  console.log("📝 API: Traitement GET /api/booking/reservation");
+
   try {
     // Dans une application réelle, récupérer les réservations de la base de données
     return NextResponse.json({
       success: true,
       reservations,
+      count: reservations.length,
     });
   } catch (error) {
-    console.error("Erreur lors de la récupération des réservations:", error);
+    console.error("❌ Erreur lors de la récupération des réservations:", error);
     return NextResponse.json(
       { error: "Erreur lors de la récupération des réservations" },
       { status: 500 }

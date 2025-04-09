@@ -1,78 +1,125 @@
-import nodemailer from "nodemailer";
+import nodemailer, { SentMessageInfo } from "nodemailer";
 
-interface EmailOptions {
+// Interface pour les emails
+export interface EmailData {
   to: string;
   subject: string;
   text: string;
-  html: string;
+  html?: string;
+  cc?: string;
+  bcc?: string;
+  replyTo?: string;
 }
 
 // Fonction d'envoi d'email
-export async function sendEmail({ to, subject, text, html }: EmailOptions) {
-  // Afficher toujours les informations de débogage en cas de problème
-  console.log("=== TENTATIVE ENVOI EMAIL ===");
-  console.log(`To: ${to}`);
-  console.log(`Subject: ${subject}`);
-  console.log(`Environnement: ${process.env.NODE_ENV}`);
-  console.log(
-    `Configuration email: ${process.env.EMAIL_SERVER ? "PRÉSENTE" : "ABSENTE"}`
-  );
+export async function sendEmail(emailData: EmailData): Promise<boolean> {
+  console.log("📧 Service Email: Début de préparation d'un email");
+  console.log(`📧 Destinataire: ${emailData.to}`);
+  console.log(`📧 Sujet: ${emailData.subject}`);
 
-  // Si on est en mode développement et qu'aucun service d'email n'est configuré
-  // Journaliser simplement l'email au lieu de l'envoyer
-  if (process.env.NODE_ENV !== "production" || !process.env.EMAIL_SERVER) {
-    console.log("=== EMAIL NON ENVOYÉ (MODE DEV OU CONFIG ABSENTE) ===");
-    return;
+  console.log("📧 VARIABLES ENV DEBUG:");
+  console.log(`EMAIL_SERVER: ${process.env.EMAIL_SERVER}`);
+  console.log(`EMAIL_HOST: ${process.env.EMAIL_HOST}`);
+  console.log(`EMAIL_PORT: ${process.env.EMAIL_PORT}`);
+  console.log(`EMAIL_SMTP_PORT: ${process.env.SMTP_PORT}`);
+  console.log(`EMAIL_USER: ${process.env.EMAIL_USER}`);
+  console.log(`SMTP_USER: ${process.env.SMTP_USER}`);
+  console.log(`EMAIL_FROM: ${process.env.EMAIL_FROM}`);
+
+  // Récupérer les paramètres de configuration depuis les variables d'environnement
+  const EMAIL_HOST =
+    process.env.EMAIL_SERVER || process.env.EMAIL_HOST || process.env.SMTP_HOST;
+  const EMAIL_PORT = parseInt(
+    process.env.EMAIL_PORT || process.env.SMTP_PORT || "587",
+    10
+  );
+  const EMAIL_USER = process.env.EMAIL_USER || process.env.SMTP_USER;
+  const EMAIL_PASSWORD =
+    process.env.EMAIL_PASSWORD || process.env.SMTP_PASSWORD;
+  const EMAIL_FROM =
+    process.env.EMAIL_FROM ||
+    process.env.FROM_EMAIL ||
+    "contact.kairodigital@gmail.com";
+
+  // Vérification des paramètres critiques
+  if (!EMAIL_HOST || !EMAIL_USER || !EMAIL_PASSWORD) {
+    console.error("❌ Erreur de configuration SMTP: Paramètres manquants");
+    console.error(`  - Host: ${EMAIL_HOST ? "✓" : "✗"}`);
+    console.error(`  - User: ${EMAIL_USER ? "✓" : "✗"}`);
+    console.error(`  - Password: ${EMAIL_PASSWORD ? "✓" : "✗"}`);
+    return false;
   }
 
   try {
-    // Afficher les configurations (sans le mot de passe)
-    console.log(`Serveur SMTP: ${process.env.EMAIL_SERVER}`);
-    console.log(`Port: ${process.env.EMAIL_PORT}`);
-    console.log(`Utilisateur: ${process.env.EMAIL_USER}`);
-    console.log(`Sécurisé: ${process.env.EMAIL_SECURE}`);
+    console.log(
+      `📧 Configuration SMTP: ${EMAIL_HOST}:${EMAIL_PORT} (${EMAIL_USER})`
+    );
 
-    // Créer un transporteur SMTP
+    // Créer un transporteur d'email
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_SERVER || "",
-      port: parseInt(process.env.EMAIL_PORT || "587"),
-      secure: process.env.EMAIL_SECURE === "true",
+      host: EMAIL_HOST,
+      port: EMAIL_PORT,
+      secure: EMAIL_PORT === 465,
       auth: {
-        user: process.env.EMAIL_USER || "",
-        pass: process.env.EMAIL_PASSWORD || "",
+        user: EMAIL_USER,
+        pass: EMAIL_PASSWORD,
+      },
+      tls: {
+        // Ne pas faire échouer en cas de certificat auto-signé
+        rejectUnauthorized: false,
       },
     });
 
-    // Vérifier la connexion avant d'envoyer
+    console.log("📧 Vérification de la connexion SMTP...");
+
+    // Vérifier la connexion
     try {
       await transporter.verify();
-      console.log("Connexion SMTP vérifiée avec succès");
-    } catch (verifyError: unknown) {
-      console.error(
-        "Erreur lors de la vérification SMTP:",
-        verifyError instanceof Error ? verifyError.message : String(verifyError)
-      );
-      throw new Error("Impossible de se connecter au serveur SMTP");
+      console.log("✅ Connexion SMTP vérifiée avec succès");
+    } catch (verifyError) {
+      console.error("❌ Échec de vérification SMTP:", verifyError);
+      return false;
     }
 
-    // Envoyer l'email
-    const result = await transporter.sendMail({
-      from: process.env.EMAIL_FROM || "contact@kairo-digital.fr",
-      to,
-      subject,
-      text,
-      html,
-    });
+    // Configurer les options de l'email
+    const mailOptions = {
+      from: `KAIRO Digital <${EMAIL_FROM}>`,
+      to: emailData.to,
+      subject: emailData.subject,
+      text: emailData.text,
+      html: emailData.html,
+      cc: emailData.cc,
+      bcc: emailData.bcc,
+      replyTo: emailData.replyTo,
+    };
 
-    console.log(`Email envoyé avec succès: ${result.messageId}`);
-    return result;
+    console.log("📧 Envoi de l'email en cours...");
+
+    // Envoyer l'email
+    const info = await transporter.sendMail(mailOptions);
+
+    console.log("✅ Email envoyé avec succès!");
+    console.log(`📧 ID Message: ${info.messageId}`);
+
+    return true;
   } catch (error: unknown) {
-    console.error(
-      "Erreur lors de l'envoi de l'email:",
-      error instanceof Error ? error.message : String(error)
-    );
-    // Ne pas propager l'erreur pour ne pas bloquer le processus de réservation
-    return null;
+    console.error("❌ Erreur lors de l'envoi de l'email:", error);
+
+    // Log détaillé pour les erreurs d'authentification
+    if (
+      error instanceof Error &&
+      error.message &&
+      error.message.includes("Invalid login")
+    ) {
+      console.error(
+        "❌ Échec d'authentification SMTP. Vérifiez vos identifiants."
+      );
+      console.error(
+        "💡 Si vous utilisez Gmail, assurez-vous d'utiliser un mot de passe d'application."
+      );
+    }
+
+    return false;
   }
 }
 
@@ -81,7 +128,7 @@ export async function debugEmailService(): Promise<{
   success: boolean;
   environmentVariables?: Record<string, string>;
   smtpVerification?: boolean;
-  testEmailResult?: any;
+  testEmailResult?: SentMessageInfo;
   error?: string;
   stack?: string;
   details?: unknown;
