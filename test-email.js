@@ -2,65 +2,40 @@
 const nodemailer = require("nodemailer");
 
 // Configuration
-const EMAIL_SERVER = "smtp.gmail.com";
-const EMAIL_PORT = 587;
 const EMAIL_USER = "contact.kairodigital@gmail.com";
 const EMAIL_PASSWORD = "uthyuwjwhpelwbdg"; // Mot de passe d'application sans espaces
 const EMAIL_FROM = "contact.kairodigital@gmail.com";
 const EMAIL_TO = "contact.kairodigital@gmail.com"; // Envoyer à vous-même pour tester
 
-// Fonction pour afficher l'état des variables d'environnement
-function logEnvVariables() {
-  console.log("===== VARIABLES D'ENVIRONNEMENT =====");
-  console.log(`EMAIL_SERVER: ${process.env.EMAIL_SERVER || "(non défini)"}`);
-  console.log(`EMAIL_PORT: ${process.env.EMAIL_PORT || "(non défini)"}`);
-  console.log(`EMAIL_USER: ${process.env.EMAIL_USER || "(non défini)"}`);
-  console.log(
-    `EMAIL_PASSWORD: ${
-      process.env.EMAIL_PASSWORD ? "(défini)" : "(non défini)"
-    }`
-  );
-  console.log(`EMAIL_FROM: ${process.env.EMAIL_FROM || "(non défini)"}`);
-  console.log(`EMAIL_SECURE: ${process.env.EMAIL_SECURE || "(non défini)"}`);
-  console.log("====================================");
-}
-
 // Fonction pour tester l'envoi d'email
 async function testEmailSending() {
   console.log("🧪 DÉMARRAGE DU TEST D'ENVOI D'EMAIL");
-  logEnvVariables();
 
   console.log(`📧 Configuration utilisée pour le test:`);
-  console.log(`- Serveur: ${EMAIL_SERVER}`);
-  console.log(`- Port: ${EMAIL_PORT}`);
+  console.log(`- Service: Gmail`);
   console.log(`- Utilisateur: ${EMAIL_USER}`);
   console.log(`- Mot de passe: ${EMAIL_PASSWORD ? "(présent)" : "(manquant)"}`);
   console.log(`- De: ${EMAIL_FROM}`);
   console.log(`- À: ${EMAIL_TO}`);
 
   try {
-    // Créer le transporteur
-    console.log("📧 Création du transporteur SMTP...");
+    // Créer le transporteur avec service Gmail
+    console.log("📧 Création du transporteur Gmail...");
     const transporter = nodemailer.createTransport({
-      host: EMAIL_SERVER,
-      port: EMAIL_PORT,
-      secure: false,
+      service: "gmail",
       auth: {
         user: EMAIL_USER,
         pass: EMAIL_PASSWORD,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
     });
 
     // Vérifier la connexion
-    console.log("📧 Vérification de la connexion SMTP...");
+    console.log("📧 Vérification de la connexion...");
     try {
       const verifyResult = await transporter.verify();
-      console.log(`✅ Connexion SMTP vérifiée avec succès: ${verifyResult}`);
+      console.log(`✅ Connexion vérifiée avec succès: ${verifyResult}`);
     } catch (verifyError) {
-      console.error("❌ Échec de vérification SMTP:", verifyError);
+      console.error("❌ Échec de vérification:", verifyError);
       return false;
     }
 
