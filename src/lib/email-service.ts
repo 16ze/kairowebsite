@@ -1,4 +1,56 @@
-import { createNodemailerTransporter } from "./nodemailer-config";
+import nodemailer from "nodemailer";
+
+interface EmailOptions {
+  to: string;
+  subject: string;
+  text: string;
+  html: string;
+}
+
+// Fonction d'envoi d'email
+export async function sendEmail({ to, subject, text, html }: EmailOptions) {
+  // Si on est en mode développement et qu'aucun service d'email n'est configuré
+  // Journaliser simplement l'email au lieu de l'envoyer
+  if (process.env.NODE_ENV !== "production" || !process.env.EMAIL_SERVER) {
+    console.log("=== EMAIL WOULD BE SENT (DEV MODE) ===");
+    console.log(`To: ${to}`);
+    console.log(`Subject: ${subject}`);
+    console.log(`Text: ${text}`);
+    console.log("====================================");
+    return;
+  }
+
+  try {
+    // Créer un transporteur SMTP
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_SERVER || "",
+      port: parseInt(process.env.EMAIL_PORT || "587"),
+      secure: process.env.EMAIL_SECURE === "true",
+      auth: {
+        user: process.env.EMAIL_USER || "",
+        pass: process.env.EMAIL_PASSWORD || "",
+      },
+    });
+
+    // Envoyer l'email
+    const result = await transporter.sendMail({
+      from: process.env.EMAIL_FROM || "contact@kairo-digital.fr",
+      to,
+      subject,
+      text,
+      html,
+    });
+
+    console.log(`Email envoyé: ${result.messageId}`);
+    return result;
+  } catch (error: unknown) {
+    console.error(
+      "Erreur lors de l'envoi de l'email:",
+      error instanceof Error ? error.message : String(error)
+    );
+    throw error;
+  }
+}
 
 // Fonction de débogage pour les problèmes d'envoi d'email
 export async function debugEmailService(): Promise<{
@@ -48,7 +100,15 @@ export async function debugEmailService(): Promise<{
 
     // Tester la connexion SMTP
     console.log("Test de connexion SMTP...");
-    const transporter = createNodemailerTransporter();
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_SERVER || "",
+      port: parseInt(process.env.EMAIL_PORT || "587"),
+      secure: process.env.EMAIL_SECURE === "true",
+      auth: {
+        user: process.env.EMAIL_USER || "",
+        pass: process.env.EMAIL_PASSWORD || "",
+      },
+    });
     const verifyResult = await transporter.verify();
     console.log("Résultat de vérification SMTP:", verifyResult);
 
@@ -96,7 +156,15 @@ type ReservationType =
   | "FOLLOWUP";
 
 // Création du transporteur email
-const transporter = createNodemailerTransporter();
+const transporter = nodemailer.createTransport({
+  host: process.env.EMAIL_SERVER || "",
+  port: parseInt(process.env.EMAIL_PORT || "587"),
+  secure: process.env.EMAIL_SECURE === "true",
+  auth: {
+    user: process.env.EMAIL_USER || "",
+    pass: process.env.EMAIL_PASSWORD || "",
+  },
+});
 
 // Obtenir le nom du type de réservation
 function getReservationTypeLabel(type: ReservationType): string {
