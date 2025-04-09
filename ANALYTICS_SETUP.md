@@ -13,7 +13,7 @@ Ce guide explique comment configurer Google Analytics 4 (GA4) et Google Search C
 
 ## Statut actuel de l'implémentation
 
-- **Google Analytics 4**: ✅ Implémenté et configuré avec l'ID `G-58FT91034E`
+- **Google Analytics 4**: ✅ Implémenté et configuré avec l'ID `G-xxxxxx`
 - **Google Search Console**: ⏳ En attente de configuration/vérification
 - **Consentement RGPD**: ✅ Implémenté avec bannière de cookies
 - **Tracking d'événements**: ✅ Configuré sur le formulaire de contact
@@ -33,7 +33,7 @@ L'ID de mesure Google Analytics `G-58FT91034E` a été configuré dans l'applica
 Pour accéder aux statistiques et configurer des rapports :
 
 1. Rendez-vous sur [Google Analytics](https://analytics.google.com/)
-2. Connectez-vous avec le compte Google associé à l'ID `G-58FT91034E`
+2. Connectez-vous avec le compte Google associé à l'ID `G-xxxxxxxx`
 3. Sélectionnez la propriété KAIRO Digital pour voir les tableaux de bord
 
 ### Étape 1 : Créer un compte Google Analytics
