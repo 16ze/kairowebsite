@@ -226,17 +226,6 @@ type ReservationType =
   | "PRESENTATION"
   | "FOLLOWUP";
 
-// Création du transporteur email
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_SERVER || "",
-  port: parseInt(process.env.EMAIL_PORT || "587"),
-  secure: process.env.EMAIL_SECURE === "true",
-  auth: {
-    user: process.env.EMAIL_USER || "",
-    pass: process.env.EMAIL_PASSWORD || "",
-  },
-});
-
 // Obtenir le nom du type de réservation
 function getReservationTypeLabel(type: ReservationType): string {
   switch (type) {
@@ -294,56 +283,62 @@ export async function sendConfirmationEmail(
   // Lien d'annulation
   const cancellationLink = `${baseUrl}/consultation/annulation?id=${reservationId}&token=${cancellationToken}`;
 
-  const mailOptions = {
-    from: `"KAIRO Digital" <${process.env.EMAIL_FROM}>`,
-    to,
-    subject: `Confirmation de votre ${reservationTypeLabel.toLowerCase()} - KAIRO Digital`,
-    html: `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
-        <div style="text-align: center; margin-bottom: 20px;">
-          <img src="${baseUrl}/images/logo.png" alt="KAIRO Digital" style="max-width: 200px; height: auto;" />
+  try {
+    await sendEmail({
+      to,
+      subject: `Confirmation de votre ${reservationTypeLabel.toLowerCase()} - KAIRO Digital`,
+      text: `Bonjour ${clientName}, votre réservation est confirmée pour le ${startTimeFormatted}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="${baseUrl}/images/logo.png" alt="KAIRO Digital" style="max-width: 200px; height: auto;" />
+          </div>
+          
+          <h1 style="color: #1e40af; text-align: center; font-size: 24px; margin-bottom: 20px;">Votre réservation est confirmée !</h1>
+          
+          <p style="margin-bottom: 15px;">Bonjour ${clientName},</p>
+          
+          <p style="margin-bottom: 15px;">Merci d'avoir réservé un créneau pour un <strong>${reservationTypeLabel.toLowerCase()}</strong> avec KAIRO Digital. Votre réservation a bien été enregistrée.</p>
+          
+          <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
+            <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Détails de votre réservation</h2>
+            <p><strong>Type :</strong> ${reservationTypeLabel}</p>
+            <p><strong>Date et heure :</strong> ${startTimeFormatted}</p>
+            <p><strong>Durée :</strong> ${Math.round(
+              (endTime.getTime() - startTime.getTime()) / 1000 / 60
+            )} minutes</p>
+            <p><strong>ID de réservation :</strong> ${reservationId}</p>
+          </div>
+          
+          <p style="margin-bottom: 15px;">Les détails concernant le lien de visioconférence vous seront envoyés par email la veille de notre rendez-vous.</p>
+          
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${googleCalendarLink}" target="_blank" style="display: inline-block; background-color: #1e40af; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Ajouter à Google Calendar</a>
+          </div>
+          
+          <p style="margin-bottom: 15px;">Si vous devez annuler ou reprogrammer votre rendez-vous, veuillez cliquer sur le lien ci-dessous :</p>
+          
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="${cancellationLink}" target="_blank" style="color: #dc2626; text-decoration: underline;">Annuler ou modifier ma réservation</a>
+          </div>
+          
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #eaeaea;" />
+          
+          <p style="color: #6b7280; font-size: 14px; text-align: center;">
+            KAIRO Digital<br />
+            Développeur web freelance<br />
+            <a href="${baseUrl}" style="color: #1e40af;">www.kairo-digital.fr</a>
+          </p>
         </div>
-        
-        <h1 style="color: #1e40af; text-align: center; font-size: 24px; margin-bottom: 20px;">Votre réservation est confirmée !</h1>
-        
-        <p style="margin-bottom: 15px;">Bonjour ${clientName},</p>
-        
-        <p style="margin-bottom: 15px;">Merci d'avoir réservé un créneau pour un <strong>${reservationTypeLabel.toLowerCase()}</strong> avec KAIRO Digital. Votre réservation a bien été enregistrée.</p>
-        
-        <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
-          <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Détails de votre réservation</h2>
-          <p><strong>Type :</strong> ${reservationTypeLabel}</p>
-          <p><strong>Date et heure :</strong> ${startTimeFormatted}</p>
-          <p><strong>Durée :</strong> ${Math.round(
-            (endTime.getTime() - startTime.getTime()) / 1000 / 60
-          )} minutes</p>
-          <p><strong>ID de réservation :</strong> ${reservationId}</p>
-        </div>
-        
-        <p style="margin-bottom: 15px;">Les détails concernant le lien de visioconférence vous seront envoyés par email la veille de notre rendez-vous.</p>
-        
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="${googleCalendarLink}" target="_blank" style="display: inline-block; background-color: #1e40af; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Ajouter à Google Calendar</a>
-        </div>
-        
-        <p style="margin-bottom: 15px;">Si vous devez annuler ou reprogrammer votre rendez-vous, veuillez cliquer sur le lien ci-dessous :</p>
-        
-        <div style="text-align: center; margin: 20px 0;">
-          <a href="${cancellationLink}" target="_blank" style="color: #dc2626; text-decoration: underline;">Annuler ou modifier ma réservation</a>
-        </div>
-        
-        <hr style="margin: 30px 0; border: none; border-top: 1px solid #eaeaea;" />
-        
-        <p style="color: #6b7280; font-size: 14px; text-align: center;">
-          KAIRO Digital<br />
-          Développeur web freelance<br />
-          <a href="${baseUrl}" style="color: #1e40af;">www.kairo-digital.fr</a>
-        </p>
-      </div>
-    `,
-  };
-
-  await transporter.sendMail(mailOptions);
+      `,
+    });
+    console.log(`✅ Email de confirmation envoyé à ${to}`);
+  } catch (error) {
+    console.error(
+      "❌ Erreur lors de l'envoi de l'email de confirmation:",
+      error
+    );
+  }
 }
 
 // Envoyer un email de rappel
@@ -365,56 +360,59 @@ export async function sendReminderEmail(
   // Lien d'annulation
   const cancellationLink = `${baseUrl}/consultation/annulation?id=${reservationId}&token=${cancellationToken}`;
 
-  const mailOptions = {
-    from: `"KAIRO Digital" <${process.env.EMAIL_FROM}>`,
-    to,
-    subject: `Rappel : Votre ${reservationTypeLabel.toLowerCase()} demain - KAIRO Digital`,
-    html: `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
-        <div style="text-align: center; margin-bottom: 20px;">
-          <img src="${baseUrl}/images/logo.png" alt="KAIRO Digital" style="max-width: 200px; height: auto;" />
+  try {
+    await sendEmail({
+      to,
+      subject: `Rappel : Votre ${reservationTypeLabel.toLowerCase()} demain - KAIRO Digital`,
+      text: `Bonjour ${clientName}, rappel pour votre rendez-vous demain à ${startTimeFormatted}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="${baseUrl}/images/logo.png" alt="KAIRO Digital" style="max-width: 200px; height: auto;" />
+          </div>
+          
+          <h1 style="color: #1e40af; text-align: center; font-size: 24px; margin-bottom: 20px;">Rappel : Votre rendez-vous est demain !</h1>
+          
+          <p style="margin-bottom: 15px;">Bonjour ${clientName},</p>
+          
+          <p style="margin-bottom: 15px;">Ce message est un rappel pour votre <strong>${reservationTypeLabel.toLowerCase()}</strong> avec KAIRO Digital prévu pour demain.</p>
+          
+          <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
+            <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Détails de votre réservation</h2>
+            <p><strong>Type :</strong> ${reservationTypeLabel}</p>
+            <p><strong>Date et heure :</strong> ${startTimeFormatted}</p>
+            <p><strong>Durée :</strong> ${Math.round(
+              (endTime.getTime() - startTime.getTime()) / 1000 / 60
+            )} minutes</p>
+            ${
+              meetingLink
+                ? `<p><strong>Lien de réunion :</strong> <a href="${meetingLink}" target="_blank">${meetingLink}</a></p>`
+                : ""
+            }
+          </div>
+          
+          <p style="margin-bottom: 15px;">Si vous avez des questions ou besoin de plus d'informations, n'hésitez pas à me contacter par email.</p>
+          
+          <p style="margin-bottom: 15px;">Si vous devez annuler ou reprogrammer votre rendez-vous, veuillez cliquer sur le lien ci-dessous :</p>
+          
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="${cancellationLink}" target="_blank" style="color: #dc2626; text-decoration: underline;">Annuler ou modifier ma réservation</a>
+          </div>
+          
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #eaeaea;" />
+          
+          <p style="color: #6b7280; font-size: 14px; text-align: center;">
+            KAIRO Digital<br />
+            Développeur web freelance<br />
+            <a href="${baseUrl}" style="color: #1e40af;">www.kairo-digital.fr</a>
+          </p>
         </div>
-        
-        <h1 style="color: #1e40af; text-align: center; font-size: 24px; margin-bottom: 20px;">Rappel : Votre rendez-vous est demain !</h1>
-        
-        <p style="margin-bottom: 15px;">Bonjour ${clientName},</p>
-        
-        <p style="margin-bottom: 15px;">Ce message est un rappel pour votre <strong>${reservationTypeLabel.toLowerCase()}</strong> avec KAIRO Digital prévu pour demain.</p>
-        
-        <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
-          <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Détails de votre réservation</h2>
-          <p><strong>Type :</strong> ${reservationTypeLabel}</p>
-          <p><strong>Date et heure :</strong> ${startTimeFormatted}</p>
-          <p><strong>Durée :</strong> ${Math.round(
-            (endTime.getTime() - startTime.getTime()) / 1000 / 60
-          )} minutes</p>
-          ${
-            meetingLink
-              ? `<p><strong>Lien de réunion :</strong> <a href="${meetingLink}" target="_blank">${meetingLink}</a></p>`
-              : ""
-          }
-        </div>
-        
-        <p style="margin-bottom: 15px;">Si vous avez des questions ou besoin de plus d'informations, n'hésitez pas à me contacter par email.</p>
-        
-        <p style="margin-bottom: 15px;">Si vous devez annuler ou reprogrammer votre rendez-vous, veuillez cliquer sur le lien ci-dessous :</p>
-        
-        <div style="text-align: center; margin: 20px 0;">
-          <a href="${cancellationLink}" target="_blank" style="color: #dc2626; text-decoration: underline;">Annuler ou modifier ma réservation</a>
-        </div>
-        
-        <hr style="margin: 30px 0; border: none; border-top: 1px solid #eaeaea;" />
-        
-        <p style="color: #6b7280; font-size: 14px; text-align: center;">
-          KAIRO Digital<br />
-          Développeur web freelance<br />
-          <a href="${baseUrl}" style="color: #1e40af;">www.kairo-digital.fr</a>
-        </p>
-      </div>
-    `,
-  };
-
-  await transporter.sendMail(mailOptions);
+      `,
+    });
+    console.log(`✅ Email de rappel envoyé à ${to}`);
+  } catch (error) {
+    console.error("❌ Erreur lors de l'envoi de l'email de rappel:", error);
+  }
 }
 
 // Envoyer un email de notification à l'administrateur
@@ -435,43 +433,95 @@ export async function sendAdminNotificationEmail(
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://www.kairo-digital.fr";
 
-  const mailOptions = {
-    from: `"Système de réservation" <${process.env.EMAIL_FROM}>`,
-    to: adminEmail,
-    subject: `Nouvelle réservation : ${reservationTypeLabel} avec ${clientName}`,
-    html: `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
-        <h1 style="color: #1e40af; font-size: 22px; margin-bottom: 20px;">Nouvelle réservation !</h1>
-        
-        <p style="margin-bottom: 15px;">Un client vient de réserver un créneau de consultation.</p>
-        
-        <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
-          <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Détails de la réservation</h2>
-          <p><strong>Client :</strong> ${clientName}</p>
-          <p><strong>Email :</strong> ${clientEmail}</p>
-          <p><strong>Téléphone :</strong> ${clientPhone || "Non fourni"}</p>
-          <p><strong>Type :</strong> ${reservationTypeLabel}</p>
-          <p><strong>Méthode :</strong> ${
-            communicationMethod === "VISIO" ? "Visioconférence" : "Téléphone"
-          }</p>
-          <p><strong>Date et heure :</strong> ${startTimeFormatted}</p>
-          <p><strong>Durée :</strong> ${Math.round(
-            (endTime.getTime() - startTime.getTime()) / 1000 / 60
-          )} minutes</p>
-          <p><strong>ID de réservation :</strong> ${reservationId}</p>
+  try {
+    await sendEmail({
+      to: adminEmail,
+      subject: `Nouvelle réservation : ${reservationTypeLabel} avec ${clientName}`,
+      text: `Nouvelle réservation de ${clientName} (${clientEmail}) pour ${startTimeFormatted}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
+          <h1 style="color: #1e40af; font-size: 22px; margin-bottom: 20px;">Nouvelle réservation !</h1>
+          
+          <p style="margin-bottom: 15px;">Un client vient de réserver un créneau de consultation.</p>
+          
+          <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
+            <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Détails de la réservation</h2>
+            <p><strong>Client :</strong> ${clientName}</p>
+            <p><strong>Email :</strong> ${clientEmail}</p>
+            <p><strong>Téléphone :</strong> ${clientPhone || "Non fourni"}</p>
+            <p><strong>Type :</strong> ${reservationTypeLabel}</p>
+            <p><strong>Méthode :</strong> ${
+              communicationMethod === "VISIO" ? "Visioconférence" : "Téléphone"
+            }</p>
+            <p><strong>Date et heure :</strong> ${startTimeFormatted}</p>
+            <p><strong>Durée :</strong> ${Math.round(
+              (endTime.getTime() - startTime.getTime()) / 1000 / 60
+            )} minutes</p>
+            <p><strong>ID de réservation :</strong> ${reservationId}</p>
+          </div>
+          
+          <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
+            <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Description du projet</h2>
+            <p style="white-space: pre-line;">${projectDescription}</p>
+          </div>
+          
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${baseUrl}/admin/reservations" target="_blank" style="display: inline-block; background-color: #1e40af; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Voir dans l'administration</a>
+          </div>
         </div>
-        
-        <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; margin: 25px 0;">
-          <h2 style="color: #1e40af; font-size: 18px; margin-top: 0;">Description du projet</h2>
-          <p style="white-space: pre-line;">${projectDescription}</p>
-        </div>
-        
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="${baseUrl}/admin/reservations" target="_blank" style="display: inline-block; background-color: #1e40af; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Voir dans l'administration</a>
-        </div>
-      </div>
-    `,
-  };
+      `,
+    });
+    console.log(
+      `✅ Email de notification administrateur envoyé à ${adminEmail}`
+    );
+  } catch (error) {
+    console.error("❌ Erreur lors de l'envoi de l'email d'admin:", error);
+  }
+}
 
-  await transporter.sendMail(mailOptions);
+// Fonction pour tester l'envoi d'email directement
+export async function testEmailService(toEmail?: string): Promise<boolean> {
+  console.log("🧪 TEST: Démarrage du test d'envoi d'email");
+  const testEmail =
+    toEmail ||
+    process.env.ADMIN_EMAIL ||
+    process.env.EMAIL_FROM ||
+    "contact.kairodigital@gmail.com";
+
+  console.log(`🧪 TEST: Envoi d'un email test à ${testEmail}`);
+
+  try {
+    const result = await sendEmail({
+      to: testEmail,
+      subject: "Test de configuration email - KAIRO Digital",
+      text: `Ceci est un email de test envoyé le ${new Date().toLocaleString(
+        "fr-FR"
+      )}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
+          <h1 style="color: #1e40af; font-size: 22px; margin-bottom: 20px;">Test d'envoi d'email</h1>
+          <p>Cet email a été envoyé automatiquement pour tester la configuration d'envoi d'emails.</p>
+          <p>Date et heure: ${new Date().toLocaleString("fr-FR")}</p>
+          <p>Si vous recevez cet email, cela signifie que la configuration est correcte!</p>
+        </div>
+      `,
+    });
+
+    console.log(
+      "🧪 TEST: Résultat du test:",
+      result ? "SUCCÈS ✅" : "ÉCHEC ❌"
+    );
+    return result;
+  } catch (error) {
+    console.error("🧪 TEST: Erreur lors du test d'envoi d'email:", error);
+    return false;
+  }
+}
+
+// Si ce fichier est exécuté directement, lancer un test d'envoi d'email
+if (require.main === module) {
+  testEmailService().then((success) => {
+    console.log(`Test d'envoi d'email: ${success ? "RÉUSSI" : "ÉCHOUÉ"}`);
+    process.exit(success ? 0 : 1);
+  });
 }

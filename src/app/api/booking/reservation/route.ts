@@ -35,6 +35,15 @@ const reservations: Array<{
 
 export async function POST(request: Request) {
   console.log("📝 API: Début de traitement POST /api/booking/reservation");
+  console.log("📝 ENV MODE: ", process.env.NODE_ENV || "non défini");
+  console.log("📝 ENV EMAIL CONFIG: ", {
+    EMAIL_SERVER: process.env.EMAIL_SERVER,
+    EMAIL_PORT: process.env.EMAIL_PORT,
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_FROM: process.env.EMAIL_FROM,
+    ADMIN_EMAIL: process.env.ADMIN_EMAIL,
+    EMAIL_PASSWORD: process.env.EMAIL_PASSWORD ? "DÉFINI" : "NON DÉFINI",
+  });
 
   try {
     // Extraire les données de la requête
@@ -93,9 +102,12 @@ export async function POST(request: Request) {
     console.log("📧 Tentative d'envoi des emails de confirmation...");
     let emailClientSent = false;
     let emailAdminSent = false;
+    const emailErrors: string[] = [];
 
     try {
       // Email au client
+      console.log(`📧 Envoi d'email au client: ${data.clientEmail}`);
+
       const emailToClientResult = await sendEmail({
         to: data.clientEmail,
         subject:
@@ -145,13 +157,21 @@ export async function POST(request: Request) {
       });
 
       emailClientSent = !!emailToClientResult;
-      console.log(`📧 Email au client ${emailClientSent ? "envoyé" : "échec"}`);
+      console.log(
+        `📧 Email au client ${emailClientSent ? "envoyé ✅" : "échec ❌"}`
+      );
+
+      if (!emailClientSent) {
+        emailErrors.push("Échec d'envoi de l'email client");
+      }
 
       // Email à l'administrateur
       const adminEmail =
         process.env.ADMIN_EMAIL ||
         process.env.EMAIL_RECIPIENT ||
         "contact.kairodigital@gmail.com";
+      console.log(`📧 Envoi d'email à l'administrateur: ${adminEmail}`);
+
       const emailToAdminResult = await sendEmail({
         to: adminEmail,
         subject: "Nouvelle demande de consultation",
@@ -211,12 +231,21 @@ export async function POST(request: Request) {
 
       emailAdminSent = !!emailToAdminResult;
       console.log(
-        `📧 Email à l'administrateur ${emailAdminSent ? "envoyé" : "échec"}`
+        `📧 Email à l'administrateur ${
+          emailAdminSent ? "envoyé ✅" : "échec ❌"
+        }`
       );
+
+      if (!emailAdminSent) {
+        emailErrors.push("Échec d'envoi de l'email admin");
+      }
     } catch (emailError) {
       console.error(
         "❌ Erreur globale lors de l'envoi des emails:",
         emailError
+      );
+      emailErrors.push(
+        emailError instanceof Error ? emailError.message : String(emailError)
       );
     }
 
@@ -231,6 +260,7 @@ export async function POST(request: Request) {
         emailStatus: {
           clientEmailSent: emailClientSent,
           adminEmailSent: emailAdminSent,
+          errors: emailErrors.length > 0 ? emailErrors : undefined,
         },
       },
       { status: 201 }
@@ -238,7 +268,10 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("❌ Erreur lors de la création de la réservation:", error);
     return NextResponse.json(
-      { error: "Erreur lors de la création de la réservation" },
+      {
+        error: "Erreur lors de la création de la réservation",
+        details: error instanceof Error ? error.message : String(error),
+      },
       { status: 500 }
     );
   } finally {
