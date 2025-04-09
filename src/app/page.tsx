@@ -97,7 +97,6 @@ export default function Home() {
           <div
             className="w-full h-full bg-cover bg-center"
             style={{
-              backgroundImage: "url('/images/video-poster.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -108,7 +107,6 @@ export default function Home() {
               loop
               playsInline
               preload="auto"
-              poster="/images/video-poster.jpg"
               controlsList="nodownload"
               disablePictureInPicture
               disableRemotePlayback
