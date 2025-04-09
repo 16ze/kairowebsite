@@ -68,7 +68,7 @@ next-env.d.ts
 /playwright/.cache/
 
 # Large Media Files
-public/images/69371-533801345.mp4
+!public/images/69371-533801345.mp4
 *.mp4
 *.mov
 *.avi
