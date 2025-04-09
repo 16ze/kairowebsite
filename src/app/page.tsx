@@ -93,18 +93,43 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-900/30 to-neutral-900/40 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-80 dark:opacity-70 mix-blend-overlay"
+          {/* Solution Video Hybride avec preload */}
+          <div
+            className="w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/images/video-poster.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
-            <source
-              src="https://res.cloudinary.com/demo/video/upload/v1425762047/cool-car.mp4"
-              type="video/mp4"
-            />
-          </video>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              controlsList="nodownload"
+              disablePictureInPicture
+              disableRemotePlayback
+              className="w-full h-full object-cover opacity-80 dark:opacity-70 mix-blend-overlay"
+              style={{ visibility: "visible" }}
+            >
+              {/* Version hébergée sur Amazon S3 (priorité 1) */}
+              <source
+                src="https://kairo-digital-videos.s3.amazonaws.com/69371-533801345.mp4"
+                type="video/mp4"
+              />
+              {/* Version CDN externe (priorité 2) */}
+              <source
+                src="https://res.cloudinary.com/dh23iusd3/video/upload/v1684952302/kairo_hero_video_q7aszr.mp4"
+                type="video/mp4"
+              />
+              {/* Version locale original (priorité 3) */}
+              <source src="/images/69371-533801345.mp4" type="video/mp4" />
+              {/* Version locale alternative (priorité 4) */}
+              <source src="/videos/hero.mp4" type="video/mp4" />
+            </video>
+          </div>
           <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-neutral-900/30"></div>
         </div>
         <div className="container mx-auto px-4 z-10 text-center pt-24 sm:pt-32">
