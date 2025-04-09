@@ -1,6 +1,7 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
 export const metadata = {
@@ -66,11 +67,16 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-left" threshold={0.1} delay={2}>
-              <div className="bg-neutral-100 dark:bg-neutral-800 p-8 rounded-lg aspect-square flex items-center justify-center relative overflow-hidden group">
+              <div className="bg-neutral-100 dark:bg-neutral-800 p-6 rounded-lg relative overflow-hidden group h-full">
+                <Image
+                  src="/images/photo-Bryan.jpeg"
+                  alt="Bryan Hilaire, développeur web freelance"
+                  width={500}
+                  height={500}
+                  className="w-full h-auto rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  priority
+                />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <p className="text-neutral-400 text-center relative z-10 transform group-hover:scale-105 transition-transform duration-500">
-                  Photo du développeur
-                </p>
               </div>
             </ScrollReveal>
           </div>
