@@ -257,7 +257,13 @@ export default function BookingForm() {
       // Première étape : création de la réservation
       let reservation;
       try {
-        const response = await fetch("/api/booking/reservation", {
+        const apiUrl = process.env.NEXT_PUBLIC_SITE_URL
+          ? `${process.env.NEXT_PUBLIC_SITE_URL}/api/booking/reservation`
+          : "/api/booking/reservation";
+
+        console.log("URL de l'API utilisée:", apiUrl);
+
+        const response = await fetch(apiUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
