@@ -28,6 +28,24 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+.env.development
+.env.production
+.env.test
+
+# credentials et secrets
+*.key
+*.pem
+*.cert
+*.p12
+**/credentials.json
+**/service-account.json
+
+# documentation et informations sensibles
+/documentation/
+/docs/
+/docs_web/
+lighthouse-report.html
+test-email.js
 
 # vercel
 .vercel
@@ -36,15 +54,25 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# éditeurs
 .vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
 
 # Playwright
-node_modules/
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-public/images/69371-533801345.mp4
-public/images/69371-533801345.mp4
+
 # Large Media Files
 public/images/69371-533801345.mp4
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+*.tar.gz
+*.rar
