@@ -1,0 +1,23 @@
+{
+  "name": "Kairo Website",
+  "description": "Site web professionnel Kairo Digital",
+  "repository": "https://github.com/yourusername/kairowebsite",
+  "keywords": ["nextjs", "prisma", "react"],
+  "env": {
+    "NODE_ENV": {
+      "description": "Environnement de l'application",
+      "value": "production"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
