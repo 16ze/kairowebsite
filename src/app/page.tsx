@@ -50,7 +50,8 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           name: "KAIRO Digital",
-          image: "https://www.kairo-digital.fr/images/kairo-hero-img.webp",
+          image:
+            "https://www.kairo-digital.fr/images/Bryan-Hilaire-developpeur.png",
           "@id": "https://www.kairo-digital.fr/#organization",
           url: "https://www.kairo-digital.fr",
           telephone: "+33-123-456-789",
