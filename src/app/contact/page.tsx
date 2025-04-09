@@ -134,7 +134,13 @@ export default function ContactPage() {
     });
 
     try {
-      const response = await fetch("/api/contact", {
+      const apiUrl = process.env.NEXT_PUBLIC_SITE_URL
+        ? `${process.env.NEXT_PUBLIC_SITE_URL}/api/contact`
+        : "/api/contact";
+
+      console.log("Envoi du formulaire à:", apiUrl);
+
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
