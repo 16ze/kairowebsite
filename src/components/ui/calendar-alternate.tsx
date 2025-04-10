@@ -248,6 +248,29 @@ export function CalendarAlternate({
         /* Mode sombre */
         .dark .react-datepicker {
           background-color: transparent;
+          color: white;
+        }
+
+        .dark .react-datepicker__day {
+          color: #e5e7eb; /* text-gray-200 */
+        }
+
+        .dark .react-datepicker__day--disabled {
+          color: #6b7280; /* text-gray-500 */
+        }
+
+        .dark .react-datepicker__day:hover {
+          background-color: rgba(59, 130, 246, 0.2); /* bg-blue-500/20 */
+        }
+
+        .dark .react-datepicker__day--selected {
+          background-color: #2563eb; /* bg-blue-600 */
+          color: white;
+        }
+
+        .dark .react-datepicker__day--keyboard-selected {
+          background-color: #3b82f6; /* bg-blue-500 */
+          color: white;
         }
       `}</style>
     </div>
