@@ -1,5 +1,3 @@
-import React from "react";
-import { Metadata } from "next";
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -7,20 +5,14 @@ import Image from "next/image";
 import { ArrowLeft, Calendar, Tag, User, Clock } from "lucide-react";
 import { BlogArticle } from "@/lib/store/blog-store";
 import { notFound } from "next/navigation";
-import { ResolvingMetadata } from "next";
-import { cn } from "@/lib/utils";
-
-// Types pour les paramètres de génération de métadonnées
-type Props = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+import { Metadata } from "next";
 
 // Génération dynamique des métadonnées
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
   // Récupérer l'article à partir du slug pour générer les métadonnées
   const article = getArticleBySlug(params.slug);
 
@@ -56,32 +48,7 @@ export async function generateMetadata(
   };
 }
 
-// Badge component (simple version)
-function Badge({
-  variant = "default",
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithoutRef<"span"> & {
-  variant?: "default" | "outline";
-}) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors",
-        variant === "default"
-          ? "border-transparent bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
-          : "border-neutral-200 dark:border-neutral-700 bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </span>
-  );
-}
-
-// Formatage de la date pour l'affichage
+// Formater la date pour l'affichage
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString("fr-FR", {
