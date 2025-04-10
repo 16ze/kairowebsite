@@ -150,7 +150,7 @@ export function CalendarAlternate({
 
       <div
         className={cn(
-          "p-2 bg-white dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm",
+          "p-2 bg-white rounded-lg border border-neutral-200 shadow-sm",
           fullWidth ? "w-full" : "w-auto",
           className
         )}
@@ -165,25 +165,23 @@ export function CalendarAlternate({
           renderCustomHeader={renderCustomHeader}
           dayClassName={(date) =>
             cn(
-              "text-base font-medium rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20",
+              "text-base font-medium rounded-md hover:bg-blue-50",
               selected &&
                 date.getTime() === selected.getTime() &&
                 "bg-blue-600 text-white hover:bg-blue-700 hover:text-white",
               date.getDate() === new Date().getDate() &&
                 date.getMonth() === new Date().getMonth() &&
                 date.getFullYear() === new Date().getFullYear() &&
-                "bg-neutral-100 dark:bg-neutral-800 border border-blue-400 dark:border-blue-500 font-medium"
+                "bg-neutral-100 border border-blue-400 font-medium"
             )
           }
           calendarClassName="!bg-transparent border-none !font-sans max-w-full"
-          weekDayClassName={() =>
-            "text-sm font-medium text-neutral-500 dark:text-neutral-400"
-          }
+          weekDayClassName={() => "text-sm font-medium text-neutral-500"}
         />
       </div>
 
       {/* Légende */}
-      <div className="flex items-center justify-center gap-4 mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+      <div className="flex items-center justify-center gap-4 mt-4 text-sm text-neutral-600">
         <div className="flex items-center gap-1.5">
           <div className="h-3 w-3 rounded-full bg-blue-500"></div>
           <span>Jours disponibles</span>
@@ -245,59 +243,63 @@ export function CalendarAlternate({
           opacity: 0.5;
         }
 
-        /* Mode sombre */
-        .dark .react-datepicker {
-          background-color: transparent;
+        /* Mode sombre - Forcer les mêmes styles que le mode clair */
+        .dark .react-datepicker,
+        .dark .react-datepicker__header {
+          background-color: white;
+        }
+
+        .dark .react-datepicker__day-name,
+        .dark .react-datepicker__day,
+        .dark .react-datepicker__time-name,
+        .dark .react-datepicker__current-month {
+          color: black;
+        }
+
+        .dark .react-datepicker__day--selected,
+        .dark .react-datepicker__day--keyboard-selected {
+          background-color: #2563eb;
           color: white;
         }
 
-        .dark .react-datepicker__header {
-          background-color: transparent;
-          border-bottom: 1px solid #374151; /* border-gray-700 */
-        }
-
-        .dark .react-datepicker__day-name {
-          color: #9ca3af; /* text-gray-400 */
-        }
-
-        .dark .react-datepicker__day {
-          color: #f3f4f6; /* text-gray-100 */
-          background-color: transparent;
-        }
-
         .dark .react-datepicker__day--disabled {
-          color: #4b5563; /* text-gray-600 */
+          color: #ccc;
         }
 
         .dark
           .react-datepicker__day:hover:not(
             .react-datepicker__day--disabled
           ):not(.react-datepicker__day--selected) {
-          background-color: #1e40af; /* bg-blue-800 */
-          color: white;
+          background-color: #f0f0f0;
+          color: black;
         }
 
-        .dark .react-datepicker__day--selected {
-          background-color: #2563eb; /* bg-blue-600 */
-          color: white;
-        }
-
-        .dark .react-datepicker__day--keyboard-selected {
-          background-color: #3b82f6; /* bg-blue-500 */
-          color: white;
-        }
-
-        /* Adaptons les couleurs du titre des mois et des flèches */
-        .dark .react-datepicker__current-month,
         .dark .react-datepicker__navigation-icon::before {
-          color: white;
+          border-color: #2563eb;
         }
 
-        /* Style spécifique pour le jour actuel */
         .dark .react-datepicker__day--today {
-          background-color: #1f2937; /* bg-gray-800 */
-          border: 1px solid #3b82f6; /* border-blue-500 */
-          color: #60a5fa; /* text-blue-400 */
+          background-color: #f0f0f0;
+          border: 1px solid #2563eb;
+          color: #2563eb;
+          font-weight: bold;
+        }
+
+        /* Forcer les couleurs blanches pour les containers en mode sombre */
+        .dark .p-2.bg-white.dark\\:bg-neutral-900 {
+          background-color: white !important;
+        }
+
+        /* Forcer les couleurs de texte pour la légende en mode sombre */
+        .dark
+          .flex.items-center.justify-center.gap-4.mt-4.text-sm.text-neutral-600.dark\\:text-neutral-400 {
+          color: #4b5563 !important;
+        }
+
+        .dark
+          .flex.items-center.justify-center.gap-4.mt-4.text-sm.text-neutral-600.dark\\:text-neutral-400
+          span {
+          color: #4b5563 !important;
         }
       `}</style>
     </div>
