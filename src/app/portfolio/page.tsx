@@ -68,18 +68,54 @@ const projectTypes = [
   },
 ];
 
+// Interface TypeScript pour le type de projet
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  client: string;
+  year: number;
+  technologies: string[];
+  results: string[];
+  link: string;
+}
+
+// Interface pour les données brutes de projet reçues de l'API
+interface ApiProject {
+  id: string;
+  title: string;
+  categories?: string[];
+  description?: string;
+  summary?: string;
+  coverImage?: string;
+  client?: string;
+  year?: string;
+  technologies?: string[];
+  results?: string[];
+  link?: string;
+  slug?: string;
+}
+
 // Projets par défaut (fallback)
-const defaultProjects = [
+const defaultProjects: Project[] = [
   {
     id: "purple-nails",
     title: "Purple Nails Studio",
     category: "Site Vitrine",
     description:
-      "Site vitrine moderne pour un salon de manucure à Paris, avec système de réservation en ligne et galerie de réalisations.",
+      "Site vitrine professionnel pour une prothésiste ongulaire proposant des services de haute qualité. Interface moderne et épurée avec galerie de réalisations.",
     image: "/images/projects/purple-nails.jpg",
     client: "Purple Nails Studio",
     year: 2023,
-    technologies: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
+    technologies: [
+      "React",
+      "Next.js",
+      "Shadcn/ui",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
     results: [
       "Augmentation des réservations de 40%",
       "Visibilité accrue dans les recherches locales",
@@ -91,11 +127,18 @@ const defaultProjects = [
     title: "KAIRO Digital",
     category: "Site Professionnel",
     description:
-      "Refonte complète du site professionnel KAIRO Digital avec optimisation SEO et intégration d'un système de blog.",
+      "Site professionnel complet avec optimisation SEO, système de réservation en ligne, portfolio de projets et blog intégré. Architecture robuste et performante.",
     image: "/images/projects/kairo-digital.jpg",
     client: "KAIRO Digital",
     year: 2023,
-    technologies: ["React", "Next.js", "Tailwind CSS", "Prisma"],
+    technologies: [
+      "React",
+      "Next.js",
+      "Shadcn/ui",
+      "Tailwind CSS",
+      "Prisma",
+      "TypeScript",
+    ],
     results: [
       "Amélioration du score Core Web Vitals",
       "Augmentation du trafic organique de 55%",
@@ -105,28 +148,34 @@ const defaultProjects = [
   {
     id: "holy-beauty",
     title: "HOLY Beauty",
-    category: "E-commerce",
+    category: "Site Vitrine Premium",
     description:
-      "Boutique en ligne pour une marque de cosmétiques biologiques, avec système de paiement sécurisé et gestion des stocks.",
+      "Site vitrine professionnel pour une entreprise d'esthétisme premium. Design élégant et interfaces utilisateur optimisées pour convertir les visiteurs en clients.",
     image: "/images/projects/holy-beauty.jpg",
     client: "HOLY Beauty",
     year: 2022,
-    technologies: ["Next.js", "Shopify", "Tailwind CSS", "Stripe"],
+    technologies: [
+      "React",
+      "Next.js",
+      "Shadcn/ui",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
     results: ["Taux de conversion de 3.8%", "Panier moyen augmenté de 25%"],
     link: "/portfolio/holy-beauty",
   },
 ];
 
 // Fonction pour formater les projets de l'API pour l'affichage
-const formatApiProject = (project) => {
+const formatApiProject = (project: ApiProject): Project => {
   return {
     id: project.id,
     title: project.title,
     category: project.categories?.[0] || "Site Web",
-    description: project.description || project.summary,
+    description: project.description || project.summary || "",
     image: project.coverImage || "/images/placeholder-project.jpg",
     client: project.client || "Client confidentiel",
-    year: parseInt(project.year) || new Date().getFullYear(),
+    year: parseInt(project.year || "") || new Date().getFullYear(),
     technologies: project.technologies || [],
     results: project.results || [],
     link: project.link || `/portfolio/${project.slug || project.id}`,
