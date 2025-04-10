@@ -45,23 +45,27 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Mon Parcours</h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  J&apos;ai débuté ma carrière en 2015 en tant que développeur
-                  web, travaillant sur divers projets qui m&apos;ont permis
-                  d&apos;acquérir une solide expertise technique. En 2020,
-                  j&apos;ai décidé de me lancer en tant que freelance sous le
-                  nom KAIRO Digital pour offrir des services plus personnalisés
-                  à mes clients.
+                  J&apos;ai découvert le développement web il y a maintenant 3
+                  ans, en tant qu&apos;autodidacte, à travers des projets
+                  réalisés seul ou en équipe. Progressivement, cette passion est
+                  devenue une vraie vocation. Il y a 2 ans, j&apos;ai décidé de
+                  m&apos;y consacrer pleinement, et il y a un an, j&apos;ai
+                  suivi une formation intensive pour consolider mes compétences.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Depuis, j&apos;ai accompagné plus de 50 TPE et PME dans leur
-                  transformation numérique, en créant des sites web performants
-                  et accessibles financièrement, sans compromettre la qualité.
+                  Depuis, j&apos;ai eu l&apos;opportunité d&apos;accompagner une
+                  dizaine de TPE et PME dans leur transformation numérique,
+                  aussi bien en autonomie qu&apos;en collaboration avec
+                  d&apos;autres développeurs. Mon expertise s&apos;est
+                  développée au contact de ces petites structures, où les enjeux
+                  sont concrets : des budgets souvent restreints, un besoin de
+                  résultats rapides, et surtout un accompagnement personnalisé.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Mon expertise s&apos;est construite en comprenant les défis
-                  spécifiques des petites structures : budgets limités, besoin
-                  de résultats rapides et nécessité d&apos;un accompagnement
-                  personnalisé.
+                  En 2025, j&apos;ai décidé de créer Kairo Digital, pour
+                  proposer à mes clients un service sur-mesure, aligné avec
+                  leurs réels besoins et leurs contraintes, tout en gardant une
+                  approche humaine et accessible.
                 </p>
               </div>
             </ScrollReveal>
