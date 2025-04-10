@@ -7,46 +7,12 @@ import { BlogArticle } from "@/lib/store/blog-store";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-// Génération dynamique des métadonnées
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
-  // Récupérer l'article à partir du slug pour générer les métadonnées
-  const article = getArticleBySlug(params.slug);
-
-  if (!article) {
-    return {
-      title: "Article non trouvé | KAIRO Digital",
-      description: "Cet article n'existe pas ou a été supprimé.",
-    };
-  }
-
-  // Générer les métadonnées basées sur l'article
-  return {
-    title: `${article.title} | KAIRO Digital Blog`,
-    description: article.excerpt,
-    openGraph: {
-      title: article.title,
-      description: article.excerpt,
-      type: "article",
-      publishedTime: article.createdAt,
-      modifiedTime: article.updatedAt,
-      url: `https://www.kairo-digital.fr/blog/${article.slug}`,
-      images: [
-        {
-          url: article.image || "/images/placeholder-blog.jpg",
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
-      authors: ["KAIRO Digital"],
-      section: article.category,
-    },
-  };
-}
+// Métadonnées statiques
+export const metadata: Metadata = {
+  title: "Article de blog | KAIRO Digital",
+  description:
+    "Découvrez nos articles experts sur le développement web, le SEO et les technologies numériques.",
+};
 
 // Formater la date pour l'affichage
 function formatDate(dateString: string): string {
