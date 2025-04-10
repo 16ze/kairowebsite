@@ -1,18 +1,13 @@
+"use client";
+
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar, Tag, User, Clock } from "lucide-react";
 import { BlogArticle } from "@/lib/store/blog-store";
-import { notFound } from "next/navigation";
-import { Metadata } from "next";
-
-// Métadonnées statiques
-export const metadata: Metadata = {
-  title: "Article de blog | KAIRO Digital",
-  description:
-    "Découvrez nos articles experts sur le développement web, le SEO et les technologies numériques.",
-};
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 // Formater la date pour l'affichage
 function formatDate(dateString: string): string {
@@ -32,7 +27,7 @@ function estimateReadingTime(content: string): string {
   return `${readingTime} min`;
 }
 
-// Fonction pour récupérer un article par son slug (côté serveur)
+// Fonction pour récupérer un article par son slug (côté client)
 function getArticleBySlug(slug: string): BlogArticle | undefined {
   // Liste des articles du blog (doit correspondre à celle dans page.tsx)
   const articles: BlogArticle[] = [
@@ -232,17 +227,59 @@ function getRelatedArticles(
 }
 
 // Composant principal pour la page d'article
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  // Récupérer l'article à partir du slug
-  const article = getArticleBySlug(params.slug);
+export default function BlogPostPage() {
+  const params = useParams();
+  const [article, setArticle] = useState<BlogArticle | null>(null);
+  const [relatedArticles, setRelatedArticles] = useState<BlogArticle[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (params.slug) {
+      const slug =
+        typeof params.slug === "string" ? params.slug : params.slug[0];
+      const foundArticle = getArticleBySlug(slug);
+
+      if (foundArticle) {
+        setArticle(foundArticle);
+        setRelatedArticles(getRelatedArticles(foundArticle));
+      }
+
+      setIsLoading(false);
+    }
+  }, [params]);
+
+  // Si en cours de chargement
+  if (isLoading) {
+    return (
+      <MainLayout>
+        <div className="container mx-auto px-4 py-36">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-xl">Chargement de l&apos;article...</h2>
+          </div>
+        </div>
+      </MainLayout>
+    );
+  }
 
   // Si l'article n'existe pas ou n'est pas publié
   if (!article) {
-    return notFound();
+    return (
+      <MainLayout>
+        <div className="container mx-auto px-4 py-36">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4">Article non trouvé</h2>
+            <p className="mb-8">
+              L&apos;article que vous recherchez n&apos;existe pas ou a été
+              supprimé.
+            </p>
+            <Button asChild>
+              <Link href="/blog">Retour au blog</Link>
+            </Button>
+          </div>
+        </div>
+      </MainLayout>
+    );
   }
-
-  // Récupérer les articles connexes
-  const relatedArticles = getRelatedArticles(article);
 
   return (
     <MainLayout>
