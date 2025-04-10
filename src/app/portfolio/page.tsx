@@ -68,6 +68,55 @@ const projectTypes = [
   },
 ];
 
+// Projets par défaut (fallback)
+const defaultProjects = [
+  {
+    id: "purple-nails",
+    title: "Purple Nails Studio",
+    category: "Site Vitrine",
+    description:
+      "Site vitrine moderne pour un salon de manucure à Paris, avec système de réservation en ligne et galerie de réalisations.",
+    image: "/images/projects/purple-nails.jpg",
+    client: "Purple Nails Studio",
+    year: 2023,
+    technologies: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
+    results: [
+      "Augmentation des réservations de 40%",
+      "Visibilité accrue dans les recherches locales",
+    ],
+    link: "/portfolio/purple-nails",
+  },
+  {
+    id: "kairo-digital",
+    title: "KAIRO Digital",
+    category: "Site Professionnel",
+    description:
+      "Refonte complète du site professionnel KAIRO Digital avec optimisation SEO et intégration d'un système de blog.",
+    image: "/images/projects/kairo-digital.jpg",
+    client: "KAIRO Digital",
+    year: 2023,
+    technologies: ["React", "Next.js", "Tailwind CSS", "Prisma"],
+    results: [
+      "Amélioration du score Core Web Vitals",
+      "Augmentation du trafic organique de 55%",
+    ],
+    link: "/portfolio/kairo-digital",
+  },
+  {
+    id: "holy-beauty",
+    title: "HOLY Beauty",
+    category: "E-commerce",
+    description:
+      "Boutique en ligne pour une marque de cosmétiques biologiques, avec système de paiement sécurisé et gestion des stocks.",
+    image: "/images/projects/holy-beauty.jpg",
+    client: "HOLY Beauty",
+    year: 2022,
+    technologies: ["Next.js", "Shopify", "Tailwind CSS", "Stripe"],
+    results: ["Taux de conversion de 3.8%", "Panier moyen augmenté de 25%"],
+    link: "/portfolio/holy-beauty",
+  },
+];
+
 // Fonction pour formater les projets de l'API pour l'affichage
 const formatApiProject = (project) => {
   return {
@@ -113,6 +162,9 @@ export default async function PortfolioPage() {
   // Récupérer les projets depuis l'API
   const realProjects = await getProjects();
 
+  // Utiliser les projets de l'API s'ils existent, sinon utiliser les projets par défaut
+  const projects = realProjects.length > 0 ? realProjects : defaultProjects;
+
   return (
     <MainLayout>
       {/* Header */}
@@ -144,8 +196,8 @@ export default async function PortfolioPage() {
             animation="fade-up"
             className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           >
-            {realProjects.length > 0 ? (
-              realProjects.map((project) => (
+            {projects.length > 0 ? (
+              projects.map((project) => (
                 <Card
                   key={project.id}
                   className="overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300"
