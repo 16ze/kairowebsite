@@ -251,16 +251,30 @@ export function CalendarAlternate({
           color: white;
         }
 
+        .dark .react-datepicker__header {
+          background-color: transparent;
+          border-bottom: 1px solid #374151; /* border-gray-700 */
+        }
+
+        .dark .react-datepicker__day-name {
+          color: #9ca3af; /* text-gray-400 */
+        }
+
         .dark .react-datepicker__day {
-          color: #e5e7eb; /* text-gray-200 */
+          color: #f3f4f6; /* text-gray-100 */
+          background-color: transparent;
         }
 
         .dark .react-datepicker__day--disabled {
-          color: #6b7280; /* text-gray-500 */
+          color: #4b5563; /* text-gray-600 */
         }
 
-        .dark .react-datepicker__day:hover {
-          background-color: rgba(59, 130, 246, 0.2); /* bg-blue-500/20 */
+        .dark
+          .react-datepicker__day:hover:not(
+            .react-datepicker__day--disabled
+          ):not(.react-datepicker__day--selected) {
+          background-color: #1e40af; /* bg-blue-800 */
+          color: white;
         }
 
         .dark .react-datepicker__day--selected {
@@ -271,6 +285,19 @@ export function CalendarAlternate({
         .dark .react-datepicker__day--keyboard-selected {
           background-color: #3b82f6; /* bg-blue-500 */
           color: white;
+        }
+
+        /* Adaptons les couleurs du titre des mois et des flèches */
+        .dark .react-datepicker__current-month,
+        .dark .react-datepicker__navigation-icon::before {
+          color: white;
+        }
+
+        /* Style spécifique pour le jour actuel */
+        .dark .react-datepicker__day--today {
+          background-color: #1f2937; /* bg-gray-800 */
+          border: 1px solid #3b82f6; /* border-blue-500 */
+          color: #60a5fa; /* text-blue-400 */
         }
       `}</style>
     </div>
