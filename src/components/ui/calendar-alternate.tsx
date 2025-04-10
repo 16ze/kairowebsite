@@ -87,13 +87,13 @@ export function CalendarAlternate({
     prevMonthButtonDisabled,
     nextMonthButtonDisabled,
   }: ReactDatePickerCustomHeaderProps) => (
-    <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-200 dark:border-neutral-700">
+    <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-200">
       <Button
         onClick={decreaseMonth}
         disabled={prevMonthButtonDisabled}
         variant="ghost"
         size="sm"
-        className="h-9 w-9 p-0 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+        className="h-9 w-9 p-0 hover:bg-neutral-100"
       >
         <span className="sr-only">Mois précédent</span>
         <svg
@@ -110,7 +110,7 @@ export function CalendarAlternate({
         </svg>
       </Button>
 
-      <h2 className="text-base font-medium text-neutral-900 dark:text-white">
+      <h2 className="text-base font-medium text-neutral-900">
         {format(date, "MMMM yyyy", { locale: fr })}
       </h2>
 
@@ -119,7 +119,7 @@ export function CalendarAlternate({
         disabled={nextMonthButtonDisabled}
         variant="ghost"
         size="sm"
-        className="h-9 w-9 p-0 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+        className="h-9 w-9 p-0 hover:bg-neutral-100"
       >
         <span className="sr-only">Mois suivant</span>
         <svg
@@ -143,8 +143,8 @@ export function CalendarAlternate({
       className={cn("relative", isFetching && "opacity-50 pointer-events-none")}
     >
       {isFetching && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/40 dark:bg-black/40 rounded-lg backdrop-blur-sm z-50">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-600 dark:text-blue-400" />
+        <div className="absolute inset-0 flex items-center justify-center bg-white/40 rounded-lg backdrop-blur-sm z-50">
+          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
         </div>
       )}
 
@@ -195,111 +195,132 @@ export function CalendarAlternate({
       <style jsx global>{`
         /* Personnalisation du calendrier */
         .react-datepicker {
-          font-family: inherit;
-          border: none;
+          font-family: inherit !important;
+          border: none !important;
+          background-color: white !important;
+        }
+
+        .react-datepicker__header {
+          background-color: white !important;
+          border-bottom: 1px solid #e5e7eb !important;
         }
 
         .react-datepicker__month-container {
-          width: 100%;
+          width: 100% !important;
         }
 
         .react-datepicker__day-names,
         .react-datepicker__week {
-          display: flex;
-          justify-content: space-between;
+          display: flex !important;
+          justify-content: space-between !important;
         }
 
         .react-datepicker__day-name {
-          width: 44px;
-          margin: 0;
-          padding: 10px 0;
-          text-align: center;
-          text-transform: uppercase;
+          width: 44px !important;
+          margin: 0 !important;
+          padding: 10px 0 !important;
+          text-align: center !important;
+          text-transform: uppercase !important;
+          color: #6b7280 !important; /* text-gray-500 */
         }
 
         .react-datepicker__day {
-          width: 44px;
-          height: 44px;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 8px;
-          line-height: 44px;
-          transition: all 0.15s ease;
+          width: 44px !important;
+          height: 44px !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          border-radius: 8px !important;
+          line-height: 44px !important;
+          transition: all 0.15s ease !important;
+          color: #111827 !important; /* text-gray-900 */
         }
 
         .react-datepicker__day:focus {
-          outline: none;
+          outline: none !important;
         }
 
         .react-datepicker__day--disabled {
-          color: var(--tw-color-neutral-400);
-          cursor: not-allowed;
+          color: #d1d5db !important; /* text-gray-300 */
+          cursor: not-allowed !important;
         }
 
         .react-datepicker__day--outside-month {
-          opacity: 0.5;
+          opacity: 0.5 !important;
         }
 
-        /* Mode sombre - Forcer les mêmes styles que le mode clair */
+        /* Mode clair et sombre - styles uniformes */
+        .react-datepicker__day:hover:not(.react-datepicker__day--disabled):not(
+            .react-datepicker__day--selected
+          ) {
+          background-color: #eff6ff !important; /* bg-blue-50 */
+          color: #1e3a8a !important; /* text-blue-900 */
+        }
+
+        .react-datepicker__day--selected {
+          background-color: #2563eb !important; /* bg-blue-600 */
+          color: white !important;
+        }
+
+        .react-datepicker__day--keyboard-selected {
+          background-color: #3b82f6 !important; /* bg-blue-500 */
+          color: white !important;
+        }
+
+        .react-datepicker__day--today {
+          background-color: #f3f4f6 !important; /* bg-gray-100 */
+          border: 1px solid #3b82f6 !important; /* border-blue-500 */
+          color: #2563eb !important; /* text-blue-600 */
+          font-weight: bold !important;
+        }
+
+        /* Force le style clair en mode sombre */
         .dark .react-datepicker,
         .dark .react-datepicker__header {
-          background-color: white;
-        }
-
-        .dark .react-datepicker__day-name,
-        .dark .react-datepicker__day,
-        .dark .react-datepicker__time-name,
-        .dark .react-datepicker__current-month {
-          color: black;
-        }
-
-        .dark .react-datepicker__day--selected,
-        .dark .react-datepicker__day--keyboard-selected {
-          background-color: #2563eb;
-          color: white;
-        }
-
-        .dark .react-datepicker__day--disabled {
-          color: #ccc;
-        }
-
-        .dark
-          .react-datepicker__day:hover:not(
-            .react-datepicker__day--disabled
-          ):not(.react-datepicker__day--selected) {
-          background-color: #f0f0f0;
-          color: black;
-        }
-
-        .dark .react-datepicker__navigation-icon::before {
-          border-color: #2563eb;
-        }
-
-        .dark .react-datepicker__day--today {
-          background-color: #f0f0f0;
-          border: 1px solid #2563eb;
-          color: #2563eb;
-          font-weight: bold;
-        }
-
-        /* Forcer les couleurs blanches pour les containers en mode sombre */
-        .dark .p-2.bg-white.dark\\:bg-neutral-900 {
           background-color: white !important;
         }
 
-        /* Forcer les couleurs de texte pour la légende en mode sombre */
-        .dark
-          .flex.items-center.justify-center.gap-4.mt-4.text-sm.text-neutral-600.dark\\:text-neutral-400 {
-          color: #4b5563 !important;
+        .dark .react-datepicker__day-name {
+          color: #6b7280 !important; /* text-gray-500 */
         }
 
+        .dark .react-datepicker__day {
+          color: #111827 !important; /* text-gray-900 */
+        }
+
+        .dark .react-datepicker__day--disabled {
+          color: #d1d5db !important; /* text-gray-300 */
+        }
+
+        .dark .react-datepicker__navigation-icon::before {
+          border-color: #2563eb !important; /* border-blue-600 */
+        }
+
+        .dark .react-datepicker__current-month {
+          color: #111827 !important; /* text-gray-900 */
+        }
+
+        /* Style spécifique pour le mois et l'année */
+        .dark h2.text-base.font-medium.text-neutral-900 {
+          color: black !important;
+        }
+
+        /* Règle la position et la couleur du point indicateur sous les jours disponibles */
         .dark
-          .flex.items-center.justify-center.gap-4.mt-4.text-sm.text-neutral-600.dark\\:text-neutral-400
-          span {
-          color: #4b5563 !important;
+          .react-datepicker
+          .flex.items-center.justify-center.w-full.h-full
+          .after\\:absolute {
+          color: #111827 !important; /* text-gray-900 */
+        }
+        .dark
+          .react-datepicker
+          .after\\:absolute.after\\:bottom-0.after\\:w-1\\.5.after\\:h-1\\.5.after\\:bg-blue-500.after\\:rounded-full {
+          background-color: white !important;
+        }
+        .dark .react-datepicker .after\\:bg-blue-500 {
+          background-color: #3b82f6 !important; /* bg-blue-500 */
         }
       `}</style>
     </div>
