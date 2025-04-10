@@ -69,7 +69,7 @@ export default function AboutPage() {
             <ScrollReveal animation="fade-left" threshold={0.1} delay={2}>
               <div className="bg-neutral-100 dark:bg-neutral-800 p-6 rounded-lg relative overflow-hidden group h-full">
                 <Image
-                  src="/images/photo-Bryan.jpeg"
+                  src="/images/Bryan-Hilaire-developpeur.png"
                   alt="Bryan Hilaire, développeur web freelance"
                   width={500}
                   height={500}
