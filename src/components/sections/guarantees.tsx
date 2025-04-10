@@ -77,8 +77,8 @@ export function Guarantees() {
           className="absolute inset-0 z-0 h-[120%] top-[-10%]"
         >
           <Image
-            src="/images/Bryan-Hilaire-developpeur.png"
-            alt="Bryan Hilaire, développeur web freelance"
+            src="/images/kairo-hero-img.webp"
+            alt="Fond parallaxe"
             fill
             priority
             className="object-cover object-center"
