@@ -1,5 +1,3 @@
-"use client";
-
 import { MainLayout } from "@/components/layout/main-layout";
 import Script from "next/script";
 import Link from "next/link";
@@ -13,18 +11,18 @@ import { ServiceCard } from "@/components/ui/service-card";
 
 export const metadata: Metadata = {
   title:
-    "Nos Services | KAIRO Digital - Développeur web freelance et consultant SEO",
+    "Nos Services | KAIRO Digital - Développeur web freelance et expert en visibilité web",
   description:
-    "Découvrez nos services de développement web et d'optimisation SEO. Des solutions sur mesure pour améliorer votre présence en ligne et générer plus de trafic qualifié.",
+    "Découvrez nos services de développement web et d'amélioration de votre visibilité en ligne. Des solutions sur mesure pour améliorer votre présence sur le web et générer plus de trafic qualifié.",
   keywords:
-    "services, développement web, optimisation SEO, site web, freelance, développeur indépendant, design, responsive, Next.js, React, Tailwind CSS",
+    "services, développement web, référencement web, visibilité en ligne, site web, freelance, développeur indépendant, design, responsive, Next.js, React, Tailwind CSS",
   alternates: {
     canonical: "https://www.kairo-digital.fr/services",
   },
   openGraph: {
     title: "Nos Services | KAIRO Digital",
     description:
-      "Découvrez nos services de développement web et d'optimisation SEO",
+      "Découvrez nos services de développement web et d'amélioration de votre visibilité en ligne",
     url: "https://www.kairo-digital.fr/services",
     type: "website",
   },
