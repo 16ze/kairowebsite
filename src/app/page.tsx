@@ -139,8 +139,15 @@ export default function Home() {
         <div className="container mx-auto px-4 z-10 text-center pt-24 sm:pt-32">
           <ScrollReveal animation="fade-down">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 animate-fade-in drop-shadow-md">
-              Nous développons des sites qui convertissent
+              Nous développons des sites qui{" "}
+              <span className="text-amber-400 dark:text-amber-300 relative inline-block animate-pulse">
+                convertissent
+              </span>
             </h1>
+            <p className="text-lg md:text-xl text-white/80 dark:text-neutral-200/80 max-w-3xl mx-auto mb-8">
+              Des sites web conçus pour transformer vos{" "}
+              <span className="font-semibold">visiteurs en clients</span>
+            </p>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={1}>
