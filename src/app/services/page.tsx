@@ -5,9 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 import { Metadata } from "next";
-import { CheckIcon } from "@/components/icons/check-icon";
-import Image from "next/image";
-import { ServiceCard } from "@/components/ui/service-card";
 
 export const metadata: Metadata = {
   title:
@@ -63,7 +60,7 @@ export default function ServicesPage() {
                   "@type": "Organization",
                   name: "KAIRO Digital",
                 },
-                serviceType: "SEO",
+                serviceType: "Référencement",
                 url: "https://www.kairo-digital.fr/services#seo",
               },
               {
@@ -228,25 +225,23 @@ export default function ServicesPage() {
                   Sites Vitrines & E-commerce
                 </h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Je conçois des sites web professionnels et des boutiques en
-                  ligne qui reflètent l&apos;identité de votre entreprise. Des
-                  solutions élégantes, fonctionnelles et optimisées pour
-                  convertir vos visiteurs.
+                  Je conçois et développe des sites web professionnels qui
+                  reflètent l&apos;identité de votre entreprise et répondent à
+                  vos objectifs commerciaux. De la simple vitrine à la boutique
+                  en ligne complexe, chaque projet est réalisé avec soin.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
                     <span>
-                      Sites vitrines modernes et adaptatifs (responsive)
+                      Sites vitrines élégants et parfaitement responsives
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
-                    <span>Boutiques e-commerce sécurisées et performantes</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">✓</span>
-                    <span>Système de gestion de contenu intuitif (CMS)</span>
+                    <span>
+                      Boutiques e-commerce avec gestion des produits et paiements
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
@@ -254,25 +249,34 @@ export default function ServicesPage() {
                       Optimisation pour les conversions et le référencement
                     </span>
                   </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    <span>
+                      Design sur mesure adapté à votre identité de marque
+                    </span>
+                  </li>
                 </ul>
                 <Button asChild size="lg">
                   <Link href="/contact">Demander un devis</Link>
                 </Button>
               </div>
-              <div className="bg-gradient-to-br from-teal-100 to-emerald-100 dark:from-teal-900/30 dark:to-emerald-900/30 p-8 rounded-lg order-1 md:order-2">
+              <div className="bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 p-8 rounded-lg order-1 md:order-2">
                 <div className="aspect-video bg-white dark:bg-black rounded-lg p-6">
-                  <div className="w-full h-full bg-gradient-to-r from-teal-500 to-emerald-600 rounded-md flex items-center justify-center text-white font-bold text-xl">
-                    Sites Web Professionnels
+                  <div className="w-full h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-md flex items-center justify-center text-white font-bold text-xl">
+                    Sites Vitrines & E-commerce
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Service 4 */}
-            <div id="audit" className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 p-8 rounded-lg">
+            <div
+              id="audit"
+              className="grid md:grid-cols-2 gap-8 mb-20 items-center"
+            >
+              <div className="bg-gradient-to-br from-violet-100 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30 p-8 rounded-lg">
                 <div className="aspect-video bg-white dark:bg-black rounded-lg p-6">
-                  <div className="w-full h-full bg-gradient-to-r from-purple-500 to-pink-600 rounded-md flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-full h-full bg-gradient-to-r from-violet-500 to-purple-600 rounded-md flex items-center justify-center text-white font-bold text-xl">
                     Audit de Performance
                   </div>
                 </div>
@@ -282,35 +286,34 @@ export default function ServicesPage() {
                   Audit de Performance
                 </h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  J&apos;analyse en profondeur les performances techniques de
-                  votre site web pour identifier les points de friction et
-                  proposer des solutions concrètes d&apos;amélioration.
+                  J&apos;analyse en profondeur votre site web pour identifier les
+                  problèmes techniques et les opportunités d&apos;amélioration.
+                  Chaque audit est accompagné de recommandations concrètes et
+                  priorisées.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
                     <span>
-                      Analyse complète des Core Web Vitals et métriques de
-                      performance
+                      Analyse complète des performances et de la vitesse
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
                     <span>
-                      Identification des problèmes techniques bloquants
+                      Identification des problèmes de sécurité et de conformité
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
                     <span>
-                      Recommandations pour optimiser la vitesse de chargement
+                      Vérification de la compatibilité mobile et desktop
                     </span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
                     <span>
-                      Plan d&apos;action détaillé avec priorisation des
-                      correctifs
+                      Recommandations détaillées et plan d&apos;action
                     </span>
                   </li>
                 </ul>
@@ -323,104 +326,27 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-up" className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Notre Processus</h2>
-            <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-              Une approche structurée pour garantir le succès de chaque projet
-            </p>
-          </ScrollReveal>
-
-          <ScrollRevealGroup animation="fade-up" stagger={0.1}>
-            <div className="grid md:grid-cols-4 gap-6">
-              <Card>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                    1
-                  </div>
-                  <CardTitle>Découverte</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Nous échangeons sur vos besoins, objectifs et contraintes
-                    pour définir précisément votre projet.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                    2
-                  </div>
-                  <CardTitle>Proposition</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Je vous présente une solution adaptée à vos besoins avec un
-                    devis détaillé et un planning prévisionnel.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                    3
-                  </div>
-                  <CardTitle>Réalisation</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Développement de votre projet avec des points d&apos;étape
-                    réguliers pour valider les avancées.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                    4
-                  </div>
-                  <CardTitle>Livraison</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Mise en ligne de votre projet, formation à son utilisation
-                    et support post-lancement.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </ScrollRevealGroup>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950">
+      {/* CTA Section */}
+      <section className="py-20 bg-blue-800 text-white dark:bg-blue-900">
         <div className="container mx-auto px-4 text-center">
           <ScrollReveal animation="fade-up">
-            <h2 className="text-3xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Prêt à transformer votre présence en ligne ?
             </h2>
-            <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-8">
               Contactez-moi dès aujourd&apos;hui pour discuter de votre projet
-              et découvrir comment je peux vous aider à atteindre vos objectifs.
+              et obtenir un devis personnalisé gratuit.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg">
-                <Link href="/contact">Demander un devis</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/portfolio">Voir mes réalisations</Link>
-              </Button>
-            </div>
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-blue-800 hover:bg-blue-50"
+            >
+              <Link href="/contact">Obtenir un devis gratuit</Link>
+            </Button>
           </ScrollReveal>
         </div>
       </section>
     </MainLayout>
   );
-}
+} 
