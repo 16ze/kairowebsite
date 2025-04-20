@@ -286,8 +286,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Guarantees Section */}
-      <Guarantees />
+      {/* À propos Section */}
+      <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <ScrollReveal animation="fade-up">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  À propos de KAIRO Digital
+                </h2>
+                <p className="text-neutral-700 dark:text-neutral-300 mb-4">
+                  Fondée sur l&apos;expertise en développement web et la passion
+                  pour l&apos;innovation digitale, KAIRO Digital accompagne les
+                  entreprises dans leur transformation numérique depuis 2020.
+                </p>
+                <p className="text-neutral-700 dark:text-neutral-300 mb-6">
+                  Notre mission est simple : créer des sites web qui non
+                  seulement impressionnent visuellement, mais génèrent des
+                  résultats concrets pour votre activité. Nous combinons design
+                  moderne, performances techniques et stratégies de conversion
+                  pour développer des solutions qui répondent parfaitement à vos
+                  objectifs commerciaux.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                  <Button asChild className="bg-blue-800 hover:bg-blue-700">
+                    <Link href="/about">En savoir plus sur nous</Link>
+                  </Button>
+                  <Button asChild variant="outline">
+                    <Link href="/contact">Nous contacter</Link>
+                  </Button>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            <ScrollReveal animation="fade-left" delay={1}>
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <div className="aspect-[4/3]">
+                  <Image
+                    src="/images/kairo-office.webp"
+                    alt="L'équipe KAIRO Digital"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent flex flex-col justify-end p-6">
+                  <div className="bg-white/90 dark:bg-black/80 p-4 rounded-lg backdrop-blur-sm">
+                    <p className="text-blue-800 dark:text-blue-300 font-medium">
+                      &ldquo;Notre objectif est de transformer chaque visiteur
+                      en client fidèle grâce à des expériences web
+                      exceptionnelles.&rdquo;
+                    </p>
+                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+                      — Bryan Kaironian, Fondateur
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
       {/* Processus de travail Section */}
       <section className="py-20 bg-white dark:bg-black">
@@ -425,125 +484,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Témoignages clients */}
-      <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
-        <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-up">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ce que disent mes clients
-              </h2>
-              <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                Voici les retours de clients satisfaits qui ont vu leur activité
-                se développer grâce à nos collaborations.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollRevealGroup
-            animation="fade-up"
-            className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-          >
-            <div className="bg-white dark:bg-black p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <p className="text-neutral-600 dark:text-neutral-400 italic mb-4">
-                &ldquo;Bryan a transformé notre site web dépassé en une vitrine
-                moderne et efficace. Notre trafic a augmenté de 40% et les
-                demandes de devis ont doublé en 2 mois !&rdquo;
-              </p>
-              <div className="mt-auto">
-                <p className="font-semibold">Sophie Martin</p>
-                <p className="text-sm text-neutral-500">Pâtisserie Douceurs</p>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-black p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <p className="text-neutral-600 dark:text-neutral-400 italic mb-4">
-                &ldquo;L&apos;amélioration du référencement réalisée par Bryan a
-                complètement changé notre visibilité en ligne. Nous apparaissons
-                maintenant en première page pour nos mots-clés
-                principaux.&rdquo;
-              </p>
-              <div className="mt-auto">
-                <p className="font-semibold">Thomas Dubois</p>
-                <p className="text-sm text-neutral-500">Cabinet Conseil TD</p>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-black p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-              <p className="text-neutral-600 dark:text-neutral-400 italic mb-4">
-                &ldquo;Un vrai professionnel qui comprend nos besoins. La
-                communication est claire et le travail de qualité. Je recommande
-                sans hésiter !&rdquo;
-              </p>
-              <div className="mt-auto">
-                <p className="font-semibold">Julie Moreau</p>
-                <p className="text-sm text-neutral-500">Studio Graphique JM</p>
-              </div>
-            </div>
-          </ScrollRevealGroup>
-
-          <ScrollReveal
-            animation="fade-up"
-            delay={2}
-            className="text-center mt-12"
-          >
-            <Link
-              href="/freelance#testimonials"
-              className="text-neutral-600 dark:text-neutral-400 hover:underline"
-            >
-              Voir tous les témoignages →
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Guarantees Section placée en bas */}
+      <Guarantees />
 
       {/* Sticky CTA */}
       <StickyCTA />
