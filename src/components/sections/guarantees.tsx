@@ -16,11 +16,6 @@ const guarantees = [
     description: "Livraison dans les temps ou remboursement de 10%",
   },
   {
-    icon: "🛡️",
-    title: "Paiement sécurisé",
-    description: "Paiement en plusieurs fois sans frais possible",
-  },
-  {
     icon: "📱",
     title: "Support réactif",
     description: "Réponse garantie sous 24h ouvrées",
@@ -96,7 +91,7 @@ export function Guarantees() {
         </ScrollReveal>
 
         <ScrollReveal animation="fade-up" delay={1}>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {guarantees.map((guarantee, index) => (
               <div
                 key={index}

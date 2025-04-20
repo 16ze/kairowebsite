@@ -289,81 +289,137 @@ export default function Home() {
       {/* Guarantees Section */}
       <Guarantees />
 
-      {/* Portfolio Preview Section */}
-      <section className="py-20">
+      {/* Processus de travail Section */}
+      <section className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <ScrollReveal animation="fade-up">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Mes Dernières Réalisations
+                Notre processus de travail
               </h2>
               <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                Découvrez comment j&apos;ai aidé ces entreprises à développer
-                leur présence en ligne et augmenter leur chiffre
-                d&apos;affaires.
+                Une méthode structurée et transparente pour transformer votre
+                vision en une solution web efficace
               </p>
             </div>
           </ScrollReveal>
 
-          <ScrollRevealGroup
-            animation="zoom"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            <div className="relative aspect-video bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
-              <Image
-                src="/images/PurpleNailsStudio.png"
-                alt="Purple Nails Studio - Design moderne pour salon de manucure"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="font-semibold mb-1">Purple Nails Studio</h3>
-                  <p className="text-sm text-white/80">Site vitrine</p>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-5xl mx-auto">
+            <div className="relative">
+              {/* Ligne de connexion verticale */}
+              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-blue-600 dark:bg-blue-500 transform md:translate-x-[-0.5px] hidden md:block"></div>
 
-            <div className="relative aspect-video bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
-              <Image
-                src="/images/Projet-Kairo-Digital.png"
-                alt="KAIRO Digital - Site vitrine de développeur web freelance"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="font-semibold mb-1">KAIRO Digital</h3>
-                  <p className="text-sm text-white/80">Site vitrine</p>
+              <ScrollRevealGroup
+                animation="fade-up"
+                stagger={0.2}
+                className="space-y-12 md:space-y-24"
+              >
+                {/* Étape 1 */}
+                <div className="flex flex-col md:flex-row md:items-center gap-8 relative">
+                  <div className="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-100 dark:border-blue-800 shadow-sm">
+                      <h3 className="text-xl font-bold mb-3 text-blue-800 dark:text-blue-400">
+                        1. Analyse des besoins
+                      </h3>
+                      <p className="text-neutral-700 dark:text-neutral-300">
+                        Nous commençons par une étude approfondie de vos
+                        objectifs, de votre public cible et de votre secteur
+                        d&apos;activité. Cette phase nous permet de comprendre
+                        parfaitement vos attentes et de définir les
+                        fonctionnalités clés de votre projet.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="md:w-1/2 flex justify-center md:justify-start order-1 md:order-2">
+                    <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-full z-10 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                      1
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="relative aspect-video bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
-              <Image
-                src="/images/HOLY Beauty.png"
-                alt="HOLY Beauty - Site vitrine pour prestations beauté haut de gamme"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                <div className="text-white">
-                  <h3 className="font-semibold mb-1">HOLY Beauty</h3>
-                  <p className="text-sm text-white/80">
-                    Institut de beauté haut de gamme
-                  </p>
+                {/* Étape 2 */}
+                <div className="flex flex-col md:flex-row md:items-center gap-8 relative">
+                  <div className="md:w-1/2 md:pl-12 order-2">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-100 dark:border-blue-800 shadow-sm">
+                      <h3 className="text-xl font-bold mb-3 text-blue-800 dark:text-blue-400">
+                        2. Stratégie et planification
+                      </h3>
+                      <p className="text-neutral-700 dark:text-neutral-300">
+                        Nous élaborons une stratégie claire et un plan
+                        d&apos;action détaillé pour votre projet. Cette étape
+                        inclut la création de maquettes, la définition de
+                        l&apos;architecture du site et l&apos;établissement
+                        d&apos;un calendrier précis pour respecter vos délais.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="md:w-1/2 flex justify-center md:justify-end order-1">
+                    <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-full z-10 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                      2
+                    </div>
+                  </div>
                 </div>
-              </div>
+
+                {/* Étape 3 */}
+                <div className="flex flex-col md:flex-row md:items-center gap-8 relative">
+                  <div className="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-100 dark:border-blue-800 shadow-sm">
+                      <h3 className="text-xl font-bold mb-3 text-blue-800 dark:text-blue-400">
+                        3. Conception et développement
+                      </h3>
+                      <p className="text-neutral-700 dark:text-neutral-300">
+                        C&apos;est l&apos;étape de création concrète de votre
+                        site. Nous développons une solution sur mesure,
+                        responsive et optimisée, en vous tenant informé
+                        régulièrement de l&apos;avancement et en intégrant vos
+                        retours pour des ajustements immédiats.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="md:w-1/2 flex justify-center md:justify-start order-1 md:order-2">
+                    <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-full z-10 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                      3
+                    </div>
+                  </div>
+                </div>
+
+                {/* Étape 4 */}
+                <div className="flex flex-col md:flex-row md:items-center gap-8 relative">
+                  <div className="md:w-1/2 md:pl-12 order-2">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-100 dark:border-blue-800 shadow-sm">
+                      <h3 className="text-xl font-bold mb-3 text-blue-800 dark:text-blue-400">
+                        4. Lancement et suivi continu
+                      </h3>
+                      <p className="text-neutral-700 dark:text-neutral-300">
+                        Une fois votre site mis en ligne, nous vous accompagnons
+                        pour garantir des performances optimales. Nous assurons
+                        un suivi régulier, des mises à jour de sécurité et vous
+                        proposons des améliorations continues pour faire évoluer
+                        votre présence en ligne.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="md:w-1/2 flex justify-center md:justify-end order-1">
+                    <div className="w-16 h-16 bg-blue-600 dark:bg-blue-500 rounded-full z-10 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                      4
+                    </div>
+                  </div>
+                </div>
+              </ScrollRevealGroup>
             </div>
-          </ScrollRevealGroup>
+          </div>
 
           <ScrollReveal
             animation="fade-up"
-            delay={2}
-            className="text-center mt-12"
+            delay={3}
+            className="text-center mt-16"
           >
-            <Button asChild className="bg-blue-800 hover:bg-blue-700 shadow-sm">
-              <Link href="/portfolio">Voir tous mes projets</Link>
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue-800 hover:bg-blue-700 shadow-md transition-all"
+            >
+              <Link href="/contact">Discutons de votre projet →</Link>
             </Button>
           </ScrollReveal>
         </div>
