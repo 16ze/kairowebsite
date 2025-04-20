@@ -169,13 +169,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <ScrollReveal animation="fade-up">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">
-                Solutions web adaptées aux petites entreprises
-              </h2>
+              <h2 className="text-3xl font-bold mb-4">Nos services</h2>
               <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                Des services pensés pour les TPE, PME et startups avec un
-                rapport qualité-prix imbattable et des résultats concrets pour
-                votre activité.
+                Des solutions digitales complètes et sur mesure pour développer
+                votre activité en ligne et maximiser votre présence sur le web.
               </p>
             </div>
           </ScrollReveal>
@@ -187,26 +184,21 @@ export default function Home() {
           >
             <Card>
               <CardHeader>
-                <CardTitle>Développement Web</CardTitle>
+                <CardTitle>Sites vitrines</CardTitle>
                 <CardDescription>
-                  Sites vitrines, e-commerce, applications web
+                  Présentez votre entreprise efficacement
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p>
-                  Je conçois et développe des sites web sur mesure, adaptés à
-                  vos besoins spécifiques et optimisés pour tous les appareils.{" "}
-                  <span className="font-semibold">
-                    Résultat : une expérience utilisateur impeccable qui
-                    convertit les visiteurs en clients.
-                  </span>
+                  Des sites vitrines professionnels et élégants qui reflètent
+                  l&apos;identité de votre entreprise. Parfaitement adaptés aux
+                  mobiles et optimisés pour le référencement, ils mettent en
+                  valeur vos produits et services pour maximiser les
+                  conversions.
                 </p>
               </CardContent>
-              <CardFooter className="flex flex-col gap-2">
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 italic mb-2">
-                  &ldquo;Notre site responsive a augmenté nos conversions
-                  mobiles de 45%&rdquo; - Marie L.
-                </p>
+              <CardFooter>
                 <Button
                   asChild
                   variant="default"
@@ -221,35 +213,27 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Optimisation SEO</CardTitle>
+                <CardTitle>Sites e-commerce</CardTitle>
                 <CardDescription>
-                  Référencement naturel, audit SEO, stratégie de contenu
+                  Vendez en ligne et augmentez votre chiffre d'affaires
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p>
-                  Améliorez votre visibilité en ligne et générez plus de trafic
-                  qualifié grâce à mes services d&apos;optimisation pour les
-                  moteurs de recherche.{" "}
-                  <span className="font-semibold">
-                    Atteignez la première page de Google pour vos mots-clés
-                    stratégiques.
-                  </span>
+                  Des boutiques en ligne performantes et sécurisées qui
+                  transforment les visiteurs en clients. Intégration des
+                  paiements, gestion des stocks, expérience d&apos;achat fluide
+                  et interface d&apos;administration intuitive pour gérer vos
+                  produits.
                 </p>
               </CardContent>
-              <CardFooter className="flex flex-col gap-2">
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 italic mb-2">
-                  &ldquo;Trafic organique augmenté de 73% en 3 mois&rdquo; -
-                  Thomas D.
-                </p>
+              <CardFooter>
                 <Button
                   asChild
                   variant="default"
                   className="w-full bg-blue-800 hover:bg-blue-700 shadow-sm transition-all"
                 >
-                  <Link href="/services#seo-optimization">
-                    Découvrir cette offre
-                  </Link>
+                  <Link href="/services#ecommerce">Découvrir cette offre</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -258,25 +242,18 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>Maintenance & Support</CardTitle>
                 <CardDescription>
-                  Mise à jour, sécurité, optimisation des performances
+                  Sécurité, mises à jour et optimisation des performances
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p>
-                  J&apos;assure la maintenance technique de votre site pour
-                  garantir sa sécurité, sa performance et sa disponibilité en
-                  tout temps.{" "}
-                  <span className="font-semibold">
-                    Dormez sur vos deux oreilles pendant que je veille sur votre
-                    site.
-                  </span>
+                  Un suivi régulier pour garantir le bon fonctionnement, la
+                  sécurité et les performances de votre site. Mises à jour
+                  techniques, sauvegardes, corrections de bugs et assistance
+                  technique pour une tranquillité d&apos;esprit totale.
                 </p>
               </CardContent>
-              <CardFooter className="flex flex-col gap-2">
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 italic mb-2">
-                  &ldquo;Temps de chargement réduit de 65%, merci Bryan !&rdquo;
-                  - Sophie M.
-                </p>
+              <CardFooter>
                 <Button
                   asChild
                   variant="default"
