@@ -16,11 +16,12 @@ import { StickyCTA } from "@/components/ui/sticky-cta";
 import { Guarantees } from "@/components/sections/guarantees";
 
 export const metadata = {
-  title: "KAIRO Digital | Développeur web freelance et consultant SEO",
+  title:
+    "KAIRO Digital | Développeur web freelance et expert en visibilité web",
   description:
-    "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+    "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'amélioration de votre visibilité en ligne. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
   keywords:
-    "développement web, optimisation SEO, site web, freelance, développeur indépendant, design, responsive, Next.js, React, Tailwind CSS, Paris",
+    "développement web, référencement web, visibilité en ligne, site web, freelance, développeur indépendant, design, responsive, Next.js, React, Tailwind CSS, Paris",
   alternates: {
     canonical: "https://www.kairo-digital.fr",
   },
@@ -35,7 +36,7 @@ export default function Home() {
           "@type": "WebSite",
           url: "https://www.kairo-digital.fr/",
           name: "KAIRO Digital",
-          description: "Développeur web freelance et consultant SEO",
+          description: "Développeur web freelance et expert en visibilité web",
           potentialAction: {
             "@type": "SearchAction",
             target:
@@ -193,8 +194,8 @@ export default function Home() {
                 <p>
                   Des sites vitrines professionnels et élégants qui reflètent
                   l&apos;identité de votre entreprise. Parfaitement adaptés aux
-                  mobiles et optimisés pour le référencement, ils mettent en
-                  valeur vos produits et services pour maximiser les
+                  mobiles et optimisés pour la visibilité en ligne, ils mettent
+                  en valeur vos produits et services pour maximiser les
                   conversions.
                 </p>
               </CardContent>
@@ -215,7 +216,7 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>Sites e-commerce</CardTitle>
                 <CardDescription>
-                  Vendez en ligne et augmentez votre chiffre d'affaires
+                  Vendez en ligne et augmentez votre chiffre d&apos;affaires
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -242,7 +243,7 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>Maintenance & Support</CardTitle>
                 <CardDescription>
-                  Sécurité, mises à jour et optimisation des performances
+                  Sécurité, mises à jour et amélioration des performances
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -433,9 +434,10 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-neutral-600 dark:text-neutral-400 italic mb-4">
-                &ldquo;L&apos;optimisation SEO réalisée par Bryan a complètement
-                changé notre visibilité en ligne. Nous apparaissons maintenant
-                en première page pour nos mots-clés principaux.&rdquo;
+                &ldquo;L&apos;amélioration du référencement réalisée par Bryan a
+                complètement changé notre visibilité en ligne. Nous apparaissons
+                maintenant en première page pour nos mots-clés
+                principaux.&rdquo;
               </p>
               <div className="mt-auto">
                 <p className="font-semibold">Thomas Dubois</p>
