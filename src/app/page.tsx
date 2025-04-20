@@ -50,8 +50,7 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           name: "KAIRO Digital",
-          image:
-            "https://www.kairo-digital.fr/images/Bryan-Hilaire-developpeur.png",
+          image: "https://www.kairo-digital.fr/images/kairo-hero-img.webp",
           "@id": "https://www.kairo-digital.fr/#organization",
           url: "https://www.kairo-digital.fr",
           telephone: "+33-123-456-789",
@@ -139,102 +138,22 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-4 z-10 text-center pt-24 sm:pt-32">
           <ScrollReveal animation="fade-down">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 animate-fade-in drop-shadow-md">
-              Développement web &{" "}
-              <span className="text-amber-400 dark:text-amber-300">
-                Optimisation SEO
-              </span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 animate-fade-in drop-shadow-md">
+              Nous développons des sites qui convertissent
             </h1>
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={1}>
-            <p className="text-lg md:text-xl text-white dark:text-neutral-200 max-w-3xl mx-auto mb-8 animate-fade-in-delay drop-shadow-sm">
-              <span className="font-semibold">Propulsez votre entreprise</span>{" "}
-              grâce à des sites web performants et une stratégie de
-              référencement qui vous place devant vos concurrents.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal animation="fade-up" delay={2}>
-            <div className="bg-amber-500/10 border border-amber-500/20 p-4 rounded-lg mb-8 max-w-2xl mx-auto">
-              <p className="text-sm md:text-base font-medium flex items-center gap-2 justify-center text-amber-200">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 8v4l3 3"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <span>
-                  <span className="font-bold">Places limitées</span> : Je ne
-                  prends que 3 nouveaux clients par mois pour garantir un suivi
-                  optimal
-                </span>
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal animation="zoom" delay={3}>
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg max-w-xl mx-auto mb-8 animate-fade-in-delay-2 hover:shadow-lg transition-shadow duration-300 border border-white/20">
-              <p className="text-sm font-medium text-white">
-                <span className="text-amber-400 dark:text-amber-300 font-bold">
-                  OFFRE LIMITÉE
-                </span>{" "}
-                : Les 5 prochains clients bénéficient d&apos;un{" "}
-                <span className="font-bold">audit SEO gratuit</span> d&apos;une
-                valeur de 250€
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal animation="fade-up" delay={4}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-3">
               <Button
                 asChild
                 size="lg"
-                className="bg-blue-800 hover:bg-blue-700 text-white shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-blue-900/30 border-none group"
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg shadow-lg"
               >
-                <Link href="/contact" className="flex items-center gap-2">
-                  Demander mon devis gratuit
-                  <span className="group-hover:translate-x-1 transition-transform">
-                    →
-                  </span>
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white/80 text-white bg-white/10 hover:bg-white/20 hover:border-white hover:text-white shadow-md transform transition-all duration-300 hover:scale-105 backdrop-blur-sm"
-              >
-                <Link href="/portfolio">Voir mes réalisations</Link>
+                <Link href="/contact">Demander mon devis gratuit</Link>
               </Button>
             </div>
           </ScrollReveal>
-        </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-white opacity-70"
-          >
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
         </div>
       </section>
 
