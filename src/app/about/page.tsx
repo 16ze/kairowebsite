@@ -6,11 +6,11 @@ import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
 export const metadata = {
   title:
-    "À propos | KAIRO Digital - Développeur web freelance et consultant SEO",
+    "À propos | KAIRO Digital - Agence web spécialisée en développement et visibilité web",
   description:
-    "Découvrez mon parcours, mes compétences et ma philosophie de travail. Je suis spécialisé dans le développement web et l'optimisation SEO pour maximiser votre présence en ligne.",
+    "Découvrez notre parcours, nos compétences et notre philosophie de travail. Nous sommes spécialisés dans le développement web et l'amélioration de la visibilité en ligne pour maximiser votre présence web.",
   keywords:
-    "à propos, parcours, compétences, développement web, optimisation SEO, site web, freelance, développeur indépendant",
+    "à propos, parcours, compétences, développement web, visibilité web, site web, agence web",
 };
 
 export default function AboutPage() {
@@ -28,44 +28,43 @@ export default function AboutPage() {
 
           <ScrollReveal animation="fade-up" delay={1} threshold={0.2}>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-              Je suis un développeur web freelance spécialisé dans la création
-              de sites web performants et rentables pour les TPE, PME et
-              startups. Mon objectif : vous offrir des solutions web accessibles
-              qui propulsent votre entreprise, même avec un budget limité.
+              Nous sommes une agence web spécialisée dans la création de sites
+              web performants et rentables pour les TPE, PME et startups. Notre
+              objectif : vous offrir des solutions web accessibles qui
+              propulsent votre entreprise, même avec un budget limité.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Mon parcours */}
+      {/* Notre parcours */}
       <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <ScrollReveal animation="fade-right" threshold={0.1}>
               <div>
-                <h2 className="text-3xl font-bold mb-6">Mon Parcours</h2>
+                <h2 className="text-3xl font-bold mb-6">Notre Parcours</h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  J&apos;ai découvert le développement web il y a maintenant 3
-                  ans, en tant qu&apos;autodidacte, à travers des projets
-                  réalisés seul ou en équipe. Progressivement, cette passion est
-                  devenue une vraie vocation. Il y a 2 ans, j&apos;ai décidé de
-                  m&apos;y consacrer pleinement, et il y a un an, j&apos;ai
-                  suivi une formation intensive pour consolider mes compétences.
+                  Nous avons commencé notre aventure dans le développement web
+                  il y a 3 ans, en unissant nos compétences pour réaliser divers
+                  projets. Progressivement, cette passion est devenue une vraie
+                  vocation. Il y a 2 ans, nous avons décidé de nous y consacrer
+                  pleinement, et il y a un an, nous avons consolidé nos
+                  compétences par des formations intensives.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Depuis, j&apos;ai eu l&apos;opportunité d&apos;accompagner une
-                  dizaine de TPE et PME dans leur transformation numérique,
-                  aussi bien en autonomie qu&apos;en collaboration avec
-                  d&apos;autres développeurs. Mon expertise s&apos;est
-                  développée au contact de ces petites structures, où les enjeux
-                  sont concrets : des budgets souvent restreints, un besoin de
-                  résultats rapides, et surtout un accompagnement personnalisé.
+                  Depuis, nous avons eu l&apos;opportunité d&apos;accompagner
+                  une dizaine de TPE et PME dans leur transformation numérique.
+                  Notre expertise s&apos;est développée au contact de ces
+                  petites structures, où les enjeux sont concrets : des budgets
+                  souvent restreints, un besoin de résultats rapides, et surtout
+                  un accompagnement personnalisé.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  En 2025, j&apos;ai décidé de créer Kairo Digital, pour
-                  proposer à mes clients un service sur-mesure, aligné avec
-                  leurs réels besoins et leurs contraintes, tout en gardant une
-                  approche humaine et accessible.
+                  En 2025, nous avons créé KAIRO Digital, pour proposer à nos
+                  clients un service sur-mesure, aligné avec leurs réels besoins
+                  et leurs contraintes, tout en gardant une approche humaine et
+                  accessible.
                 </p>
               </div>
             </ScrollReveal>
@@ -74,7 +73,7 @@ export default function AboutPage() {
               <div className="bg-neutral-100 dark:bg-neutral-800 p-6 rounded-lg relative overflow-hidden group h-full">
                 <Image
                   src="/images/Bryan-Hilaire-developpeur.png"
-                  alt="Bryan Hilaire, développeur web freelance"
+                  alt="L'équipe KAIRO Digital"
                   width={500}
                   height={500}
                   className="w-full h-auto rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
@@ -87,12 +86,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mes Valeurs */}
+      {/* Nos Valeurs */}
       <section className="py-16 border-b border-neutral-100 dark:border-neutral-800">
         <div className="container mx-auto px-4">
           <ScrollReveal animation="fade-down" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-12 text-center">
-              Mes Valeurs
+              Nos Valeurs
             </h2>
           </ScrollReveal>
 
@@ -121,8 +120,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Excellence</h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Je vise l&apos;excellence dans chaque projet, sans compromis sur
-                la qualité et la performance.
+                Nous visons l&apos;excellence dans chaque projet, sans compromis
+                sur la qualité et la performance.
               </p>
             </div>
             <div className="text-center p-6 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 rounded-lg transition-all duration-300 hover:shadow-md hover:-translate-y-1">
@@ -144,7 +143,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Collaboration</h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Je travaille en étroite collaboration avec mes clients pour
+                Nous travaillons en étroite collaboration avec nos clients pour
                 comprendre leurs besoins et dépasser leurs attentes.
               </p>
             </div>
@@ -167,7 +166,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-2">Innovation</h3>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Je reste à la pointe des technologies et des pratiques pour
+                Nous restons à la pointe des technologies et des pratiques pour
                 offrir des solutions innovantes et performantes.
               </p>
             </div>
@@ -175,12 +174,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mes Compétences */}
+      {/* Nos Compétences */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <ScrollReveal animation="fade-down" threshold={0.2}>
             <h2 className="text-3xl font-bold mb-12 text-center">
-              Mes Compétences
+              Nos Compétences
             </h2>
           </ScrollReveal>
 

@@ -8,11 +8,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Nos Services | KAIRO Digital - Développeur web freelance et expert en visibilité web",
+    "Nos Services | KAIRO Digital - Agence web spécialisée en développement et visibilité web",
   description:
     "Découvrez nos services de développement web et d'amélioration de votre visibilité en ligne. Des solutions sur mesure pour améliorer votre présence sur le web et générer plus de trafic qualifié.",
   keywords:
-    "services, développement web, référencement web, visibilité en ligne, site web, freelance, développeur indépendant, design, responsive, Next.js, React, Tailwind CSS",
+    "services, développement web, référencement web, visibilité en ligne, site web, agence web, design, responsive, Next.js, React, Tailwind CSS",
   alternates: {
     canonical: "https://www.kairo-digital.fr/services",
   },
@@ -127,11 +127,11 @@ export default function ServicesPage() {
                   Développement d&apos;Applications Web
                 </h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Je crée des applications web modernes et performantes adaptées
-                  à vos besoins spécifiques. Utilisant les technologies les plus
-                  récentes comme React, Next.js et Node.js, je développe des
-                  solutions sur mesure qui offrent une expérience utilisateur
-                  exceptionnelle.
+                  Nous créons des applications web modernes et performantes
+                  adaptées à vos besoins spécifiques. Utilisant les technologies
+                  les plus récentes comme React, Next.js et Node.js, nous
+                  développons des solutions sur mesure qui offrent une
+                  expérience utilisateur exceptionnelle.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start">
@@ -181,9 +181,9 @@ export default function ServicesPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-4">Référencement Web</h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  J&apos;améliore la visibilité de votre site sur les moteurs de
+                  Nous améliorons la visibilité de votre site sur les moteurs de
                   recherche pour attirer un trafic qualifié et convertir vos
-                  visiteurs en clients. Mon approche du référencement combine
+                  visiteurs en clients. Notre approche du référencement combine
                   techniques avancées et stratégie de contenu.
                 </p>
                 <ul className="space-y-2 mb-6">
@@ -240,7 +240,8 @@ export default function ServicesPage() {
                   <li className="flex items-start">
                     <span className="text-green-500 mr-2">✓</span>
                     <span>
-                      Boutiques e-commerce avec gestion des produits et paiements
+                      Boutiques e-commerce avec gestion des produits et
+                      paiements
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -286,10 +287,10 @@ export default function ServicesPage() {
                   Audit de Performance
                 </h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  J&apos;analyse en profondeur votre site web pour identifier les
-                  problèmes techniques et les opportunités d&apos;amélioration.
-                  Chaque audit est accompagné de recommandations concrètes et
-                  priorisées.
+                  J&apos;analyse en profondeur votre site web pour identifier
+                  les problèmes techniques et les opportunités
+                  d&apos;amélioration. Chaque audit est accompagné de
+                  recommandations concrètes et priorisées.
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start">
@@ -349,4 +350,4 @@ export default function ServicesPage() {
       </section>
     </MainLayout>
   );
-} 
+}

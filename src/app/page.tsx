@@ -19,9 +19,9 @@ export const metadata = {
   title:
     "KAIRO Digital | Développeur web freelance et expert en visibilité web",
   description:
-    "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'amélioration de votre visibilité en ligne. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+    "KAIRO Digital est une agence web spécialisée dans la création de sites web et l'amélioration de votre visibilité en ligne. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
   keywords:
-    "développement web, référencement web, visibilité en ligne, site web, freelance, développeur indépendant, design, responsive, Next.js, React, Tailwind CSS, Paris",
+    "développement web, référencement web, visibilité en ligne, site web, agence web, design, responsive, Next.js, React, Tailwind CSS, Paris",
   alternates: {
     canonical: "https://www.kairo-digital.fr",
   },
@@ -36,7 +36,7 @@ export default function Home() {
           "@type": "WebSite",
           url: "https://www.kairo-digital.fr/",
           name: "KAIRO Digital",
-          description: "Développeur web freelance et expert en visibilité web",
+          description: "Agence web et experts en visibilité en ligne",
           potentialAction: {
             "@type": "SearchAction",
             target:
@@ -158,7 +158,7 @@ export default function Home() {
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-6 text-lg shadow-lg"
               >
-                <Link href="/contact">Demander mon devis gratuit</Link>
+                <Link href="/contact">Demander votre devis gratuit</Link>
               </Button>
             </div>
           </ScrollReveal>
@@ -279,7 +279,7 @@ export default function Home() {
               className="bg-blue-800 hover:bg-blue-700 shadow-md transition-all"
             >
               <Link href="/contact">
-                Obtenir mon devis personnalisé gratuit →
+                Obtenir votre devis personnalisé gratuit →
               </Link>
             </Button>
           </ScrollReveal>

@@ -91,9 +91,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400 max-w-md">
-              Développeur web freelance spécialisé dans la création de sites web
-              performants et accessibles pour les TPE, PME et startups. Des
-              solutions sur mesure adaptées à votre budget.
+              Agence web spécialisée dans la création de sites web performants
+              et accessibles pour les TPE, PME et startups. Des solutions sur
+              mesure adaptées à votre budget.
             </p>
 
             {/* Trust Badges */}
