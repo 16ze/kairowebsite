@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { name: "Accueil", href: "/" },
   { name: "Freelance", href: "/freelance" },
-  { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services" },
   { name: "À propos", href: "/about" },
 ];
@@ -46,22 +45,6 @@ const navIcons: Record<string, React.ReactNode> = {
       <circle cx="9" cy="7" r="4"></circle>
       <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-    </svg>
-  ),
-  Portfolio: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-      <rect x="7" y="7" width="3" height="9"></rect>
-      <rect x="14" y="7" width="3" height="5"></rect>
     </svg>
   ),
   Services: (
