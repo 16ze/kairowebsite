@@ -9,10 +9,9 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { name: "Accueil", href: "/" },
   { name: "Freelance", href: "/freelance" },
-  { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "Services", href: "/services" },
   { name: "À propos", href: "/about" },
-  { name: "Blog", href: "/blog" },
 ];
 
 // Icônes pour le menu mobile
@@ -49,6 +48,22 @@ const navIcons: Record<string, React.ReactNode> = {
       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
     </svg>
   ),
+  Portfolio: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+      <rect x="7" y="7" width="3" height="9"></rect>
+      <rect x="14" y="7" width="3" height="5"></rect>
+    </svg>
+  ),
   Services: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -65,22 +80,6 @@ const navIcons: Record<string, React.ReactNode> = {
       <path d="M2 12l10 5 10-5"></path>
     </svg>
   ),
-  Portfolio: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-      <circle cx="8.5" cy="8.5" r="1.5"></circle>
-      <polyline points="21 15 16 10 5 21"></polyline>
-    </svg>
-  ),
   "À propos": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -95,21 +94,6 @@ const navIcons: Record<string, React.ReactNode> = {
       <circle cx="12" cy="12" r="10"></circle>
       <line x1="12" y1="16" x2="12" y2="12"></line>
       <line x1="12" y1="8" x2="12.01" y2="8"></line>
-    </svg>
-  ),
-  Blog: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
     </svg>
   ),
 };

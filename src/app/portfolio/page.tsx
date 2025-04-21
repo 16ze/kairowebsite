@@ -1,446 +1,128 @@
-import { MainLayout } from "@/components/layout/main-layout";
-import { Button } from "@/components/ui/button";
+import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
-export const metadata = {
-  title:
-    "Portfolio | KAIRO Digital - Développeur web freelance et consultant SEO",
+export const metadata: Metadata = {
+  title: "Portfolio | KAIRO Digital",
   description:
-    "Découvrez mes réalisations en développement web et optimisation SEO. Des sites web performants, élégants et optimisés pour les moteurs de recherche.",
-  keywords:
-    "portfolio, projets, développement web, optimisation SEO, site web, freelance, développeur indépendant, design",
+    "Découvrez nos réalisations récentes en développement web et design.",
+  openGraph: {
+    title: "Portfolio | KAIRO Digital",
+    description:
+      "Découvrez nos réalisations récentes en développement web et design.",
+    url: "https://www.kairo-digital.fr/portfolio",
+    siteName: "KAIRO Digital",
+    locale: "fr_FR",
+    type: "website",
+  },
 };
 
-// Types de projets que je peux réaliser
-const projectTypes = [
+const projects = [
   {
-    title: "Sites E-commerce",
+    id: 1,
+    title: "Site e-commerce Luxe",
     description:
-      "Des boutiques en ligne performantes et sécurisées pour vendre vos produits 24/7. Intégration des meilleures solutions de paiement et optimisation pour les conversions.",
-    features: [
-      "Paiement sécurisé",
-      "Gestion des stocks",
-      "Mobile-first",
-      "SEO E-commerce",
-    ],
-    icon: "🛍️",
+      "Création d&apos;une boutique en ligne pour une marque de produits de luxe avec intégration de paiement sécurisé et gestion de stock.",
+    image: "/images/portfolio/ecommerce-luxe.jpg",
+    technologies: ["Next.js", "Tailwind CSS", "Stripe", "Prisma"],
+    link: "#",
   },
   {
-    title: "Applications Web",
+    id: 2,
+    title: "Application SaaS",
     description:
-      "Des applications web sur mesure pour digitaliser vos processus métier. Solutions évolutives et performantes adaptées à vos besoins spécifiques.",
-    features: [
-      "Interface intuitive",
-      "Performance optimale",
-      "Sécurité renforcée",
-      "API REST",
-    ],
-    icon: "⚡",
+      "Développement d&apos;une application SaaS de gestion de projet avec tableau de bord interactif et fonctionnalités collaboratives.",
+    image: "/images/portfolio/saas-app.jpg",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    link: "#",
   },
   {
-    title: "Sites Vitrines",
+    id: 3,
+    title: "Site vitrine Architecture",
     description:
-      "Des sites vitrines élégants et performants pour présenter votre activité. Design moderne et optimisation SEO pour attirer plus de clients.",
-    features: [
-      "Design responsive",
-      "SEO optimisé",
-      "Performances élevées",
-      "Analytics",
-    ],
-    icon: "🎯",
+      "Conception d&apos;un site vitrine pour un cabinet d&apos;architecture avec galerie de projets et formulaire de contact personnalisé.",
+    image: "/images/portfolio/architecture.jpg",
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    link: "#",
   },
   {
-    title: "Blogs Professionnels",
+    id: 4,
+    title: "Blog Lifestyle",
     description:
-      "Des blogs optimisés pour le référencement et la création de contenu. Solutions idéales pour votre stratégie de content marketing.",
-    features: ["CMS intégré", "SEO content", "Catégorisation", "Newsletter"],
-    icon: "📝",
+      "Création d&apos;un blog avec système de gestion de contenu sur mesure, intégration de newsletter et monétisation.",
+    image: "/images/portfolio/blog-lifestyle.jpg",
+    technologies: ["WordPress", "PHP", "MySQL", "JavaScript"],
+    link: "#",
   },
 ];
 
-// Interface TypeScript pour le type de projet
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  client: string;
-  year: number;
-  technologies: string[];
-  results: string[];
-  link: string;
-}
-
-// Interface pour les données brutes de projet reçues de l'API
-interface ApiProject {
-  id: string;
-  title: string;
-  categories?: string[];
-  description?: string;
-  summary?: string;
-  coverImage?: string;
-  client?: string;
-  year?: string;
-  technologies?: string[];
-  results?: string[];
-  link?: string;
-  slug?: string;
-}
-
-// Projets par défaut (fallback)
-const defaultProjects: Project[] = [
-  {
-    id: "purple-nails",
-    title: "Purple Nails Studio",
-    category: "Site Vitrine",
-    description:
-      "Site vitrine professionnel pour une prothésiste ongulaire proposant des services de haute qualité. Interface moderne et épurée avec galerie de réalisations.",
-    image: "/images/projects/purple-nails.jpg",
-    client: "Purple Nails Studio",
-    year: 2023,
-    technologies: [
-      "React",
-      "Next.js",
-      "Shadcn/ui",
-      "Tailwind CSS",
-      "TypeScript",
-    ],
-    results: [
-      "Augmentation des réservations de 40%",
-      "Visibilité accrue dans les recherches locales",
-    ],
-    link: "/portfolio/purple-nails",
-  },
-  {
-    id: "kairo-digital",
-    title: "KAIRO Digital",
-    category: "Site Professionnel",
-    description:
-      "Site professionnel complet avec optimisation SEO, système de réservation en ligne, portfolio de projets et blog intégré. Architecture robuste et performante.",
-    image: "/images/projects/kairo-digital.jpg",
-    client: "KAIRO Digital",
-    year: 2023,
-    technologies: [
-      "React",
-      "Next.js",
-      "Shadcn/ui",
-      "Tailwind CSS",
-      "Prisma",
-      "TypeScript",
-    ],
-    results: [
-      "Amélioration du score Core Web Vitals",
-      "Augmentation du trafic organique de 55%",
-    ],
-    link: "/portfolio/kairo-digital",
-  },
-  {
-    id: "holy-beauty",
-    title: "HOLY Beauty",
-    category: "Site Vitrine Premium",
-    description:
-      "Site vitrine professionnel pour une entreprise d'esthétisme premium. Design élégant et interfaces utilisateur optimisées pour convertir les visiteurs en clients.",
-    image: "/images/projects/holy-beauty.jpg",
-    client: "HOLY Beauty",
-    year: 2022,
-    technologies: [
-      "React",
-      "Next.js",
-      "Shadcn/ui",
-      "Tailwind CSS",
-      "TypeScript",
-    ],
-    results: ["Taux de conversion de 3.8%", "Panier moyen augmenté de 25%"],
-    link: "/portfolio/holy-beauty",
-  },
-];
-
-// Fonction pour formater les projets de l'API pour l'affichage
-const formatApiProject = (project: ApiProject): Project => {
-  return {
-    id: project.id,
-    title: project.title,
-    category: project.categories?.[0] || "Site Web",
-    description: project.description || project.summary || "",
-    image: project.coverImage || "/images/placeholder-project.jpg",
-    client: project.client || "Client confidentiel",
-    year: parseInt(project.year || "") || new Date().getFullYear(),
-    technologies: project.technologies || [],
-    results: project.results || [],
-    link: project.link || `/portfolio/${project.slug || project.id}`,
-  };
-};
-
-// Récupérer les projets depuis l'API
-async function getProjects() {
-  try {
-    // Utiliser publishedOnly=true pour ne récupérer que les projets publiés
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_BASE_URL + "/api/portfolio?publishedOnly=true",
-      {
-        cache: "no-store",
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error("Erreur lors de la récupération des projets");
-    }
-
-    const data = await res.json();
-
-    // Formater les projets pour l'affichage
-    return data.projects.map(formatApiProject);
-  } catch (error) {
-    console.error("Erreur lors de la récupération des projets:", error);
-    return [];
-  }
-}
-
-export default async function PortfolioPage() {
-  // Récupérer les projets depuis l'API
-  const realProjects = await getProjects();
-
-  // Utiliser les projets de l'API s'ils existent, sinon utiliser les projets par défaut
-  const projects = realProjects.length > 0 ? realProjects : defaultProjects;
-
+export default function PortfolioPage() {
   return (
-    <MainLayout>
-      {/* Header */}
-      <section className="pt-36 pb-10 bg-gradient-to-b from-blue-900/80 to-neutral-900/90 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <ScrollReveal animation="fade-down">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Mes Réalisations
-            </h1>
-            <p className="text-lg text-neutral-200 max-w-2xl mx-auto">
-              Découvrez comment j&apos;aide mes clients à développer leur
-              présence en ligne avec des solutions web performantes et
-              optimisées.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+    <main className="container mx-auto py-16 px-4 sm:px-6">
+      <div className="text-center mb-16">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
+          Nos Réalisations
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          Découvrez nos projets récents et comment nous aidons nos clients à
+          atteindre leurs objectifs numériques.
+        </p>
+      </div>
 
-      {/* Projets Réalisés */}
-      <section className="py-16 bg-white dark:bg-black">
-        <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-up">
-            <h2 className="text-3xl font-bold mb-12 text-center">
-              Derniers Projets
-            </h2>
-          </ScrollReveal>
-
-          <ScrollRevealGroup
-            animation="fade-up"
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        {projects.map((project) => (
+          <Card
+            key={project.id}
+            className="overflow-hidden border border-border hover:shadow-lg transition-shadow"
           >
-            {projects.length > 0 ? (
-              projects.map((project) => (
-                <Card
-                  key={project.id}
-                  className="overflow-hidden flex flex-col group hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="aspect-video relative overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <CardHeader>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <CardTitle className="text-xl">
-                          {project.title}
-                        </CardTitle>
-                        <CardDescription>{project.category}</CardDescription>
-                      </div>
-                      <span className="text-sm text-neutral-500">
-                        {project.year}
-                      </span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-                      {project.description}
-                    </p>
-                    <div className="space-y-4">
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded text-xs"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="space-y-2">
-                        {project.results.map((result, index) => (
-                          <p
-                            key={index}
-                            className="text-sm text-green-600 dark:text-green-400 flex items-center gap-2"
-                          >
-                            <svg
-                              className="w-4 h-4"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M20 6L9 17L4 12"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            {result}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                  <CardFooter className="flex gap-4">
-                    <Button
-                      asChild
-                      className="w-full bg-blue-800 hover:bg-blue-700"
-                    >
-                      <Link href="/contact">Projet similaire ?</Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
-              ))
-            ) : (
-              <div className="col-span-3 text-center py-10">
-                <p className="text-lg text-gray-500">
-                  Aucun projet disponible pour le moment.
-                </p>
+            <div className="aspect-video relative">
+              <div className="w-full h-full bg-muted flex items-center justify-center">
+                <p className="text-muted-foreground">Image du projet</p>
               </div>
-            )}
-          </ScrollRevealGroup>
-        </div>
-      </section>
-
-      {/* Types de Projets */}
-      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
-        <div className="container mx-auto px-4">
-          <ScrollReveal animation="fade-up">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                Mes Domaines d&apos;Expertise
-              </h2>
-              <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                Je développe des solutions web sur mesure pour répondre à tous
-                vos besoins digitaux.
+            </div>
+            <CardHeader>
+              <CardTitle>{project.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                {project.description}
               </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollRevealGroup
-            animation="fade-up"
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            {projectTypes.map((type, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-lg transition-shadow duration-300"
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <span className="text-4xl">{type.icon}</span>
-                    <div>
-                      <CardTitle>{type.title}</CardTitle>
-                      <CardDescription>{type.description}</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-2">
-                    {type.features.map((feature, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400"
-                      >
-                        <svg
-                          className="w-4 h-4 text-blue-600 dark:text-blue-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M20 6L9 17L4 12"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button
-                    asChild
-                    className="w-full bg-blue-800 hover:bg-blue-700"
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-2 py-1 bg-muted text-xs rounded-full"
                   >
-                    <Link href={`/contact?type=${type.title}`}>
-                      Démarrer un projet
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </ScrollRevealGroup>
-        </div>
-      </section>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button variant="default" asChild className="w-full">
+                <Link href={project.link}>Voir le projet</Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-black text-white">
-        <div className="container mx-auto px-4 text-center">
-          <ScrollReveal animation="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Prêt à Concrétiser Votre Projet Web ?
-            </h2>
-            <p className="text-neutral-300 max-w-2xl mx-auto mb-8">
-              Que vous ayez besoin d&apos;un site vitrine, d&apos;une boutique
-              en ligne ou d&apos;une application web, je vous accompagne dans la
-              réalisation de votre projet digital.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-blue-800 hover:bg-blue-700"
-              >
-                <Link href="/contact">Demander un devis gratuit</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-2 border-neutral-800 dark:border-white/80 text-neutral-800 dark:text-white hover:bg-neutral-800 dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-300"
-              >
-                <Link href="/freelance">En savoir plus sur mes services</Link>
-              </Button>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-    </MainLayout>
+      <div className="mt-16 text-center">
+        <h2 className="text-2xl font-bold mb-6">
+          Vous avez un projet en tête ?
+        </h2>
+        <Button size="lg" asChild>
+          <Link href="/contact">Discutons de votre projet</Link>
+        </Button>
+      </div>
+    </main>
   );
 }

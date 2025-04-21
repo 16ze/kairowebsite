@@ -235,14 +235,6 @@ export function Footer() {
                   À propos
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
 
