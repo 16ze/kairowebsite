@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 py-12 mt-auto">
       <div className="container mx-auto px-4">
         {/* Mise en avant projets rapides */}
-        <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-800 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="pb-12 mb-12 border-b border-neutral-200 dark:border-neutral-800 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <div className="text-center p-6 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
             <div className="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full mx-auto mb-4">
               <svg
@@ -35,35 +35,6 @@ export function Footer() {
               className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
             >
               Demander un devis →
-            </Link>
-          </div>
-
-          <div className="text-center p-6 bg-neutral-100 dark:bg-neutral-800 rounded-lg">
-            <div className="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full mx-auto mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="font-bold mb-2">Audit SEO Rapide</h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-              Un diagnostic complet de votre site en 48h.
-            </p>
-            <Link
-              href="/contact?projet=audit"
-              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              250€ offert avec un projet →
             </Link>
           </div>
 
