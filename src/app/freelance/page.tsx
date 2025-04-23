@@ -63,19 +63,33 @@ export default function FreelancePage() {
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-6">
                   Je crée des sites web modernes, responsives et adaptés à vos
-                  besoins. Vous avez un projet spécifique ? Je vous aide à
-                  définir vos objectifs et à créer un site qui représente
-                  parfaitement votre marque.
+                  besoins spécifiques. Mon approche se concentre sur la
+                  compréhension approfondie de votre marque et de vos objectifs
+                  commerciaux.
                 </p>
                 <div className="bg-white dark:bg-black p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 mb-4">
-                  <p className="font-medium mb-2">Étude de cas :</p>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    J&apos;ai créé un site vitrine pour une pâtisserie locale,
-                    ce qui leur a permis de présenter leurs créations et
-                    d&apos;augmenter leur visibilité. Résultat : une hausse de
-                    25% des commandes et une présence en ligne qui reflète
-                    parfaitement leur savoir-faire artisanal.
-                  </p>
+                  <p className="font-medium mb-2">Ma méthodologie :</p>
+                  <ul className="text-neutral-600 dark:text-neutral-400 list-disc list-inside space-y-2">
+                    <li>
+                      Analyse approfondie de votre secteur d&apos;activité et de
+                      votre cible
+                    </li>
+                    <li>
+                      Conception d&apos;interfaces intuitives centrées sur
+                      l&apos;utilisateur
+                    </li>
+                    <li>
+                      Développement avec des technologies modernes (Next.js,
+                      React)
+                    </li>
+                    <li>
+                      Optimisation des performances et de la vitesse de
+                      chargement
+                    </li>
+                    <li>
+                      Tests rigoureux sur tous les appareils et navigateurs
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -104,19 +118,33 @@ export default function FreelancePage() {
               <div className="md:col-span-3">
                 <h3 className="text-2xl font-bold mb-4">Optimisation SEO</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-                  Être trouvé sur Google est essentiel pour votre entreprise. Je
-                  vous aide à optimiser votre site pour améliorer votre
-                  visibilité, attirer plus de visiteurs et convertir ces
-                  visiteurs en clients.
+                  Être trouvé sur Google est essentiel pour votre entreprise.
+                  J&apos;applique une stratégie SEO complète pour améliorer
+                  votre visibilité locale et attirer un trafic qualifié qui se
+                  convertit en clients.
                 </p>
                 <div className="bg-white dark:bg-black p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 mb-4">
-                  <p className="font-medium mb-2">Résultat concret :</p>
-                  <p className="text-neutral-600 dark:text-neutral-400">
-                    Après l&apos;optimisation SEO d&apos;un cabinet de conseil,
-                    leur trafic organique a augmenté de 40% en 3 mois. Ils
-                    apparaissent maintenant en première page pour les mots-clés
-                    pertinents de leur secteur.
+                  <p className="font-medium mb-2">
+                    Les techniques que j&apos;utilise :
                   </p>
+                  <ul className="text-neutral-600 dark:text-neutral-400 list-disc list-inside space-y-2">
+                    <li>Audit SEO complet et analyse de la concurrence</li>
+                    <li>
+                      Optimisation technique (vitesse, structure, métadonnées)
+                    </li>
+                    <li>
+                      Optimisation du contenu avec recherche de mots-clés
+                      stratégiques
+                    </li>
+                    <li>
+                      Amélioration du référencement local pour Belfort et
+                      environs
+                    </li>
+                    <li>
+                      Mise en place de mesures d&apos;analyse et suivi des
+                      performances
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -235,49 +263,147 @@ export default function FreelancePage() {
         </div>
       </section>
 
-      {/* Témoignages */}
+      {/* Valeurs et engagements à la place des témoignages */}
       <section className="py-20 bg-neutral-50 dark:bg-neutral-900">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            Ce que disent mes clients
+            Mes valeurs et engagements
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
             <div className="bg-white dark:bg-black p-8 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-neutral-200 dark:bg-neutral-700 flex-shrink-0"></div>
+                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex-shrink-0 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-blue-800 dark:text-blue-300"
+                  >
+                    <path d="M6 18h8" />
+                    <path d="M3 22h18" />
+                    <path d="M14 22a7 7 0 1 0 0-14h-1" />
+                    <path d="M9 14h2" />
+                    <path d="M9 12a2 2 0 0 1 2-2c2 0 4 1 3 4" />
+                  </svg>
+                </div>
                 <div className="ml-4">
-                  <p className="font-bold">Sophie Martin</p>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                    Pâtisserie Douceurs
-                  </p>
+                  <p className="font-bold">Transparence totale</p>
                 </div>
               </div>
-              <p className="text-neutral-600 dark:text-neutral-400 italic">
-                &ldquo;Travailler avec Bryan a été une expérience incroyable. Il
-                a compris nos besoins dès le début et a créé un site qui nous
-                ressemble. Depuis la mise en ligne, nous avons reçu de nombreux
-                compliments de nos clients et nos ventes en ligne ont décollé
-                !&rdquo;
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Je m&apos;engage à être totalement transparent dans ma
+                communication, mes tarifs et mes délais. Vous êtes informé à
+                chaque étape du processus, sans surprise ni coûts cachés. Cette
+                transparence est la base d&apos;une relation de confiance
+                durable.
               </p>
             </div>
 
             <div className="bg-white dark:bg-black p-8 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-neutral-200 dark:bg-neutral-700 flex-shrink-0"></div>
+                <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex-shrink-0 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-green-800 dark:text-green-300"
+                  >
+                    <path d="M7 11v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1z" />
+                    <path d="M21 10v9a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1z" />
+                    <path d="M14 15v4a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1z" />
+                    <path d="M12 4V3" />
+                    <path d="M18 8V7" />
+                    <path d="M6 8V7" />
+                    <path d="m19 7-3-3" />
+                    <path d="m8 7-3-3" />
+                    <path d="m12 4-1-1" />
+                    <path d="m16 6-2-2" />
+                    <path d="m8 6-2-2" />
+                  </svg>
+                </div>
                 <div className="ml-4">
-                  <p className="font-bold">Thomas Dubois</p>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                    Cabinet Conseil TD
-                  </p>
+                  <p className="font-bold">Résultats mesurables</p>
                 </div>
               </div>
-              <p className="text-neutral-600 dark:text-neutral-400 italic">
-                &ldquo;J&apos;étais sceptique concernant l&apos;optimisation
-                SEO, mais les résultats parlent d&apos;eux-mêmes. Bryan a su
-                mettre en place une stratégie efficace qui nous a permis
-                d&apos;augmenter significativement notre visibilité en ligne. Un
-                vrai professionnel qui tient ses promesses.&rdquo;
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Je me concentre sur des résultats concrets et mesurables. Chaque
+                projet est accompagné d&apos;objectifs clairs et de métriques de
+                performance pour évaluer son succès. Je ne me contente pas de
+                créer un beau site, je m&apos;assure qu&apos;il soit efficace
+                pour votre activité.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-black p-8 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900 flex-shrink-0 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-amber-800 dark:text-amber-300"
+                  >
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                  </svg>
+                </div>
+                <div className="ml-4">
+                  <p className="font-bold">Passion et engagement</p>
+                </div>
+              </div>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Je m&apos;investis pleinement dans chaque projet avec passion et
+                dévouement. Votre réussite est ma priorité, et je mets tout en
+                œuvre pour vous offrir un service d&apos;excellence qui
+                contribue concrètement au développement de votre activité.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-black p-8 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex-shrink-0 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-purple-800 dark:text-purple-300"
+                  >
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                  </svg>
+                </div>
+                <div className="ml-4">
+                  <p className="font-bold">Formation continue</p>
+                </div>
+              </div>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Le domaine du web évolue rapidement. Je m&apos;engage à rester
+                constamment à jour sur les dernières technologies, tendances et
+                bonnes pratiques pour vous proposer des solutions modernes et
+                pérennes qui anticipent les évolutions du marché.
               </p>
             </div>
           </div>
@@ -402,7 +528,7 @@ export default function FreelancePage() {
               variant="outline"
               className="border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black"
             >
-              <Link href="/portfolio">Voir mes réalisations</Link>
+              <Link href="/contact">Contactez-nous</Link>
             </Button>
           </div>
         </div>
