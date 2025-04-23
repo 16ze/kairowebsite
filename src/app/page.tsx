@@ -484,6 +484,241 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Pourquoi un site web est essentiel */}
+      <section className="py-20 bg-white dark:bg-black">
+        <div className="container mx-auto px-4">
+          <ScrollReveal animation="fade-up">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Pourquoi créer un site web est essentiel pour votre entreprise
+              </h2>
+              <p className="text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+                À l&apos;ère du numérique, avoir une présence en ligne
+                n&apos;est plus un luxe mais une nécessité. Voici pourquoi
+                investir dans un site web professionnel est l&apos;une des
+                meilleures décisions pour votre entreprise.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollRevealGroup
+            animation="fade-up"
+            stagger={0.1}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          >
+            {/* Avantage 1 */}
+            <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-blue-800 dark:text-blue-300"
+                >
+                  <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
+                Visibilité 24h/24, 7j/7
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Votre entreprise devient accessible en permanence. Même lorsque
+                vos bureaux sont fermés, votre site web continue de travailler
+                pour vous, en informant vos clients et en générant des
+                prospects, augmentant ainsi votre portée de manière
+                exponentielle.
+              </p>
+            </div>
+
+            {/* Avantage 2 */}
+            <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mb-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-emerald-800 dark:text-emerald-300"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
+                Crédibilité et confiance
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                88% des consommateurs recherchent une entreprise en ligne avant
+                de faire un achat. Un site web professionnel renforce votre
+                crédibilité et rassure vos clients potentiels sur le sérieux et
+                la fiabilité de votre entreprise.
+              </p>
+            </div>
+
+            {/* Avantage 3 */}
+            <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900 rounded-full flex items-center justify-center mb-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-amber-800 dark:text-amber-300"
+                >
+                  <path d="M3 3v18h18"></path>
+                  <path d="m19 9-5 5-4-4-3 3"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
+                Rentabilité exceptionnelle
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Un site web représente l&apos;un des meilleurs rapports
+                qualité/prix en matière de marketing. Contrairement aux
+                publicités traditionnelles, votre site continue de générer des
+                résultats sans coûts récurrents majeurs, offrant un ROI
+                supérieur sur le long terme.
+              </p>
+            </div>
+
+            {/* Avantage 4 */}
+            <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-purple-800 dark:text-purple-300"
+                >
+                  <path d="M2 12h20"></path>
+                  <path d="M2 12a10 10 0 0 1 20 0"></path>
+                  <path d="M2 12a10 10 0 0 0 20 0"></path>
+                  <path d="M12 2v20"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Expansion géographique</h3>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Internet élimine les barrières géographiques. Votre site web
+                vous permet d&apos;atteindre des clients au-delà de votre zone
+                locale, ouvrant la porte à de nouveaux marchés et opportunités
+                commerciales, sans les coûts associés à une expansion physique.
+              </p>
+            </div>
+
+            {/* Avantage 5 */}
+            <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900 rounded-full flex items-center justify-center mb-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-rose-800 dark:text-rose-300"
+                >
+                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Avantage concurrentiel</h3>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                De nombreuses petites entreprises n&apos;ont pas encore de
+                présence web efficace. Un site professionnel vous donne
+                immédiatement une longueur d&apos;avance sur vos concurrents et
+                vous positionne comme leader dans votre secteur à Belfort et en
+                Franche-Comté.
+              </p>
+            </div>
+
+            {/* Avantage 6 */}
+            <div className="bg-neutral-50 dark:bg-neutral-900 p-8 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm">
+              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900 rounded-full flex items-center justify-center mb-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-cyan-800 dark:text-cyan-300"
+                >
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                  <line x1="12" y1="22" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
+                Analyse et amélioration continue
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400">
+                Un site web vous donne accès à des données précieuses sur votre
+                audience. Vous pouvez comprendre qui sont vos clients, comment
+                ils vous trouvent et ce qui les intéresse, vous permettant
+                d&apos;affiner continuellement votre stratégie et
+                d&apos;améliorer vos résultats.
+              </p>
+            </div>
+          </ScrollRevealGroup>
+
+          <ScrollReveal animation="fade-up">
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-8 rounded-lg border border-blue-100 dark:border-blue-800 max-w-3xl mx-auto">
+              <h3 className="text-xl font-bold mb-4 text-center text-blue-800 dark:text-blue-400">
+                Ne laissez pas passer cette opportunité de croissance
+              </h3>
+              <p className="text-neutral-700 dark:text-neutral-300 mb-6">
+                Dans un monde où 97% des consommateurs recherchent des produits
+                et services en ligne, l&apos;absence de site web vous fait
+                manquer d&apos;innombrables opportunités commerciales.
+                C&apos;est comme avoir un magasin sans enseigne ni vitrine dans
+                une rue fréquentée.
+              </p>
+              <p className="text-neutral-700 dark:text-neutral-300 mb-6">
+                Un site web n&apos;est pas une dépense, mais un investissement
+                stratégique qui continue de rapporter jour après jour, année
+                après année. Plus vous attendez, plus vous cédez de terrain à
+                vos concurrents.
+              </p>
+              <div className="text-center">
+                <Button
+                  asChild
+                  className="bg-blue-800 hover:bg-blue-700 shadow-md transition-all mt-2"
+                >
+                  <Link href="/contact">Commencez votre projet digital →</Link>
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Guarantees Section placée en bas */}
       <Guarantees />
 
