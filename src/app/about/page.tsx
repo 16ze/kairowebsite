@@ -45,26 +45,24 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Notre Parcours</h2>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Nous avons commencé notre aventure dans le développement web
-                  il y a 3 ans, en unissant nos compétences pour réaliser divers
-                  projets. Progressivement, cette passion est devenue une vraie
-                  vocation. Il y a 2 ans, nous avons décidé de nous y consacrer
-                  pleinement, et il y a un an, nous avons consolidé nos
-                  compétences par des formations intensives.
+                  Nous avons uni nos compétences pour créer KAIRO Digital, une
+                  aventure passionnante dans le développement web. Ce projet
+                  nous a permis d&apos;approfondir nos connaissances et de nous
+                  engager pleinement envers nos clients.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  Depuis, nous avons eu l&apos;opportunité d&apos;accompagner
-                  une dizaine de TPE et PME dans leur transformation numérique.
-                  Notre expertise s&apos;est développée au contact de ces
-                  petites structures, où les enjeux sont concrets : des budgets
-                  souvent restreints, un besoin de résultats rapides, et surtout
-                  un accompagnement personnalisé.
+                  Nous avons eu l&apos;occasion de travailler sur divers
+                  projets, en nous concentrant sur l&apos;accompagnement et le
+                  soutien dans les enjeux concrets que rencontrent les
+                  entreprises. Nous sommes bien conscients que chaque structure
+                  a des besoins spécifiques, souvent caractérisés par des
+                  budgets limités et l&apos;importance de résultats rapides.
                 </p>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  En 2025, nous avons créé KAIRO Digital, pour proposer à nos
-                  clients un service sur-mesure, aligné avec leurs réels besoins
-                  et leurs contraintes, tout en gardant une approche humaine et
-                  accessible.
+                  Notre approche se base sur une écoute attentive et un service
+                  sur-mesure, conçu pour s&apos;aligner avec les véritables
+                  besoins et contraintes de nos clients, tout en maintenant une
+                  connexion humaine et accessible.
                 </p>
               </div>
             </ScrollReveal>
