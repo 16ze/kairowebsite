@@ -6,11 +6,11 @@ import { ScrollReveal, ScrollRevealGroup } from "@/components/ui/scroll-reveal";
 
 export const metadata = {
   title:
-    "À propos | KAIRO Digital - Agence web spécialisée en développement et visibilité web",
+    "À propos | KAIRO Digital - Agence web spécialisée en développement et visibilité web à Belfort",
   description:
-    "Découvrez notre parcours, nos compétences et notre philosophie de travail. Nous sommes spécialisés dans le développement web et l'amélioration de la visibilité en ligne pour maximiser votre présence web.",
+    "Découvrez notre parcours, nos compétences et notre philosophie de travail. Nous sommes spécialisés dans le développement web et l'amélioration de la visibilité en ligne pour maximiser votre présence web à Belfort et en Franche-Comté.",
   keywords:
-    "à propos, parcours, compétences, développement web, visibilité web, site web, agence web",
+    "à propos, parcours, compétences, développement web Belfort, visibilité web Belfort, site web, agence web Belfort, Franche-Comté",
 };
 
 export default function AboutPage() {

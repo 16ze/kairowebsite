@@ -8,11 +8,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Nos Services | KAIRO Digital - Agence web spécialisée en développement et visibilité web",
+    "Services | KAIRO Digital - Développement web et visibilité en ligne à Belfort",
   description:
-    "Découvrez nos services de développement web et d'amélioration de votre visibilité en ligne. Des solutions sur mesure pour améliorer votre présence sur le web et générer plus de trafic qualifié.",
+    "Découvrez nos services de développement web et d'amélioration de visibilité en ligne à Belfort. Sites vitrines, e-commerce, applications web et référencement pour entreprises en Franche-Comté.",
   keywords:
-    "services, développement web, référencement web, visibilité en ligne, site web, agence web, design, responsive, Next.js, React, Tailwind CSS",
+    "développement web Belfort, services web, sites vitrines, e-commerce, référencement web Belfort, applications web, site internet Belfort, agence web Franche-Comté, création site internet",
   alternates: {
     canonical: "https://www.kairo-digital.fr/services",
   },

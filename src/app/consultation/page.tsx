@@ -3,9 +3,15 @@ import { MainLayout } from "@/components/layout/main-layout";
 import BookingForm from "./components/booking-form";
 
 export const metadata: Metadata = {
-  title: "Consultation Gratuite | KAIRO Digital",
+  title:
+    "Consultation | KAIRO Digital - Réservez un appel avec un expert web à Belfort",
   description:
-    "Réservez une consultation gratuite avec KAIRO Digital pour discuter de vos besoins en développement web et obtenir des conseils personnalisés.",
+    "Réservez une consultation gratuite avec KAIRO Digital, votre expert en développement web à Belfort. Discutons de vos besoins spécifiques pour votre site internet et votre présence en ligne en Franche-Comté.",
+  keywords:
+    "consultation développeur web Belfort, réserver appel expert web, rendez-vous développeur Belfort, conseil site internet Franche-Comté, consultation gratuite web, KAIRO Digital Belfort",
+  alternates: {
+    canonical: "https://www.kairo-digital.fr/consultation",
+  },
   openGraph: {
     title: "Consultation Gratuite | KAIRO Digital",
     description:
