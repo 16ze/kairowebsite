@@ -16,12 +16,13 @@ export default function FreelancePage() {
           {/* Introduction */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Je suis Bryan, développeur web freelance et expert en solutions
-              digitales. Mon approche personnalisée me permet d&apos;accompagner
-              chaque client dans la création d&apos;une présence en ligne
-              percutante et efficace. Que vous soyez une startup, une PME ou une
-              organisation établie, je transforme vos idées en réalisations
-              concrètes et adaptées à vos objectifs.
+              Nous sommes KAIRO Digital, spécialistes en développement web et
+              solutions digitales à Belfort. Notre approche personnalisée nous
+              permet d&apos;accompagner chaque client dans la création
+              d&apos;une présence en ligne percutante et efficace. Que vous
+              soyez une startup, une PME ou une organisation établie, nous
+              transformons vos idées en réalisations concrètes et adaptées à vos
+              objectifs.
             </p>
           </div>
         </div>
@@ -62,13 +63,13 @@ export default function FreelancePage() {
                   Création de sites web sur mesure
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-                  Je crée des sites web modernes, responsives et adaptés à vos
-                  besoins spécifiques. Mon approche se concentre sur la
+                  Nous créons des sites web modernes, responsives et adaptés à
+                  vos besoins spécifiques. Notre approche se concentre sur la
                   compréhension approfondie de votre marque et de vos objectifs
                   commerciaux.
                 </p>
                 <div className="bg-white dark:bg-black p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 mb-4">
-                  <p className="font-medium mb-2">Ma méthodologie :</p>
+                  <p className="font-medium mb-2">Notre méthodologie :</p>
                   <ul className="text-neutral-600 dark:text-neutral-400 list-disc list-inside space-y-2">
                     <li>
                       Analyse approfondie de votre secteur d&apos;activité et de
@@ -119,13 +120,13 @@ export default function FreelancePage() {
                 <h3 className="text-2xl font-bold mb-4">Optimisation SEO</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-6">
                   Être trouvé sur Google est essentiel pour votre entreprise.
-                  J&apos;applique une stratégie SEO complète pour améliorer
+                  Nous appliquons une stratégie SEO complète pour améliorer
                   votre visibilité locale et attirer un trafic qualifié qui se
                   convertit en clients.
                 </p>
                 <div className="bg-white dark:bg-black p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 mb-4">
                   <p className="font-medium mb-2">
-                    Les techniques que j&apos;utilise :
+                    Les techniques que nous utilisons :
                   </p>
                   <ul className="text-neutral-600 dark:text-neutral-400 list-disc list-inside space-y-2">
                     <li>Audit SEO complet et analyse de la concurrence</li>
@@ -175,12 +176,12 @@ export default function FreelancePage() {
                   Maintenance et suivi personnalisé
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-                  Je vous accompagne sur le long terme avec un suivi
+                  Nous vous accompagnons sur le long terme avec un suivi
                   personnalisé pour vous assurer que votre site reste à jour,
                   rapide et sécurisé.
                 </p>
                 <div className="bg-white dark:bg-black p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 mb-4">
-                  <p className="font-medium mb-2">Ce que j&apos;inclus :</p>
+                  <p className="font-medium mb-2">Ce que nous incluons :</p>
                   <ul className="text-neutral-600 dark:text-neutral-400 list-disc list-inside space-y-2">
                     <li>Mises à jour régulières des logiciels et plugins</li>
                     <li>Sauvegardes automatiques hebdomadaires</li>
@@ -213,7 +214,7 @@ export default function FreelancePage() {
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
                   Communication directe sans intermédiaire. Vous discutez avec
-                  la personne qui travaille concrètement sur votre projet.
+                  les personnes qui travaillent concrètement sur votre projet.
                 </p>
               </div>
 
@@ -222,7 +223,7 @@ export default function FreelancePage() {
                   Structure légère et efficace
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  Une structure simplifiée permet d&apos;offrir des tarifs
+                  Une structure simplifiée nous permet d&apos;offrir des tarifs
                   adaptés aux petites entreprises tout en maintenant une qualité
                   professionnelle.
                 </p>
@@ -243,21 +244,21 @@ export default function FreelancePage() {
                   Disponibilité optimisée
                 </h3>
                 <p className="text-neutral-600 dark:text-neutral-400">
-                  En limitant volontairement mon nombre de clients, je garantis
-                  une attention soutenue et une réactivité maximale à chaque
-                  projet.
+                  En limitant volontairement notre nombre de clients, nous
+                  garantissons une attention soutenue et une réactivité maximale
+                  à chaque projet.
                 </p>
               </div>
             </div>
 
             <p className="text-center text-lg text-neutral-600 dark:text-neutral-400">
-              Mon approche freelance est idéale pour les TPE, PME et startups
-              cherchant un accompagnement personnalisé et direct. Selon vos
-              besoins spécifiques, l&apos;ampleur de votre projet et vos
-              objectifs, différentes solutions existent - parfois un freelance
-              comme moi est le meilleur choix, d&apos;autres fois une agence
-              peut être plus adaptée, et souvent nous pouvons collaborer
-              ensemble.
+              Notre approche est idéale pour les TPE, PME et startups cherchant
+              un accompagnement personnalisé et direct. Selon vos besoins
+              spécifiques, l&apos;ampleur de votre projet et vos objectifs,
+              différentes solutions existent - parfois une équipe restreinte
+              comme la nôtre est le meilleur choix, d&apos;autres fois une
+              grande agence peut être plus adaptée, et souvent nous pouvons
+              collaborer ensemble.
             </p>
           </div>
         </div>
@@ -298,8 +299,8 @@ export default function FreelancePage() {
                 </div>
               </div>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Je m&apos;engage à être totalement transparent dans ma
-                communication, mes tarifs et mes délais. Vous êtes informé à
+                Nous nous engageons à être totalement transparents dans notre
+                communication, nos tarifs et nos délais. Vous êtes informé à
                 chaque étape du processus, sans surprise ni coûts cachés. Cette
                 transparence est la base d&apos;une relation de confiance
                 durable.
@@ -339,11 +340,11 @@ export default function FreelancePage() {
                 </div>
               </div>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Je me concentre sur des résultats concrets et mesurables. Chaque
-                projet est accompagné d&apos;objectifs clairs et de métriques de
-                performance pour évaluer son succès. Je ne me contente pas de
-                créer un beau site, je m&apos;assure qu&apos;il soit efficace
-                pour votre activité.
+                Nous nous concentrons sur des résultats concrets et mesurables.
+                Chaque projet est accompagné d&apos;objectifs clairs et de
+                métriques de performance pour évaluer son succès. Nous ne nous
+                contentons pas de créer un beau site, nous nous assurons
+                qu&apos;il soit efficace pour votre activité.
               </p>
             </div>
 
@@ -370,10 +371,11 @@ export default function FreelancePage() {
                 </div>
               </div>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Je m&apos;investis pleinement dans chaque projet avec passion et
-                dévouement. Votre réussite est ma priorité, et je mets tout en
-                œuvre pour vous offrir un service d&apos;excellence qui
-                contribue concrètement au développement de votre activité.
+                Nous nous investissons pleinement dans chaque projet avec
+                passion et dévouement. Votre réussite est notre priorité, et
+                nous mettons tout en œuvre pour vous offrir un service
+                d&apos;excellence qui contribue concrètement au développement de
+                votre activité.
               </p>
             </div>
 
@@ -400,10 +402,10 @@ export default function FreelancePage() {
                 </div>
               </div>
               <p className="text-neutral-600 dark:text-neutral-400">
-                Le domaine du web évolue rapidement. Je m&apos;engage à rester
-                constamment à jour sur les dernières technologies, tendances et
-                bonnes pratiques pour vous proposer des solutions modernes et
-                pérennes qui anticipent les évolutions du marché.
+                Le domaine du web évolue rapidement. Nous nous engageons à
+                rester constamment à jour sur les dernières technologies,
+                tendances et bonnes pratiques pour vous proposer des solutions
+                modernes et pérennes qui anticipent les évolutions du marché.
               </p>
             </div>
           </div>
@@ -428,9 +430,10 @@ export default function FreelancePage() {
                     Discussion initiale
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400">
-                    On échange sur votre projet, vos objectifs et vos attentes.
-                    Cette première étape est cruciale pour bien comprendre vos
-                    besoins et vous proposer des solutions adaptées.
+                    Nous échangeons sur votre projet, vos objectifs et vos
+                    attentes. Cette première étape est cruciale pour bien
+                    comprendre vos besoins et vous proposer des solutions
+                    adaptées.
                   </p>
                 </div>
               </div>
@@ -444,9 +447,9 @@ export default function FreelancePage() {
                     Proposition de plan
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400">
-                    Je vous envoie une proposition détaillée incluant tarifs,
-                    délais et services. Tout est transparent pour vous permettre
-                    de prendre une décision éclairée.
+                    Nous vous envoyons une proposition détaillée incluant
+                    tarifs, délais et services. Tout est transparent pour vous
+                    permettre de prendre une décision éclairée.
                   </p>
                 </div>
               </div>
@@ -458,9 +461,9 @@ export default function FreelancePage() {
                 <div className="ml-6">
                   <h3 className="text-xl font-bold mb-2">Création</h3>
                   <p className="text-neutral-600 dark:text-neutral-400">
-                    Je développe votre site ou optimise votre SEO selon vos
-                    besoins. Je vous tiens régulièrement informé de
-                    l&apos;avancement et vous implique dans les décisions
+                    Nous développons votre site ou optimisons votre SEO selon
+                    vos besoins. Nous vous tenons régulièrement informé de
+                    l&apos;avancement et vous impliquons dans les décisions
                     importantes.
                   </p>
                 </div>
@@ -475,9 +478,9 @@ export default function FreelancePage() {
                     Révision et finalisation
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400">
-                    Vous validez les derniers détails, et j&apos;apporte les
+                    Vous validez les derniers détails, et nous apportons les
                     ajustements nécessaires avant de lancer le site. Votre
-                    satisfaction est ma priorité.
+                    satisfaction est notre priorité.
                   </p>
                 </div>
               </div>
@@ -489,9 +492,10 @@ export default function FreelancePage() {
                 <div className="ml-6">
                   <h3 className="text-xl font-bold mb-2">Suivi</h3>
                   <p className="text-neutral-600 dark:text-neutral-400">
-                    Après la mise en ligne, je continue à vous accompagner avec
-                    un suivi personnalisé. Je reste disponible pour répondre à
-                    vos questions et vous aider à faire évoluer votre projet.
+                    Après la mise en ligne, nous continuons à vous accompagner
+                    avec un suivi personnalisé. Nous restons disponibles pour
+                    répondre à vos questions et vous aider à faire évoluer votre
+                    projet.
                   </p>
                 </div>
               </div>
@@ -507,9 +511,9 @@ export default function FreelancePage() {
             Prêt à lancer votre projet web ?
           </h2>
           <p className="text-neutral-300 max-w-2xl mx-auto mb-10">
-            Contactez-moi dès aujourd&apos;hui pour discuter de votre projet et
-            découvrir comment je peux vous aider à développer votre présence en
-            ligne.
+            Contactez-nous dès aujourd&apos;hui pour discuter de votre projet et
+            découvrir comment nous pouvons vous aider à développer votre
+            présence en ligne.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -519,7 +523,7 @@ export default function FreelancePage() {
               className="bg-blue-800 hover:bg-blue-900"
             >
               <Link href="/contact">
-                Contactez-moi pour un devis personnalisé
+                Contactez-nous pour un devis personnalisé
               </Link>
             </Button>
             <Button

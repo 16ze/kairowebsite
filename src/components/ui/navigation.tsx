@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { name: "Accueil", href: "/" },
-  { name: "Freelance", href: "/freelance" },
+  { name: "Méthode", href: "/freelance" },
   { name: "Services", href: "/services" },
   { name: "À propos", href: "/about" },
 ];
@@ -30,7 +30,7 @@ const navIcons: Record<string, React.ReactNode> = {
       <polyline points="9 22 9 12 15 12 15 22"></polyline>
     </svg>
   ),
-  Freelance: (
+  Méthode: (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="w-5 h-5"
