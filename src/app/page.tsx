@@ -325,13 +325,10 @@ export default function Home() {
 
             <ScrollReveal animation="fade-left" delay={1}>
               <div className="relative rounded-lg overflow-hidden shadow-xl">
-                <div className="aspect-[4/3]">
-                  <Image
-                    src="/images/kairo-office.webp"
-                    alt="L'équipe KAIRO Digital"
-                    fill
-                    className="object-cover"
-                  />
+                <div className="aspect-[4/3] bg-gradient-to-br from-blue-800 to-blue-300 flex items-center justify-center">
+                  <div className="text-white text-4xl font-bold">
+                    KAIRO Digital
+                  </div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent flex flex-col justify-end p-6">
                   <div className="bg-white/90 dark:bg-black/80 p-4 rounded-lg backdrop-blur-sm">
@@ -341,7 +338,7 @@ export default function Home() {
                       exceptionnelles.&rdquo;
                     </p>
                     <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
-                      — Bryan Kaironian, Fondateur
+                      — Bryan Hilaire, Fondateur
                     </p>
                   </div>
                 </div>
