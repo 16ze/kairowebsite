@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import "./seo.css";
-import Analytics from "@/lib/analytics";
+import Script from "next/script";
 import CookieConsent from "@/components/CookieConsent";
 
 const geistSans = Geist({
@@ -29,25 +29,22 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kairo-digital.fr"),
   title: {
-    default: "KAIRO Digital | Développeur web freelance et consultant SEO",
-    template: "%s | KAIRO Digital",
+    default:
+      "KAIRO Digital | Développeur web freelance et expert en visibilité web à Belfort",
+    template: `%s | KAIRO Digital - Développeur web freelance à Belfort`,
   },
   description:
-    "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+    "KAIRO Digital est un développeur web freelance à Belfort spécialisé dans la création de sites web et l'amélioration de votre visibilité en ligne. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche en Franche-Comté.",
   generator: "Next.js",
   applicationName: "KAIRO Digital",
   referrer: "origin-when-cross-origin",
   keywords: [
-    "développement web",
-    "optimisation SEO",
-    "site web",
-    "freelance",
-    "développeur indépendant",
-    "design",
-    "responsive",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
+    "développeur web Belfort",
+    "sites web Belfort",
+    "référencement web Belfort",
+    "visibilité en ligne Franche-Comté",
+    "développement web Territoire de Belfort",
+    "responsive design",
   ],
   authors: [
     {
@@ -76,18 +73,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://www.kairo-digital.fr/",
-    title: "KAIRO Digital | Développeur web freelance et consultant SEO",
+    url: "https://www.kairo-digital.fr",
+    title:
+      "KAIRO Digital | Développeur web freelance et expert en visibilité web à Belfort",
     description:
-      "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+      "KAIRO Digital est un développeur web freelance à Belfort spécialisé dans la création de sites web et l'amélioration de votre visibilité en ligne. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche en Franche-Comté.",
     siteName: "KAIRO Digital",
     images: ["https://www.kairo-digital.fr/images/kairo-og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KAIRO Digital | Développeur web freelance et consultant SEO",
+    title:
+      "KAIRO Digital | Développeur web freelance et expert en visibilité web à Belfort",
     description:
-      "KAIRO Digital est un développeur web freelance spécialisé dans la création de sites web et l'optimisation SEO. Je crée des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+      "KAIRO Digital est un développeur web freelance à Belfort spécialisé dans la création de sites web et l'amélioration de votre visibilité en ligne. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche en Franche-Comté.",
     creator: "@kairodigital",
     images: ["https://www.kairo-digital.fr/images/kairo-og-image.jpg"],
   },
@@ -95,6 +94,7 @@ export const metadata: Metadata = {
     canonical: "https://www.kairo-digital.fr",
     languages: {
       fr: "https://www.kairo-digital.fr",
+      en: "https://www.kairo-digital.fr/en",
     },
   },
   verification: {
@@ -119,28 +119,100 @@ export default function RootLayout({
               "@type": "Organization",
               name: "KAIRO Digital",
               url: "https://www.kairo-digital.fr",
-              logo: "https://www.kairo-digital.fr/images/kairo-logo.png",
+              logo: "https://www.kairo-digital.fr/images/logo.png",
+              description:
+                "KAIRO Digital est une agence à Belfort spécialisée dans le développement web et l'amélioration de la visibilité en ligne. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche en Franche-Comté.",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "29 Faubourg de Montbéliard",
+                addressLocality: "Belfort",
+                postalCode: "90000",
+                addressCountry: "FR",
+                addressRegion: "Franche-Comté",
+              },
               sameAs: [
                 "https://www.facebook.com/kairodigital",
                 "https://www.instagram.com/kairodigital",
                 "https://www.linkedin.com/company/kairodigital",
                 "https://twitter.com/kairodigital",
               ],
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 47.6379,
+                longitude: 6.8628,
+              },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                  ],
+                  opens: "09:00",
+                  closes: "18:00",
+                },
+              ],
+              areaServed: {
+                "@type": "GeoCircle",
+                geoMidpoint: {
+                  "@type": "GeoCoordinates",
+                  latitude: 47.6379,
+                  longitude: 6.8628,
+                },
+                geoRadius: "50000",
+              },
+              serviceArea: {
+                "@type": "GeoCircle",
+                geoMidpoint: {
+                  "@type": "GeoCoordinates",
+                  latitude: 47.6379,
+                  longitude: 6.8628,
+                },
+                geoRadius: "50000",
+              },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+33-123-456-789",
+                telephone: "+33766121696",
                 contactType: "customer service",
-                availableLanguage: ["French"],
+                availableLanguage: ["French", "English"],
+                email: "contact.kairodigital@gmail.com",
               },
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "123 Rue de l'Innovation",
-                addressLocality: "Paris",
-                postalCode: "75000",
-                addressCountry: "FR",
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Services KAIRO Digital",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Développement Web à Belfort",
+                      description:
+                        "Création de sites vitrines, e-commerce et applications web sur mesure à Belfort et en Franche-Comté",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Amélioration du référencement local",
+                      description:
+                        "Amélioration de la visibilité en ligne et de la présence sur les moteurs de recherche pour entreprises à Belfort",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Sites Vitrines & E-commerce en Franche-Comté",
+                      description:
+                        "Création de sites web professionnels pour présenter votre activité ou vendre en ligne à Belfort et environs",
+                    },
+                  },
+                ],
               },
-              description:
-                "KAIRO Digital est une agence spécialisée dans le développement web et l'optimisation SEO. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
             }),
           }}
         />
@@ -148,7 +220,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-black dark:text-white min-h-screen`}
       >
-        <Analytics />
         {children}
         <Toaster />
         <CookieConsent />

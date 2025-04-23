@@ -17,11 +17,11 @@ import { Guarantees } from "@/components/sections/guarantees";
 
 export const metadata = {
   title:
-    "KAIRO Digital | Développeur web freelance et expert en visibilité web",
+    "KAIRO Digital | Développeur web freelance et expert en visibilité web à Belfort",
   description:
-    "KAIRO Digital est une agence web spécialisée dans la création de sites web et l'amélioration de votre visibilité en ligne. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche.",
+    "KAIRO Digital est une agence web à Belfort spécialisée dans la création de sites web et l'amélioration de votre visibilité en ligne. Nous créons des sites web performants, élégants et optimisés pour les moteurs de recherche en Franche-Comté.",
   keywords:
-    "développement web, référencement web, visibilité en ligne, site web, agence web, design, responsive, Next.js, React, Tailwind CSS, Paris",
+    "développement web Belfort, référencement web Belfort, visibilité en ligne, site web Belfort, agence web Belfort, design, responsive, Next.js, React, Tailwind CSS, Franche-Comté, Territoire de Belfort",
   alternates: {
     canonical: "https://www.kairo-digital.fr",
   },
@@ -36,7 +36,8 @@ export default function Home() {
           "@type": "WebSite",
           url: "https://www.kairo-digital.fr/",
           name: "KAIRO Digital",
-          description: "Agence web et experts en visibilité en ligne",
+          description:
+            "Agence web à Belfort et experts en visibilité en ligne en Franche-Comté",
           potentialAction: {
             "@type": "SearchAction",
             target:
@@ -54,19 +55,20 @@ export default function Home() {
           image: "https://www.kairo-digital.fr/images/kairo-hero-img.webp",
           "@id": "https://www.kairo-digital.fr/#organization",
           url: "https://www.kairo-digital.fr",
-          telephone: "+33-123-456-789",
+          telephone: "+33766121696",
           priceRange: "€€",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "123 Rue de l'Innovation",
-            addressLocality: "Paris",
-            postalCode: "75000",
+            streetAddress: "29 Faubourg de Montbéliard",
+            addressLocality: "Belfort",
+            postalCode: "90000",
             addressCountry: "FR",
+            addressRegion: "Franche-Comté",
           },
           geo: {
             "@type": "GeoCoordinates",
-            latitude: 48.8566,
-            longitude: 2.3522,
+            latitude: 47.6379,
+            longitude: 6.8628,
           },
           openingHoursSpecification: [
             {
