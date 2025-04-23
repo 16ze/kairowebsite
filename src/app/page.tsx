@@ -296,17 +296,18 @@ export default function Home() {
                   À propos de KAIRO Digital
                 </h2>
                 <p className="text-neutral-700 dark:text-neutral-300 mb-4">
-                  Fondée sur l&apos;expertise en développement web et la passion
-                  pour l&apos;innovation digitale, KAIRO Digital accompagne les
-                  entreprises dans leur transformation numérique depuis 2020.
+                  KAIRO Digital, forte de son expertise en développement web et
+                  de sa passion pour l&apos;innovation digitale, se consacre à
+                  accompagner les entreprises dans leur transformation
+                  numérique.
                 </p>
                 <p className="text-neutral-700 dark:text-neutral-300 mb-6">
-                  Notre mission est simple : créer des sites web qui non
-                  seulement impressionnent visuellement, mais génèrent des
-                  résultats concrets pour votre activité. Nous combinons design
-                  moderne, performances techniques et stratégies de conversion
-                  pour développer des solutions qui répondent parfaitement à vos
-                  objectifs commerciaux.
+                  Notre objectif est clair : créer non seulement des sites
+                  esthétiques, mais également des solutions qui génèrent des
+                  résultats tangibles pour votre activité. Nous allions design
+                  contemporain, performances techniques optimales et stratégies
+                  de conversion efficaces pour offrir des solutions sur mesure
+                  qui répondent parfaitement à vos ambitions commerciales.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-8">
