@@ -70,11 +70,11 @@ export default function AboutPage() {
             <ScrollReveal animation="fade-left" threshold={0.1} delay={2}>
               <div className="bg-neutral-100 dark:bg-neutral-800 p-6 rounded-lg relative overflow-hidden group h-full">
                 <Image
-                  src="/images/Bryan-Hilaire-developpeur.png"
-                  alt="L'équipe KAIRO Digital"
-                  width={500}
-                  height={500}
-                  className="w-full h-auto rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500"
+                  src="/images/Design sans titre.png.jpg"
+                  alt="Bryan Hilaire - KAIRO Digital"
+                  width={400}
+                  height={400}
+                  className="w-full h-auto rounded-lg shadow-md transform group-hover:scale-105 transition-transform duration-500 mx-auto max-w-md"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
