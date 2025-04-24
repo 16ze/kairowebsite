@@ -195,7 +195,7 @@ function NavigationContent() {
           : "border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-black/95"
       } transition-all duration-300 backdrop-blur-sm fixed top-0 left-0 right-0 z-[40]`}
     >
-      <div className="container mx-auto px-4 md:flex md:items-center md:justify-between">
+      <div className="container mx-auto px-4 md:flex md:items-center md:justify-center">
         {/* Mobile Layout - avec z-index corrigés */}
         <div className="flex items-center justify-between md:hidden">
           {/* Hamburger Button - toujours visible et clickable */}
@@ -402,7 +402,7 @@ function NavigationContent() {
         />
 
         {/* Desktop Logo & Navigation */}
-        <div className="hidden md:flex md:items-center md:justify-start">
+        <div className="hidden md:flex md:items-center md:justify-end md:flex-1 md:max-w-[150px] lg:max-w-[180px]">
           <Logo
             className={`${
               isScrolled || !isHomePage
@@ -413,7 +413,7 @@ function NavigationContent() {
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 justify-center md:flex-[3] mx-2 lg:mx-4">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -432,14 +432,14 @@ function NavigationContent() {
         </nav>
 
         {/* Desktop Buttons */}
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="hidden md:flex items-center space-x-2 justify-start md:flex-1 md:max-w-[150px] lg:max-w-[180px]">
           <Button
             asChild
             variant={isScrolled || !isHomePage ? "default" : "outline"}
             className={
               !isScrolled && isHomePage
-                ? "border-white/80 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white shadow-sm backdrop-blur-sm transition-all duration-300 text-xs md:text-xs lg:text-sm py-1 md:py-1 lg:py-2 px-2 md:px-2 lg:px-4 h-auto"
-                : "bg-blue-800 hover:bg-blue-900 border-none shadow-sm text-xs md:text-xs lg:text-sm py-1 md:py-1 lg:py-2 px-2 md:px-2 lg:px-4 h-auto"
+                ? "border-white/80 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white shadow-sm backdrop-blur-sm transition-all duration-300 text-xs md:text-xs lg:text-sm py-1 px-2 h-auto"
+                : "bg-blue-800 hover:bg-blue-900 border-none shadow-sm text-xs md:text-xs lg:text-sm py-1 px-2 h-auto"
             }
           >
             <Link href="/contact">Contact</Link>
@@ -448,7 +448,7 @@ function NavigationContent() {
           <Button
             asChild
             variant="default"
-            className="bg-green-700 hover:bg-green-800 border-none shadow-sm transition-all duration-300 text-xs md:text-xs lg:text-sm py-1 md:py-1 lg:py-2 px-2 md:px-2 lg:px-4 h-auto"
+            className="bg-green-700 hover:bg-green-800 border-none shadow-sm transition-all duration-300 text-xs md:text-xs lg:text-sm py-1 px-2 h-auto"
           >
             <Link href="/consultation">Réserver</Link>
           </Button>
