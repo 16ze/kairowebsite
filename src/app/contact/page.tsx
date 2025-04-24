@@ -487,22 +487,49 @@ export default function ContactPage() {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-1">Site web</h3>
+                      <h3 className="font-semibold text-lg mb-1">Téléphone</h3>
                       <p className="text-neutral-600 dark:text-neutral-400 mb-1">
-                        Visitez notre site :
+                        Appelez-moi directement :
                       </p>
                       <a
-                        href="https://www.kairo-digital.fr"
+                        href="tel:+33766121696"
+                        className="text-blue-700 dark:text-blue-400 hover:underline"
+                      >
+                        07 66 12 16 96
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        className="w-5 h-5 text-blue-800 dark:text-blue-400"
+                      >
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">LinkedIn</h3>
+                      <p className="text-neutral-600 dark:text-neutral-400 mb-1">
+                        Retrouvez-moi sur LinkedIn :
+                      </p>
+                      <a
+                        href="https://www.linkedin.com/in/bryan-hilaire-79a172355/"
                         className="text-blue-700 dark:text-blue-400 hover:underline"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        www.kairo-digital.fr
+                        Bryan Hilaire
                       </a>
                     </div>
                   </div>
@@ -535,73 +562,6 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
-                </div>
-
-                <div className="mt-10 bg-neutral-50 dark:bg-neutral-800 p-6 rounded-lg border border-neutral-200 dark:border-neutral-700">
-                  <h3 className="font-semibold text-xl mb-3">
-                    Audit SEO gratuit
-                  </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                    Bénéficiez d&apos;une analyse gratuite de votre site web
-                    d&apos;une valeur de 250€. Mentionnez le code{" "}
-                    <span className="font-mono font-bold text-blue-700 dark:text-blue-400">
-                      AUDIT2025
-                    </span>{" "}
-                    dans votre message.
-                  </p>
-                  <ul className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                    <li className="flex items-center gap-2">
-                      <svg
-                        className="w-5 h-5 text-green-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Analyse technique complète</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <svg
-                        className="w-5 h-5 text-green-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Étude des mots-clés</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <svg
-                        className="w-5 h-5 text-green-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Recommandations personnalisées</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
