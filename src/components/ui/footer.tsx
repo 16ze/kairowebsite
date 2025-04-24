@@ -340,18 +340,6 @@ export function Footer() {
               >
                 Mentions légales
               </Link>
-              <Link
-                href="/politique-confidentialite"
-                className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-              >
-                Politique de confidentialité
-              </Link>
-              <Link
-                href="/cgv"
-                className="text-xs text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
-              >
-                CGV
-              </Link>
             </div>
           </div>
         </div>
