@@ -70,7 +70,7 @@ export default function AboutPage() {
             <ScrollReveal animation="fade-left" threshold={0.1} delay={2}>
               <div className="bg-neutral-100 dark:bg-neutral-800 p-6 rounded-lg relative overflow-hidden group h-full">
                 <Image
-                  src="/images/Design sans titre.png.jpg"
+                  src="/images/bryan-photo.jpg"
                   alt="Bryan Hilaire - KAIRO Digital"
                   width={400}
                   height={400}
